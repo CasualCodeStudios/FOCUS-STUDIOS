@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog – Focus Studios | Photography Insights, Trends & Education</title>
+<link rel="stylesheet" href="styles (1).css">
+<link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════
+   BLOG PAGE — Focus Studios
+   ═══════════════════════════════════════════ */
+
+/* ── PAGE HERO ── */
+.blog-hero {
+  min-height: 52vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 7rem 3rem 4rem;
+  position: relative;
+  overflow: hidden;
+  background: var(--black);
+}
+
+.blog-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 30%, rgba(201,168,76,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 10% 80%, rgba(201,168,76,0.05) 0%, transparent 55%);
+}
+
+.blog-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 40%, black 70%, transparent 100%);
+}
+
+.blog-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.blog-hero-label {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.blog-hero-label::before {
+  content: '';
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.blog-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+
+.blog-hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.blog-hero-desc {
+  max-width: 560px;
+  color: var(--white-dim);
+  font-size: 0.9rem;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* ── SECTION LAYOUT ── */
+.blog-section {
+  padding: 5rem 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.blog-section-wide {
+  padding: 5rem 3rem;
+  background: var(--dark-2);
+}
+
+.blog-section-wide .inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-eyebrow {
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.section-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.blog-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.blog-section-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.blog-section-intro {
+  color: var(--white-dim);
+  font-size: 0.88rem;
+  line-height: 1.85;
+  max-width: 640px;
+  margin-bottom: 3rem;
+  font-weight: 300;
+}
+
+/* ── IDEA CARDS ── */
+.ideas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.idea-card {
+  background: var(--dark-2);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+  cursor: default;
+}
+
+.idea-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 0;
+  background: var(--gold);
+  transition: height 0.4s ease;
+}
+
+.idea-card:hover { border-color: rgba(201,168,76,0.5); transform: translateY(-4px); }
+.idea-card:hover::before { height: 100%; }
+
+.idea-number {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: rgba(201,168,76,0.12);
+  line-height: 1;
+  margin-bottom: 1rem;
+  transition: color 0.3s;
+}
+
+.idea-card:hover .idea-number { color: rgba(201,168,76,0.25); }
+
+.idea-tag {
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+
+.idea-title {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 0.8rem;
+  line-height: 1.3;
+}
+
+.idea-body {
+  font-size: 0.82rem;
+  color: var(--white-dim);
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+.idea-tip {
+  margin-top: 1.2rem;
+  padding: 0.8rem 1rem;
+  border-left: 2px solid var(--gold-dim);
+  background: rgba(201,168,76,0.05);
+  font-size: 0.78rem;
+  color: var(--gold-light);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* ── EVOLUTION TIMELINE ── */
+.timeline {
+  position: relative;
+  padding-left: 2.5rem;
+  margin-top: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--gold-dim) 10%, var(--gold-dim) 90%, transparent);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -2.95rem;
+  top: 0.3rem;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+}
+
+.timeline-era {
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.timeline-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 0.6rem;
+}
+
+.timeline-body {
+  font-size: 0.83rem;
+  color: var(--white-dim);
+  line-height: 1.85;
+  font-weight: 300;
+  max-width: 680px;
+}
+
+/* ── TRENDING CARDS ── */
+.trending-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.trend-card {
+  border: 1px solid var(--border);
+  padding: 1.8rem;
+  background: var(--dark-3);
+  transition: border-color 0.3s, background 0.3s;
+  position: relative;
+}
+
+.trend-card:hover {
+  border-color: rgba(201,168,76,0.4);
+  background: rgba(201,168,76,0.03);
+}
+
+.trend-badge {
+  display: inline-block;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--gold);
+  padding: 0.25rem 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.trend-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 0.7rem;
+  line-height: 1.3;
+}
+
+.trend-body {
+  font-size: 0.82rem;
+  color: var(--white-dim);
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+.trend-meta {
+  margin-top: 1.2rem;
+  font-size: 0.7rem;
+  color: var(--gold-dim);
+  letter-spacing: 0.1em;
+}
+
+/* ── YOUTUBE EMBEDS ── */
+.youtube-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.youtube-card {
+  border: 1px solid var(--border);
+  overflow: hidden;
+  background: var(--dark-3);
+  transition: border-color 0.3s;
+}
+
+.youtube-card:hover { border-color: rgba(201,168,76,0.5); }
+
+.youtube-card iframe {
+  width: 100%;
+  height: 220px;
+  border: none;
+  display: block;
+}
+
+.youtube-card-info {
+  padding: 1.2rem 1.5rem;
+}
+
+.youtube-card-label {
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.youtube-card-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--white);
+}
+
+/* ── RESOURCE / LEARN CARDS ── */
+.learn-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.learn-card {
+  border: 1px solid var(--border);
+  padding: 1.8rem;
+  background: var(--dark-2);
+  transition: border-color 0.3s, transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.learn-card:hover {
+  border-color: rgba(201,168,76,0.45);
+  transform: translateY(-3px);
+}
+
+.learn-icon {
+  width: 44px; height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  color: var(--gold);
+}
+
+.learn-icon svg {
+  width: 20px; height: 20px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.learn-platform {
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+.learn-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.3;
+}
+
+.learn-body {
+  font-size: 0.8rem;
+  color: var(--white-dim);
+  line-height: 1.8;
+  flex: 1;
+}
+
+.learn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  transition: gap 0.2s;
+}
+
+.learn-link:hover { gap: 0.9rem; }
+
+.learn-link::after {
+  content: '→';
+}
+
+/* ── IFRAME SITES ── */
+.iframe-embed-section {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.iframe-block {
+  border: 1px solid var(--border);
+  overflow: hidden;
+  background: var(--dark-3);
+}
+
+.iframe-block-header {
+  padding: 0.8rem 1.2rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.iframe-block-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--gold-dim);
+}
+
+.iframe-block-name {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+}
+
+.iframe-block iframe {
+  width: 100%;
+  height: 340px;
+  border: none;
+  display: block;
+}
+
+/* ── DIVIDER ── */
+.blog-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border), transparent);
+  margin: 0 3rem;
+}
+
+/* ── QUOTE BLOCK ── */
+.quote-block {
+  background: var(--dark-2);
+  border-left: 3px solid var(--gold);
+  padding: 2.5rem 3rem;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.quote-block::before {
+  content: '\201C';
+  font-family: var(--font-display);
+  font-size: 6rem;
+  color: rgba(201,168,76,0.1);
+  position: absolute;
+  top: -1rem;
+  left: 1.5rem;
+  line-height: 1;
+}
+
+.quote-text {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.quote-author {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ── TIPS STRIP ── */
+.tips-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+.tip-cell {
+  background: var(--dark-3);
+  padding: 1.8rem 1.5rem;
+  text-align: center;
+}
+
+.tip-icon {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.tip-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.tip-text {
+  font-size: 0.78rem;
+  color: var(--white-dim);
+  line-height: 1.7;
+}
+
+/* ── KENYA FOCUS BOX ── */
+.kenya-box {
+  border: 1px solid var(--gold-dim);
+  padding: 2.5rem;
+  background: rgba(201,168,76,0.04);
+  margin: 2rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.kenya-box::after {
+  content: 'KE';
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: 8rem;
+  font-weight: 300;
+  color: rgba(201,168,76,0.06);
+  pointer-events: none;
+}
+
+.kenya-box-tag {
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+}
+
+.kenya-box h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.kenya-box p {
+  font-size: 0.85rem;
+  color: var(--white-dim);
+  line-height: 1.85;
+  max-width: 600px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .blog-hero { padding: 7rem 1.5rem 3rem; }
+  .blog-section { padding: 3.5rem 1.5rem; }
+  .blog-section-wide { padding: 3.5rem 1.5rem; }
+  .ideas-grid { grid-template-columns: 1fr; }
+  .trending-grid { grid-template-columns: 1fr; }
+  .youtube-grid { grid-template-columns: 1fr; }
+  .learn-grid { grid-template-columns: 1fr; }
+  .iframe-embed-section { grid-template-columns: 1fr; }
+  .tips-strip { grid-template-columns: repeat(2, 1fr); }
+  .blog-divider { margin: 0 1.5rem; }
+}
+
+@media (max-width: 600px) {
+  .blog-hero h1 { font-size: 2.4rem; }
+  .tips-strip { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ AD POPUP ══ -->
+<div class="ad-overlay" id="adOverlay">
+  <div class="ad-popup">
+    <div class="ad-top-bar">
+      <span class="ad-badge">Sponsored · Advertisement</span>
+      <button class="ad-close" id="adClose" aria-label="Close">✕</button>
+    </div>
+    <div class="ad-body">
+      <div class="ad-logo-row">
+        <div class="ad-logo-mark">C</div>
+        <div class="ad-brand">
+          WEB DESIGN - Casual Code Studios
+          <span>Web Design · Kenya</span>
+        </div>
+      </div>
+      <h2 class="ad-headline">Your Dream Website,<br><em>Built to Impress</em></h2>
+      <p class="ad-desc">We craft beautiful, fast, and modern websites for photographers, studios, and small businesses across Kenya. From landing pages to full e-commerce — we've got you.</p>
+      <div class="ad-features">
+        <div class="ad-feature">Custom Designs</div>
+        <div class="ad-feature">Mobile First</div>
+        <div class="ad-feature">SEO Optimised</div>
+        <div class="ad-feature">Fast Delivery</div>
+        <div class="ad-feature">Affordable Rates</div>
+        <div class="ad-feature">Local Support</div>
+      </div>
+      <div class="ad-cta-row">
+        <a href="https://casual-code-studios.vercel.app/" class="ad-cta" target="_blank">Get a Free Quote</a>
+        <button class="ad-skip" id="adSkip">No thanks, dismiss</button>
+      </div>
+    </div>
+    <div class="ad-deco"></div>
+  </div>
+</div>
+
+<!-- ══ NAVIGATION ══ -->
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2">
+        <circle cx="12" cy="12" r="2.5"/>
+        <path d="M6.5 6.5h1.8l1.2-2h5l1.2 2h1.8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"/>
+      </svg>
+      <img src="logo.png" alt="logo">
+    </div>
+    <div class="logo-text">
+      <span class="logo-sub">Focus Studios</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li class="nav-item">
+      <a href="services.html" id="myServices">Services</a>
+      <script>document.getElementById("myServices").addEventListener("click",e=>e.preventDefault())</script>
+      <ul class="dropdown">
+        <li><a href="weddings.html">Weddings & Events</a></li>
+        <li><a href="studio.html">Studio Portraits</a></li>
+        <li><a href="corporate.html">Corporate</a></li>
+        <li><a href="birthdays.html">Birthdays & Baby Showers</a></li>
+        <li><a href="graduations.html">Graduations</a></li>
+        <li><a href="products.html">Products & Branding</a></li>
+        <li><a href="outdoor.html">Outdoor</a></li>
+        <li><a href="videography.html">Videography</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a href="#" id="myLocations">Locations</a>
+      <script>document.getElementById("myLocations").addEventListener("click",e=>e.preventDefault())</script>
+      <ul class="dropdown">
+        <li><a href="locations/nairobi.html">Nairobi</a></li>
+        <li><a href="locations/mombasa.html">Mombasa</a></li>
+        <li><a href="locations/nyeri.html">Nyeri</a></li>
+        <li><a href="locations/nakuru.html">Nakuru</a></li>
+        <li><a href="locations/thika.html">Thika</a></li>
+      </ul>
+    </li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html" style="color:var(--gold)">Blog</a></li>
+    <li><a href="booking.html" class="nav-cta">Book a Session</a></li>
+  </ul>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+  <ul class="sidebar-nav">
+    <li>
+      <span class="sidebar-group-label" data-target="sub-services">Services</span>
+      <ul class="sidebar-sub" id="sub-services">
+        <li><a href="weddings.html">Weddings & Events</a></li>
+        <li><a href="studio.html">Studio Portraits</a></li>
+        <li><a href="corporate.html">Corporate</a></li>
+        <li><a href="birthdays.html">Birthdays & Baby Showers</a></li>
+        <li><a href="graduations.html">Graduations</a></li>
+        <li><a href="products.html">Products & Branding</a></li>
+        <li><a href="outdoor.html">Outdoor</a></li>
+        <li><a href="videography.html">Videography</a></li>
+      </ul>
+    </li>
+    <li>
+      <span class="sidebar-group-label" data-target="sub-locations">Locations</span>
+      <ul class="sidebar-sub" id="sub-locations">
+        <li><a href="locations/nairobi.html">Nairobi</a></li>
+        <li><a href="locations/mombasa.html">Mombasa</a></li>
+        <li><a href="locations/nyeri.html">Nyeri</a></li>
+        <li><a href="locations/nakuru.html">Nakuru</a></li>
+        <li><a href="locations/thika.html">Thika</a></li>
+      </ul>
+    </li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+  <a href="booking.html" class="sidebar-cta">Book a Session</a>
+</aside>
+
+<!-- ══ HERO ══ -->
+<section class="blog-hero">
+  <div class="blog-hero-grid"></div>
+  <div class="blog-hero-content">
+    <p class="blog-hero-label">The Focus Studios Journal</p>
+    <h1>Through the<br><em>Lens</em> — A Blog<br>About Photography</h1>
+    <p class="blog-hero-desc">Ideas, trends, history and resources to help you grow as a photographer — whether you're picking up a camera for the first time or refining your professional craft.</p>
+  </div>
+</section>
+
+<!-- ══ SECTION 1: IDEAS ══ -->
+<section class="blog-section">
+  <p class="section-eyebrow">Inspire Your Next Shot</p>
+  <h2 class="blog-section-title">Creative Photography <em>Ideas</em></h2>
+  <p class="blog-section-intro">Whether you're shooting in Nairobi, Nyeri or anywhere across Kenya, these concepts will push your creativity and help you craft images that tell powerful stories.</p>
+
+  <div class="ideas-grid">
+
+    <div class="idea-card">
+      <div class="idea-number">01</div>
+      <div class="idea-tag">Portraiture</div>
+      <div class="idea-title">The Golden Hour Portrait</div>
+      <div class="idea-body">Shoot 30–45 minutes before sunset for warm, diffused light that flatters every skin tone beautifully. Position your subject so the low sun creates a natural rim light separating them from the background.</div>
+      <div class="idea-tip">💡 Pro tip: Slightly underexpose by –⅔ EV to retain detail in the bright background and let the golden tones pop.</div>
+    </div>
+
+    <div class="idea-card">
+      <div class="idea-number">02</div>
+      <div class="idea-tag">Landscape</div>
+      <div class="idea-title">Kenya's Dramatic Skyscapes</div>
+      <div class="idea-body">From Mount Kenya's cloud-wrapped peaks to the vast plains of Laikipia, Kenyan skies offer breathtaking drama. Use a wide-angle lens and position your horizon at the lower third to let the sky dominate the frame.</div>
+      <div class="idea-tip">💡 Pro tip: Shoot after rainfall — the freshly washed air creates extraordinary clarity and vivid cloud formations.</div>
+    </div>
+
+    <div class="idea-card">
+      <div class="idea-number">03</div>
+      <div class="idea-tag">Street Photography</div>
+      <div class="idea-title">Nairobi Street Stories</div>
+      <div class="idea-body">Nairobi's streets pulse with energy — from the CBD's busy matatu routes to Westlands' café culture. Use a 35mm or 50mm equivalent lens and embrace the chaos; the best images often appear in unplanned moments.</div>
+      <div class="idea-tip">💡 Pro tip: Shoot in black & white JPEG + RAW simultaneously so you can evaluate composition in monochrome while retaining colour data.</div>
+    </div>
+
+    <div class="idea-card">
+      <div class="idea-number">04</div>
+      <div class="idea-tag">Macro</div>
+      <div class="idea-title">Macro World — Details Unseen</div>
+      <div class="idea-body">Kenya's flora and insects offer extraordinary macro subjects. A dedicated macro lens or extension tubes reveal textures invisible to the naked eye — the iridescence of a butterfly wing, water droplets on a spider's web at dawn.</div>
+      <div class="idea-tip">💡 Pro tip: Use a tripod and live view with focus peaking; even slight breathing causes blur at extreme magnifications.</div>
+    </div>
+
+    <div class="idea-card">
+      <div class="idea-number">05</div>
+      <div class="idea-tag">Events & Weddings</div>
+      <div class="idea-title">Candid Moments at Events</div>
+      <div class="idea-body">The best event photographs are rarely posed. Linger at the edges, use a longer focal length (85mm–135mm) and capture genuine emotion — laughter, tears, embraces — without interrupting the moment.</div>
+      <div class="idea-tip">💡 Pro tip: Pre-focus on a spot where action is likely to happen, set burst mode, and wait for the peak expression.</div>
+    </div>
+
+    <div class="idea-card">
+      <div class="idea-number">06</div>
+      <div class="idea-tag">Long Exposure</div>
+      <div class="idea-title">Light Trails & Silky Water</div>
+      <div class="idea-body">Car light trails in Nairobi at night, or silky waterfalls on Mount Kenya's slopes — long exposure photography transforms ordinary scenes into surreal art. You need a sturdy tripod, a remote shutter release and patience.</div>
+      <div class="idea-tip">💡 Pro tip: Start with 10–30 second exposures at f/8–f/11 and ISO 100 for clean, noise-free results.</div>
+    </div>
+
+  </div>
+</section>
+
+<div class="blog-divider"></div>
+
+<!-- ══ SECTION 2: TIPS STRIP ══ -->
+<section class="blog-section">
+  <div class="tips-strip">
+    <div class="tip-cell">
+      <div class="tip-icon">📐</div>
+      <div class="tip-label">Composition</div>
+      <div class="tip-text">Master the Rule of Thirds, leading lines and framing before breaking the rules intentionally.</div>
+    </div>
+    <div class="tip-cell">
+      <div class="tip-icon">💡</div>
+      <div class="tip-label">Light</div>
+      <div class="tip-text">Understand direction, quality and colour of light — it's the single most important variable in photography.</div>
+    </div>
+    <div class="tip-cell">
+      <div class="tip-icon">⚡</div>
+      <div class="tip-label">Exposure Triangle</div>
+      <div class="tip-text">ISO, aperture and shutter speed work together. Learn to balance them instinctively in any situation.</div>
+    </div>
+    <div class="tip-cell">
+      <div class="tip-icon">🎨</div>
+      <div class="tip-label">Post-Processing</div>
+      <div class="tip-text">Editing is part of the craft. Lightroom, Capture One and even free tools like RawTherapee can transform a good image into a great one.</div>
+    </div>
+  </div>
+</section>
+
+<div class="blog-divider"></div>
+
+<!-- ══ SECTION 3: TRENDING ══ -->
+<div class="blog-section-wide">
+  <div class="inner">
+    <p class="section-eyebrow">What's Hot Right Now</p>
+    <h2 class="blog-section-title">Trending in Photography <em>2025</em></h2>
+    <p class="blog-section-intro">The photography world is evolving faster than ever. From AI-powered tools to renewed interest in analogue, here's what's shaping the industry right now.</p>
+
+    <div class="trending-grid">
+      <div class="trend-card">
+        <span class="trend-badge">🔥 Trending</span>
+        <div class="trend-title">AI-Assisted Editing & Generative Tools</div>
+        <div class="trend-body">Adobe Firefly, Lightroom's AI Masking, and Luminar Neo have changed post-processing forever. AI can now remove objects, extend backgrounds, enhance portraits and even suggest stylistic edits in seconds. Photographers are learning to use these as creative accelerators rather than replacements for skill.</div>
+        <div class="trend-meta">📍 Industry-wide · 2025</div>
+      </div>
+
+      <div class="trend-card">
+        <span class="trend-badge">📈 Rising</span>
+        <div class="trend-title">Film Photography Revival</div>
+        <div class="trend-body">Analogue photography has seen a remarkable resurgence among younger photographers. Kodak has reintroduced discontinued films, and film cameras like the Canon AE-1 and Pentax K1000 are selling at premium prices. The imperfection, grain and colour rendering of film creates an aesthetic that digital struggles to replicate authentically.</div>
+        <div class="trend-meta">📍 Global + Kenya · 2024–2025</div>
+      </div>
+
+      <div class="trend-card">
+        <span class="trend-badge">🌍 Africa Focus</span>
+        <div class="trend-title">African Narratives & Afrocentric Visual Storytelling</div>
+        <div class="trend-body">African photographers are reclaiming the narrative. Publications like Everyday Africa, and the work of photographers like Thandiwe Muriu (Kenya) and Lakin Ogunbanwo (Nigeria), are challenging Western perspectives and presenting the continent on its own vibrant, complex terms. Studios and portrait photographers across Kenya are embracing this movement.</div>
+        <div class="trend-meta">📍 Kenya & Africa · 2025</div>
+      </div>
+
+      <div class="trend-card">
+        <span class="trend-badge">🎬 Hybrid</span>
+        <div class="trend-title">Hybrid Photo-Video Shooting</div>
+        <div class="trend-body">The lines between photographer and videographer are blurring. Cameras like the Sony A7 IV, Nikon Z8, and Canon R5 Mark II excel at both disciplines. Clients increasingly want cinematic reels alongside traditional photo galleries, making hybrid skills a key differentiator for studios in 2025.</div>
+        <div class="trend-meta">📍 Industry-wide · 2025</div>
+      </div>
+
+      <div class="trend-card">
+        <span class="trend-badge">📱 Social</span>
+        <div class="trend-title">Vertical Photography for Social Media</div>
+        <div class="trend-body">With Instagram Reels, TikTok and YouTube Shorts dominating engagement, photographers are now composing shots in 9:16 vertical format. Portrait photographers in particular are adapting their studio setups — including lighting and backdrops — to deliver social-first content alongside traditional prints.</div>
+        <div class="trend-meta">📍 Social Media Driven · 2025</div>
+      </div>
+
+      <div class="trend-card">
+        <span class="trend-badge">🌿 Concept</span>
+        <div class="trend-title">Environmental & Documentary Photography</div>
+        <div class="trend-body">With growing awareness around climate and conservation, documentary and environmental photography is having its moment. Kenya's unique wildlife, forest ecosystems and pastoral communities offer extraordinary subject matter. Photographers in Nyeri, the Aberdare region and Maasai Mara are producing globally recognised environmental work.</div>
+        <div class="trend-meta">📍 Kenya · Conservation Focus · 2025</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="blog-divider"></div>
+
+<!-- ══ SECTION 4: EVOLUTION TIMELINE ══ -->
+<section class="blog-section">
+  <p class="section-eyebrow">A Visual History</p>
+  <h2 class="blog-section-title">The Evolution of <em>Photography</em></h2>
+  <p class="blog-section-intro">From the first crude daguerreotypes to today's AI-enhanced sensors, photography's 200-year journey is one of humanity's most extraordinary creative and technological stories.</p>
+
+  <div class="timeline" id="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-era">1826 – 1839</div>
+      <div class="timeline-title">The First Photographs</div>
+      <div class="timeline-body">French inventor Nicéphore Niépce captured the world's first surviving photograph in 1826 — an eight-hour exposure of rooftops. Louis Daguerre refined the process into the daguerreotype by 1839, producing sharp, detailed images on silver-coated copper plates. Photography was born, and the world would never be the same.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-era">1850s – 1880s</div>
+      <div class="timeline-title">Wet Plate & Dry Plate Collodion</div>
+      <div class="timeline-body">The collodion wet plate process (1851) dramatically reduced exposure times and made photography more accessible. Photographers could now capture moving subjects and produce multiple prints from a single glass negative. By the 1870s, dry plates replaced the cumbersome wet process, allowing cameras to leave the studio for the first time.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-era">1888 – 1930s</div>
+      <div class="timeline-title">Roll Film & The Kodak Revolution</div>
+      <div class="timeline-body">George Eastman's introduction of roll film and the first Kodak camera in 1888 democratised photography. His slogan "You press the button, we do the rest" put cameras in the hands of ordinary people for the first time. The 1930s saw the arrival of 35mm Leica and Contax cameras, pioneering candid street and reportage photography.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-era">1940s – 1970s</div>
+      <div class="timeline-title">The Golden Age of Photojournalism</div>
+      <div class="timeline-body">Magazines like Life and National Geographic defined the mid-century with iconic photojournalism. Masters like Henri Cartier-Bresson, Dorothea Lange and Gordon Parks elevated photography to high art. Colour film became widely available in the 1960s, and the SLR camera revolution gave photographers unprecedented creative control.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-era">1975 – 1990s</div>
+      <div class="timeline-title">The Digital Transition Begins</div>
+      <div class="timeline-body">Kodak engineer Steve Sasson invented the first digital camera in 1975 — it captured a 0.01-megapixel image on a cassette tape. By the 1990s, digital cameras began entering the consumer market. The Nikon D1 (1999) became the first professional digital SLR to see widespread photojournalistic use, signalling the end of film's dominance.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-era">2000s – 2010s</div>
+      <div class="timeline-title">DSLR, Mirrorless & the Smartphone</div>
+      <div class="timeline-body">Canon's EOS 300D (2003) brought professional-quality digital photography to the masses at under $1,000. By 2008, the iPhone had a camera, and within a decade smartphones were producing images that rivalled entry-level DSLRs. The mirrorless revolution (Olympus E-P1, 2009; Sony A7, 2013) began displacing the optical viewfinder entirely.</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-era">2020s – Present</div>
+      <div class="timeline-title">AI, Computational Photography & Beyond</div>
+      <div class="timeline-body">Today's cameras feature AI-powered subject tracking, in-sensor stabilisation and computational stacking that would have seemed science fiction a decade ago. Smartphones compute dozens of images simultaneously to produce a single shot. AI editing tools in Adobe, Luminar and Capture One automate tasks that once took hours. Yet alongside this technological revolution, film photography is quietly enjoying a global renaissance — proof that the medium's soul endures beyond its tools.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ QUOTE BLOCK ══ -->
+<div style="padding: 0 3rem; max-width: 1200px; margin: 0 auto;">
+  <div class="quote-block">
+    <div class="quote-text">Photography is the story I fail to put into words.</div>
+    <div class="quote-author">— Destin Sparks</div>
+  </div>
+</div>
+
+<div class="blog-divider" style="margin-top:3rem;"></div>
+
+<!-- ══ SECTION 5: YOUTUBE EMBEDS ══ -->
+<section class="blog-section">
+  <p class="section-eyebrow">Watch & Learn</p>
+  <h2 class="blog-section-title">YouTube — Photography <em>Video Resources</em></h2>
+  <p class="blog-section-intro">Some of the world's best photography teachers share their knowledge freely on YouTube. These channels and videos are handpicked to help you grow — from fundamentals to advanced technique.</p>
+
+  <div class="youtube-grid">
+
+    <div class="youtube-card">
+      <iframe
+        src="https://www.youtube.com/embed/GEVUsHjSdRY"
+        title="Photography Tutorial for Beginners"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+      <div class="youtube-card-info">
+        <div class="youtube-card-label">📷 Beginners</div>
+        <div class="youtube-card-title">Photography Tutorial for Beginners — The Complete Guide</div>
+      </div>
+    </div>
+
+    <div class="youtube-card">
+      <iframe
+        src="https://www.youtube.com/embed/7iMTMEwxpqc"
+        title="Understanding Exposure Triangle"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+      <div class="youtube-card-info">
+        <div class="youtube-card-label">⚡ Core Skills</div>
+        <div class="youtube-card-title">Mastering the Exposure Triangle — ISO, Aperture & Shutter Speed</div>
+      </div>
+    </div>
+
+    <div class="youtube-card">
+      <iframe
+        src="https://www.youtube.com/embed/9oqGrQabJb4"
+        title="Portrait Photography Lighting"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+      <div class="youtube-card-info">
+        <div class="youtube-card-label">🎭 Portraiture</div>
+        <div class="youtube-card-title">Portrait Photography — Lighting Techniques Explained</div>
+      </div>
+    </div>
+
+    <div class="youtube-card">
+      <iframe
+        src="https://www.youtube.com/embed/Y64E2Sgh5aE"
+        title="Lightroom Editing Tutorial"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+      <div class="youtube-card-info">
+        <div class="youtube-card-label">🎨 Post-Processing</div>
+        <div class="youtube-card-title">Adobe Lightroom for Beginners — Complete Editing Workflow</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="blog-divider"></div>
+
+<!-- ══ SECTION 6: LEARN ONLINE ══ -->
+<div class="blog-section-wide">
+  <div class="inner">
+    <p class="section-eyebrow">Level Up Your Craft</p>
+    <h2 class="blog-section-title">Where to Learn Photography <em>Online</em></h2>
+    <p class="blog-section-intro">From free YouTube channels to structured university-level courses, these platforms offer everything you need to grow from curious beginner to confident professional — many accessible from Kenya with a phone or laptop.</p>
+
+    <div class="learn-grid">
+
+      <div class="learn-card">
+        <div class="learn-icon">
+          <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.54C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+        </div>
+        <div class="learn-platform">Free · YouTube</div>
+        <div class="learn-title">Mark Wallace — Adorama TV</div>
+        <div class="learn-body">One of the most comprehensive free photography education channels. Covers everything from understanding your first camera to advanced studio lighting setups, composition theory and professional business tips.</div>
+        <a href="https://www.youtube.com/@AdoramaTV" target="_blank" class="learn-link">Visit Channel</a>
+      </div>
+
+      <div class="learn-card">
+        <div class="learn-icon">
+          <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.54C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+        </div>
+        <div class="learn-platform">Free · YouTube</div>
+        <div class="learn-title">Peter McKinnon</div>
+        <div class="learn-body">Fast-paced, energetic photography and videography tutorials with over 5 million subscribers. Peter's style is engaging and accessible — perfect for those who want to learn quickly and are interested in blending photography with cinematic video.</div>
+        <a href="https://www.youtube.com/@PeterMcKinnon" target="_blank" class="learn-link">Visit Channel</a>
+      </div>
+
+      <div class="learn-card">
+        <div class="learn-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div class="learn-platform">Paid (Affordable) · Online Courses</div>
+        <div class="learn-title">Udemy Photography Courses</div>
+        <div class="learn-body">Udemy hosts hundreds of structured photography courses — often available for under $15 USD during sales. Topics include DSLR mastery, portrait lighting, Lightroom editing, landscape photography and professional business setup. Lifetime access to course materials.</div>
+        <a href="https://www.udemy.com/courses/photography-and-video/" target="_blank" class="learn-link">Browse Courses</a>
+      </div>
+
+      <div class="learn-card">
+        <div class="learn-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="learn-platform">Free & Paid · Learning Platform</div>
+        <div class="learn-title">Coursera — Photography Specialisations</div>
+        <div class="learn-body">Coursera partners with top universities (including Michigan State University) for structured photography programmes. The "Photography Basics and Beyond" specialisation covers exposure, light, composition, editing and the history of photography. Financial aid available for learners in Kenya.</div>
+        <a href="https://www.coursera.org/browse/arts-and-humanities/music-and-art" target="_blank" class="learn-link">Explore Courses</a>
+      </div>
+
+      <div class="learn-card">
+        <div class="learn-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+        <div class="learn-platform">Free · Articles & Tutorials</div>
+        <div class="learn-title">Digital Photography School (DPS)</div>
+        <div class="learn-body">One of the internet's largest photography education resources with thousands of free articles, tutorials, challenges and community forums. Topics span every genre and skill level — from "what is aperture" to advanced off-camera flash setups.</div>
+        <a href="https://digital-photography-school.com" target="_blank" class="learn-link">Read Tutorials</a>
+      </div>
+
+      <div class="learn-card">
+        <div class="learn-icon">
+          <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.54C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+        </div>
+        <div class="learn-platform">Free · YouTube</div>
+        <div class="learn-title">Sean Tucker — Philosophy of Photography</div>
+        <div class="learn-body">Unlike most tutorial channels, Sean Tucker goes deep into the "why" of photography — visual storytelling, creative identity, colour theory, and the artistic mindset. Essential viewing for anyone who wants to make images with meaning, not just technical correctness.</div>
+        <a href="https://www.youtube.com/@seantuck" target="_blank" class="learn-link">Visit Channel</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="blog-divider"></div>
+
+<!-- ══ SECTION 7: RESOURCE IFRAMES ══ -->
+<section class="blog-section">
+  <p class="section-eyebrow">Explore Further</p>
+  <h2 class="blog-section-title">Photography Resources <em>Online</em></h2>
+  <p class="blog-section-intro">These are some of the world's leading photography education and community platforms — browse them directly below or visit their sites for in-depth learning.</p>
+
+  <div class="iframe-embed-section">
+
+    <div class="iframe-block">
+      <div class="iframe-block-header">
+        <div class="iframe-block-dot"></div>
+        <span class="iframe-block-name">Digital Photography School — dps.com</span>
+      </div>
+      <iframe
+        src="https://digital-photography-school.com"
+        title="Digital Photography School"
+        loading="lazy"
+        sandbox="allow-scripts allow-same-origin allow-popups allow-forms">
+      </iframe>
+    </div>
+
+    <div class="iframe-block">
+      <div class="iframe-block-header">
+        <div class="iframe-block-dot"></div>
+        <span class="iframe-block-name">Photography Life — photographylife.com</span>
+      </div>
+      <iframe
+        src="https://photographylife.com"
+        title="Photography Life"
+        loading="lazy"
+        sandbox="allow-scripts allow-same-origin allow-popups allow-forms">
+      </iframe>
+    </div>
+
+  </div>
+
+  <!-- YouTube channel showcases -->
+  <div style="margin-top: 3rem;">
+    <p class="section-eyebrow" style="margin-bottom:1.5rem;">Featured YouTube Education Channels</p>
+
+    <div class="youtube-grid">
+
+      <div class="youtube-card">
+        <iframe
+          src="https://www.youtube.com/embed/6bTNbHMDBec"
+          title="Composition in Photography"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+        <div class="youtube-card-info">
+          <div class="youtube-card-label">📐 Composition</div>
+          <div class="youtube-card-title">Composition Techniques — How to Take Better Photos</div>
+        </div>
+      </div>
+
+      <div class="youtube-card">
+        <iframe
+          src="https://www.youtube.com/embed/bHSsKMwgCxI"
+          title="History of Photography"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+        <div class="youtube-card-info">
+          <div class="youtube-card-label">📜 History</div>
+          <div class="youtube-card-title">The History of Photography Explained</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ KENYA BOX ══ -->
+<div style="padding: 0 3rem; max-width: 1200px; margin: 0 auto 4rem;">
+  <div class="kenya-box">
+    <div class="kenya-box-tag">📍 Rooted in Kenya</div>
+    <h3>Photography in Kenya — A Growing Industry</h3>
+    <p>Kenya's photography scene is thriving. From Nairobi's growing commercial photography market to wildlife and documentary work in the Mara and Amboseli, Kenyan photographers are increasingly visible on the global stage. Studios like Focus Studios are at the forefront of professional photography in Nyeri, Nairobi and beyond — offering premium services while nurturing a culture where every Kenyan story deserves to be told beautifully.</p>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <div class="logo-icon" style="width:60px;height:60px;margin-bottom:1rem;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2">
+          <circle cx="12" cy="12" r="2.5"/>
+          <path d="M6.5 6.5h1.8l1.2-2h5l1.2 2h1.8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"/>
+        </svg>
+      </div>
+      <div class="logo-sub" style="font-size:1rem;letter-spacing:0.28em;color:var(--gold);margin-bottom:1rem;">FOCUS STUDIOS</div>
+      <p style="color:var(--white-dim);font-size:0.82rem;line-height:1.8;max-width:260px;">Premium photography services across Kenya. Capturing moments worth preserving — for a lifetime.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4 class="footer-col-title">Services</h4>
+        <ul>
+          <li><a href="weddings.html">Weddings & Events</a></li>
+          <li><a href="studio.html">Studio Portraits</a></li>
+          <li><a href="corporate.html">Corporate</a></li>
+          <li><a href="outdoor.html">Outdoor</a></li>
+          <li><a href="videography.html">Videography</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="booking.html">Book a Session</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">Locations</h4>
+        <ul>
+          <li><a href="locations/nairobi.html">Nairobi</a></li>
+          <li><a href="locations/nyeri.html">Nyeri</a></li>
+          <li><a href="locations/mombasa.html">Mombasa</a></li>
+          <li><a href="locations/nakuru.html">Nakuru</a></li>
+          <li><a href="locations/thika.html">Thika</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Focus Studios. All Rights Reserved.</span>
+    <div class="social-links">
+      <a href="#" class="social-link" aria-label="Instagram" target="_blank">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="Facebook" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="TikTok" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="YouTube" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.54C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── MOBILE SIDEBAR ──
+const menuBtn = document.getElementById('menuBtn');
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('sidebarOverlay');
+
+function openSidebar() {
+  menuBtn.classList.add('open');
+  sidebar.classList.add('open');
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeSidebar() {
+  menuBtn.classList.remove('open');
+  sidebar.classList.remove('open');
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+menuBtn.addEventListener('click', () => sidebar.classList.contains('open') ? closeSidebar() : openSidebar());
+overlay.addEventListener('click', closeSidebar);
+
+document.querySelectorAll('.sidebar-group-label').forEach(label => {
+  label.addEventListener('click', () => {
+    const targetId = label.dataset.target;
+    const sub = document.getElementById(targetId);
+    const isOpen = sub.classList.contains('open');
+    document.querySelectorAll('.sidebar-sub').forEach(s => s.classList.remove('open'));
+    document.querySelectorAll('.sidebar-group-label').forEach(l => l.classList.remove('open'));
+    if (!isOpen) { sub.classList.add('open'); label.classList.add('open'); }
+  });
+});
+
+// ── TIMELINE SCROLL ANIMATION ──
+const timelineObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.timeline-item').forEach((item, i) => {
+  item.style.transitionDelay = `${i * 0.08}s`;
+  timelineObserver.observe(item);
+});
+
+// ── GENERAL SCROLL ANIMATION ──
+const fadeObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.idea-card, .trend-card, .learn-card, .youtube-card, .iframe-block').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(28px)';
+  el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+  fadeObserver.observe(el);
+});
+
+// ── POPUP AD ──
+(function() {
+  const adOverlay = document.getElementById('adOverlay');
+  const closeBtn = document.getElementById('adClose');
+  const skipBtn = document.getElementById('adSkip');
+  function showAd() { adOverlay.classList.add('show'); }
+  function hideAd() { adOverlay.classList.remove('show'); }
+  setTimeout(() => { showAd(); setInterval(showAd, 900000); }, 900000);
+  closeBtn.addEventListener('click', hideAd);
+  skipBtn.addEventListener('click', hideAd);
+  adOverlay.addEventListener('click', e => { if (e.target === adOverlay) hideAd(); });
+})();
+</script>
+
+<!-- ══ SCROLL TO TOP ══ -->
+<div id="scrollTopWrapper">
+  <button id="scrollTopBtn" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+  <script>
+    (function () {
+      const btn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', function () {
+        btn.classList.toggle('visible', window.scrollY > 400);
+      }, { passive: true });
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</div>
+</body>
+</html>

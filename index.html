@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Focus Studios – Premium Photography Across Kenya</title>
+<link rel="stylesheet" href="styles (1).css">
+<link rel="shortcut icon" href="favicon.svg" type="image + xml">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- ══ AD POPUP ══ -->
+<div class="ad-overlay" id="adOverlay">
+  <div class="ad-popup">
+    <div class="ad-top-bar">
+      <span class="ad-badge">Sponsored · Advertisement</span>
+      <button class="ad-close" id="adClose" aria-label="Close">✕</button>
+    </div>
+    <div class="ad-body">
+      <div class="ad-logo-row">
+        <div class="ad-logo-mark">C</div>
+        <div class="ad-brand">
+          WEB DESIGN - Casual Code Studios
+          <span>Web Design · Kenya</span>
+        </div>
+      </div>
+      <h2 class="ad-headline">Your Dream Website,<br><em>Built to Impress</em></h2>
+      <p class="ad-desc">We craft beautiful, fast, and modern websites for photographers, studios, and small businesses across Kenya. From landing pages to full e-commerce — we've got you.</p>
+      <div class="ad-features">
+        <div class="ad-feature">Custom Designs</div>
+        <div class="ad-feature">Mobile First</div>
+        <div class="ad-feature">SEO Optimised</div>
+        <div class="ad-feature">Fast Delivery</div>
+        <div class="ad-feature">Affordable Rates</div>
+        <div class="ad-feature">Local Support</div>
+      </div>
+      <div class="ad-cta-row">
+        <a href="https://casual-code-studios.vercel.app/" class="ad-cta" target="_blank">Get a Free Quote</a>
+        <button class="ad-skip" id="adSkip">No thanks, dismiss</button>
+      </div>
+    </div>
+    <div class="ad-deco"></div>
+  </div>
+</div>
+
+<!-- NAVIGATION / HEADER -->
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2">
+        <circle cx="12" cy="12" r="2.5"/>
+        <path d="M6.5 6.5h1.8l1.2-2h5l1.2 2h1.8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"/>
+      </svg>
+      <img src="logo.png" alt="logo">
+    </div>
+    <div class="logo-text">
+      <span class="logo-sub">Focus Studios</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li class="nav-item">
+      <a href="services.html" id="myServices">Services</a>
+      <script>document.getElementById("myServices").addEventListener("click",e=>e.preventDefault());</script>
+      <ul class="dropdown">
+        <li><a href="weddings.html">Weddings &amp; Events</a></li>
+        <li><a href="studio.html">Studio Portraits</a></li>
+        <li><a href="corporate.html">Corporate</a></li>
+        <li><a href="birthdays.html">Birthdays &amp; Baby Showers</a></li>
+        <li><a href="graduations.html">Graduations</a></li>
+        <li><a href="products.html">Products &amp; Branding</a></li>
+        <li><a href="outdoor.html">Outdoor</a></li>
+        <li style="display: none;"><a href="videography.html">Videography</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a href="#" id="myLocations">Locations</a>
+      <script>document.getElementById("myLocations").addEventListener("click",e=>e.preventDefault());</script>
+      <ul class="dropdown" >
+        <li><a href="locations/nairobi.html">Nairobi</a></li>
+        <li><a href="locations/mombasa.html">Mombasa</a></li>
+        <li><a href="locations/nyeri.html">Nyeri</a></li>
+        <li><a href="locations/nakuru.html">Nakuru</a></li>
+        <li><a href="locations/thika.html">Thika</a></li>
+      </ul>
+    </li>
+    <li><a href="about.html" style="color:var(--gold);">About</a></li>
+    <li><a href="booking.html" class="nav-cta">Book a Session</a></li>
+  </ul>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<aside class="sidebar" id="sidebar">
+  <ul class="sidebar-nav">
+    <li>
+      <span class="sidebar-group-label" data-target="sub-services">Services</span>
+      <ul class="sidebar-sub" id="sub-services">
+        <li><a href="weddings.html">Weddings &amp; Events</a></li>
+        <li><a href="studio.html">Studio Portraits</a></li>
+        <li><a href="corporate.html">Corporate</a></li>
+        <li><a href="birthdays.html">Birthdays &amp; Baby Showers</a></li>
+        <li><a href="graduations.html">Graduations</a></li>
+        <li><a href="products.html">Products &amp; Branding</a></li>
+        <li><a href="outdoor.html">Outdoor</a></li>
+        <li style="display: none;"><a href="videography.html">Videography</a></li>
+      </ul>
+    </li>
+    <li>
+      <span class="sidebar-group-label" data-target="sub-locations">Locations</span>
+      <ul class="sidebar-sub" id="sub-locations">
+        <li><a href="locations/nairobi.html">Nairobi</a></li>
+        <li><a href="locations/mombasa.html">Mombasa</a></li>
+        <li><a href="locations/nyeri.html">Nyeri</a></li>
+        <li><a href="locations/nakuru.html">Nakuru</a></li>
+        <li><a href="locations/thika.html">Thika</a></li>
+      </ul>
+    </li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <a href="booking.html" class="sidebar-cta">Book a Session</a>
+</aside>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img-bg"></div>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="innerWrapper">
+      <span class="studio-name">YOUR ULTIMATE <span style="color:var(--gold);font-style:italic;">STUDIO</span></span><br>
+      <span class="hero-tag">Premium Photography Services</span>
+      <h1 class="hero-title">Memories Deserving<br>To Last a <em>Lifetime</em></h1>
+      <p class="hero-desc">Nairobi based. Trusted nationwide for weddings, events, portraits and commercial photography. We travel to you — anywhere in Kenya.</p>
+      <div class="hero-btns">
+        <a href="booking.html" class="btn-primary">Book a Session</a>
+        <a href="#portfolio-teaser" class="btn-ghost" >View Portfolio</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <div class="stat-icon">
+      <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    </div>
+    <div>
+      <div class="stat-value">500+</div>
+      <div class="stat-label">Happy Clients</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    </div>
+    <div>
+      <div class="stat-value">24–48 hrs</div>
+      <div class="stat-label">Fast Delivery</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">
+      <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    </div>
+    <div>
+      <div class="stat-value">5 Counties</div>
+      <div class="stat-label">Nationwide Coverage</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">
+      <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+    </div>
+    <div>
+      <div class="stat-value">Affordable</div>
+      <div class="stat-label">Flexible Packages</div>
+    </div>
+  </div>
+</div>
+
+<!-- COVERAGE -->
+<section class="coverage">
+  <div class="coverage-inner">
+    <div>
+      <p class="section-label">Where We Operate</p>
+      <h2 class="section-title">We Proudly Serve<br>Clients <em>Across Kenya</em></h2>
+      <p class="coverage-desc">Based in Nairobi, our team is equipped to travel countrywide — bringing world-class photography to your city, town or venue. No matter where your moment happens, we'll be there.</p>
+      <div class="travel-note">Travel available countrywide upon request</div>
+    </div>
+    <div>
+      <div class="city-grid">
+        <div class="city-card">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <div class="city-name">Nairobi</div>
+        </div>
+        <div class="city-card">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div class="city-name">Mombasa</div>
+        </div>
+        <div class="city-card">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div class="city-name">Nyeri</div>
+        </div>
+        <div class="city-card">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div class="city-name">Nakuru</div>
+        </div>
+        <div class="city-card">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div class="city-name">Thika</div>
+        </div>
+        <div class="city-card">
+          <em><span class="cityRequest">-Your City-</span></em>
+          <div class="city-name request"><a href="booking.html" rel="noopener noreferrer">Request</a></div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="services-header">
+    <div>
+      <p class="section-label">What We Do</p>
+      <h2 class="section-title">Our <em>Services</em></h2>
+    </div>
+    <a href="services.html" class="btn-ghost services-link" style="white-space:nowrap;">View All Services</a>
+    <script>document.querySelector(".services-link").addEventListener("click",e=>e.preventDefault());</script>
+  </div>
+  <div class="services-grid">
+     <!-- WEDDINGS AND EVENTS -->
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <div class="service-name">Weddings &amp; Events</div>
+      <p class="service-desc">From intimate ceremonies to grand celebrations — we capture every emotion, every vow, every dance. Timeless coverage that you'll cherish for generations.</p>
+      <a href="weddings.html" class="service-link"><span>Learn more</span></a>
+    </div>
+     <!-- STUDIO AND PORTRAITS -->
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <div class="service-name">Portraits &amp; Studio</div>
+      <p class="service-desc">Studio sessions, family portraits, maternity shoots and creative individual projects. Professional lighting. Refined editing. Your best look.</p>
+      <a href="studio.html" class="service-link"><span>Learn more</span></a>
+    </div>
+     <!-- CORPORATE PHOTOGRAPHY -->
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+      </div>
+      <div class="service-name">Corporate</div>
+      <p class="service-desc">Professional headshots, brand campaigns, product photography, conferences and corporate events. Elevate your company's visual presence.</p>
+      <a href="corporate.html" class="service-link"><span>Learn more</span></a>
+    </div>
+     <!-- GRADUIATION SHOOTS -->
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+      </div>
+      <div class="service-name">Graduation Shoots</div>
+      <p class="service-desc">Celebrate your achievement with timeless graduation photography. Solo portraits, group shoots and ceremony coverage across all Kenyan universities.</p>
+      <a href="graduations.html" class="service-link"><span>Learn more</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO TEASER -->
+<section class="portfolio" id="portfolio-teaser">
+  <div class="portfolio-header">
+    <div>
+      <p class="section-label">Featured Work</p>
+      <h2 class="section-title">Our <em>Portfolio</em></h2>
+    </div>
+    <div class="portfolio-tabs">
+      <div class="tab active">All</div>
+      <div class="tab">Weddings</div>
+      <div class="tab">Products</div>
+      <div class="tab">Portraits</div>
+      <div class="tab">Corporate</div>
+    </div>
+  </div>
+  <div class="portfolio-grid">
+    <!-- WEDDINGS AND EVENTS -->
+    <div class="portfolio-item">
+      <img class="portfolio-img" src="https://i.pinimg.com/1200x/b4/d6/32/b4d6329b350492d0dacc60a7a83340e1.jpg" alt="Wedding photography">
+      <div class="portfolio-overlay"><span class="portfolio-overlay-text">Weddings &amp; Events</span></div>
+    </div>
+    <!-- GRADUATIONS -->
+    <div class="portfolio-item">
+      <img class="portfolio-img" src="https://i.pinimg.com/1200x/06/2e/f0/062ef0e3cce102560af93a3a725d5297.jpg" alt="Graduation photography">
+      <div class="portfolio-overlay"><span class="portfolio-overlay-text">Graduations</span></div>
+    </div>
+    <!-- CORPORATE -->
+    <div class="portfolio-item">
+      <img class="portfolio-img" src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&auto=format&fit=crop&q=80" alt="Corporate photography">
+      <div class="portfolio-overlay"><span class="portfolio-overlay-text">Corporate</span></div>
+    </div>
+    <!-- PORTRAITS -->
+    <div class="portfolio-item">
+      <img class="portfolio-img" src="https://i.pinimg.com/736x/2a/a3/35/2aa3354e725ecece7fae94be38feb925.jpg" alt="Portrait photography">
+      <div class="portfolio-overlay"><span class="portfolio-overlay-text">Studio Portraits</span></div>
+    </div>
+    <!-- PRODUCTS -->
+    <div class="portfolio-item">
+      <img class="portfolio-img" src="https://i.pinimg.com/1200x/e5/25/cd/e525cd5c9f4a6d02edeb71483041406e.jpg" alt="Product photography">
+      <div class="portfolio-overlay"><span class="portfolio-overlay-text">Products & Branding</span></div>
+    </div>
+  </div>
+  <!-- SERVICES CTA -->
+  <div style="text-align:center;margin-top:2.5rem;">
+    <a href="services.html" class="btn-ghost" target="_blank" id="myporfolio">View Full Portfolio</a>
+    <script>document.getElementById("myporfolio").addEventListener("click",e=>e.preventDefault());</script>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why">
+  <div class="why-img-wrap">
+    <img class="why-img" src="https://i.pinimg.com/1200x/99/3b/a3/993ba3336385bb976a36450f64e12419.jpg" alt="Focus Studios photographer at work">
+    <div class="why-accent-box">
+      <span class="why-accent-num">7+</span>
+      <span class="why-accent-label">Years of Exp</span>
+    </div>
+  </div>
+  <div>
+    <p class="section-label">Why Choose Us</p>
+    <h2 class="section-title">Quality You Can<br><em>Trust</em></h2>
+    <div class="why-features">
+      <div class="why-feature">
+        <div class="why-feature-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <div class="why-feature-title">Fast Delivery — 24 to 48 Hours</div>
+          <p class="why-feature-desc">Receive your edited, high-resolution photos within 24–48 hours of your shoot. No more waiting weeks to relive your moments.</p>
+        </div>
+      </div>
+      <div class="why-feature">
+        <div class="why-feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <div class="why-feature-title">Professional Editing Guaranteed</div>
+          <p class="why-feature-desc">Every image is colour-graded and retouched by our post-production team. Consistent, polished results — every single time.</p>
+        </div>
+      </div>
+      <div class="why-feature">
+        <div class="why-feature-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div>
+          <div class="why-feature-title">Nationwide Travel, Your Location</div>
+          <p class="why-feature-desc">We come to you. Whether you're in Nairobi or Mombasa, Kisumu or Eldoret — we pack up and travel. Travel fees may apply outside Nairobi.</p>
+        </div>
+      </div>
+      <div class="why-feature">
+        <div class="why-feature-icon">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div>
+          <div class="why-feature-title">Affordable, Flexible Packages</div>
+          <p class="why-feature-desc">Packages starting from KES 8,000. Wedding coverage from KES 15,000 in Nairobi. We structure pricing to suit your budget — never compromise quality.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="testimonials-header">
+    <p class="section-label">Client Stories</p>
+    <h2 class="section-title">What Our <em>Clients</em> Say</h2>
+  </div>
+  <div class="testimonials-track-wrap">
+    <div class="testimonials-track" id="testimonialsTrack">
+      <!-- 12 testimonials -->
+      <div class="testimonial-card">
+        <div class="quote-mark">"</div>
+        <p class="testimonial-text">Focus Studios captured our wedding day beyond our expectations. Every emotion, every small detail — all preserved perfectly. We got our photos within 36 hours.</p>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">SW</div>
+          <div><div class="author-name">Sarah Wambui</div><div class="author-role">Bride, Nairobi</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-mark">"</div>
+        <p class="testimonial-text">We hired Focus Studios for our company's annual conference in Thika. Professional, punctual, and the results were impressive. Our board loved the corporate headshots.</p>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">JO</div>
+          <div><div class="author-name">James Orenge</div><div class="author-role">Corporate Client, Thika</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-mark">"</div>
+        <p class="testimonial-text">My graduation photos are absolutely stunning. They travelled all the way to Nakuru and made the whole shoot feel effortless and fun. I'll definitely book them again.</p>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">LA</div>
+          <div><div class="author-name">Linda Allison</div><div class="author-role">Graduate, Nakuru</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-mark">"</div>
+        <p class="testimonial-text">I booked a maternity shoot and couldn't be more pleased. The team was warm, patient, and made me feel completely at ease. The lighting and editing are stunning.</p>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">AM</div>
+          <div><div class="author-name">Amina Mwangi</div><div class="author-role">Maternity Client, Nairobi</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-mark">"</div>
+        <p class="testimonial-text">Product photography for my fashion brand was delivered on time and looked exactly as I imagined. Sales went up after I updated my catalogue with their shots. Highly recommend!</p>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">FK</div>
+          <div><div class="author-name">Faith Kamau</div><div class="author-role">Brand Owner, Nairobi</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-mark">"</div>
+        <p class="testimonial-text">Our anniversary dinner party shoot in Nyeri was magical. They captured the candle-lit ambience and spontaneous moments perfectly. We'll treasure these photos forever.</p>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">DN</div>
+          <div><div class="author-name">David & Nancy</div><div class="author-role">Anniversary Clients, Nyeri</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-mark">"</div>
+        <p class="testimonial-text">I was skeptical about outdoor portraits but the photographer made it feel natural. The golden-hour lighting they chose was perfection — the colours are absolutely breathtaking.</p>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">BN</div>
+          <div><div class="author-name">Brian Ndiragu</div><div class="author-role">Portrait Client, Nairobi</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-mark">"</div>
+        <p class="testimonial-text">Our church event photography exceeded all expectations. Every powerful moment and genuine emotion was captured beautifully. We received our full gallery within 48 hours.</p>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">PN</div>
+          <div><div class="author-name">Pastor Njoroge</div><div class="author-role">Event Client, Thika</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-mark">"</div>
+        <p class="testimonial-text">Booking a kids' birthday shoot felt daunting but they were incredible with the children. Patient, playful, and the results show pure joy in every single frame. Perfect memories.</p>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">GW</div>
+          <div><div class="author-name">Grace Wanjiku</div><div class="author-role">Parent, Nairobi</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-mark">"</div>
+        <p class="testimonial-text">Our restaurant's menu photography looked so professional that customers started asking where we got the shots done. The food styling advice alone was worth every shilling.</p>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">EO</div>
+          <div><div class="author-name">Edwin Otieno</div><div class="author-role">Restaurant Owner, Kisumu</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-mark">"</div>
+        <p class="testimonial-text">My LinkedIn headshot from Focus Studios completely transformed my professional image. I've had more connection requests and job offers in two months than the whole previous year.</p>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">RK</div>
+          <div><div class="author-name">Ruth Kariuki</div><div class="author-role">Corporate Professional, Nairobi</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-mark">"</div>
+        <p class="testimonial-text">They shot our traditional wedding with such cultural sensitivity and care. Every family was pleased and our elders kept complimenting how well the photographer blended in.</p>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">MK</div>
+          <div><div class="author-name">Moses & Kalekye</div><div class="author-role">Wedding Clients, Machakos</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="testimonials-controls">
+    <button class="t-btn" id="tPrev" aria-label="Previous">&#8592;</button>
+    <div class="t-dots" id="tDots"></div>
+    <button class="t-btn" id="tNext" aria-label="Next">&#8594;</button>
+  </div>
+</section>
+
+<!-- FAQ + FLOATING IMAGES -->
+<section class="faq">
+  <div class="faq-top-header">
+    <p class="section-label">Need help?</p>
+    <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
+  </div>
+  <div class="faq-layout">
+    <!-- FAQ Accordion (2/3) -->
+    <div class="faq-list" id="faqList">
+      <!-- article 1 -->
+      <article class="faq-item">
+        <div class="faq-question">Do you travel outside Nairobi for shoots?</div>
+        <div class="faq-answer">Yes. We travel across Kenya for weddings, events, portraits and corporate assignments. Travel fees may apply depending on location, and we'll include them in your quote upfront with no hidden costs.</div>
+      </article>
+      <!-- article 2 -->
+      <article class="faq-item">
+        <div class="faq-question">How soon will we receive our photos?</div>
+        <div class="faq-answer">Your edited photos are delivered within 24–48 hours after the shoot. For larger weddings or commercial projects, we share the full gallery within 5–7 business days. Rush delivery options are available on request.</div>
+      </article>
+      <!-- article 3 -->
+      <article class="faq-item">
+        <div class="faq-question">Can we book a consultation before our session?</div>
+        <div class="faq-answer">Absolutely. Every booking includes a planning call so we can discuss locations, styling, pacing and any special requests before your shoot. We want to ensure every detail is perfect before we even pick up a camera.</div>
+      </article>
+      <!-- article 4 -->
+      <article class="faq-item">
+        <div class="faq-question">Do you offer packages for corporate and branding work?</div>
+        <div class="faq-answer">Yes. We offer custom packages for corporate headshots, product photography, events and branding campaigns. Contact us with your brief and we'll create a tailored proposal that fits your brand and budget.</div>
+      </article>
+      <!-- article 5 -->
+      <article class="faq-item">
+        <div class="faq-question">What should I wear for my portrait session?</div>
+        <div class="faq-answer">We recommend solid, neutral colours or classic patterns. Avoid logos and overly bright colours. We send a full preparation guide after booking — it covers outfits, locations, timing and what to expect on the day.</div>
+      </article>
+      <!-- article 6 -->
+      <article class="faq-item">
+        <div class="faq-question">How do you handle outdoor shoots when weather is bad?</div>
+        <div class="faq-answer">We monitor weather closely and will reach out 24 hours in advance if conditions look unfavourable. We offer free rescheduling for weather-related cancellations and can pivot to covered or studio locations at short notice.</div>
+      </article>
+      <!-- article 7 -->
+      <article class="faq-item">
+        <div class="faq-question">Can I order prints or albums from my gallery?</div>
+        <div class="faq-answer">Yes. We partner with premium print labs in Nairobi to offer fine-art prints, canvas wraps and custom photo albums. You can order directly through your online gallery once your images are delivered.</div>
+      </article>
+      <!-- article 8 -->
+      <article class="faq-item">
+        <div class="faq-question">Do you shoot videos as well as photos?</div>
+        <div class="faq-answer">Yes! We offer videography services including highlight reels, cinematic films and event coverage. Ask about our bundled photo + video packages for the best value when booking your wedding or event.</div>
+      </article>
+    </div>
+
+    <!-- Floating Photo Ideas (1/3) -->
+    <div class="photo-ideas" id="photoIdeas">
+      <div class="photo-ideas-label">Photography Inspiration</div>
+
+      <!-- Bubble 1 – large, center -->
+      <div class="float-img" style="width:260px;height:310px;top:50%;left:50%;transform:translate(-50%,-50%);animation:floatA 7s ease-in-out infinite;">
+        <img src="https://i.pinimg.com/1200x/b4/d6/32/b4d6329b350492d0dacc60a7a83340e1.jpg" alt="Wedding">
+      </div>
+      <!-- Bubble 2 – top-right -->
+      <div class="float-img" style="width:135px;height:185px;top:12%;right:12%;animation:floatB 9s ease-in-out infinite 1s;">
+        <img src="https://i.pinimg.com/1200x/06/2e/f0/062ef0e3cce102560af93a3a725d5297.jpg" alt="Graduation">
+      </div>
+      <!-- Bubble 3 – bottom-left -->
+      <div class="float-img" style="width:240px;height:290px;bottom:12%;left:10%;animation:floatC 8s ease-in-out infinite 0.5s;">
+        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&auto=format&fit=crop&q=80" alt="Corporate">
+      </div>
+      <!-- Bubble 4 – top-left -->
+      <div class="float-img" style="width:222px;height:272px;top:15%;left:8%;animation:floatD 11s ease-in-out infinite 2s;">
+        <img src="https://i.pinimg.com/736x/2a/a3/35/2aa3354e725ecece7fae94be38feb925.jpg" alt="Portrait">
+      </div>
+      <!-- Bubble 5 – bottom-right -->
+      <div class="float-img" style="width:128px;height:178px;bottom:10%;right:8%;animation:floatE 10s ease-in-out infinite 1.5s;">
+        <img src="https://i.pinimg.com/1200x/e5/25/cd/e525cd5c9f4a6d02edeb71483041406e.jpg" alt="Products">
+      </div>
+      <!-- Bubble 6 – middle-left -->
+      <div class="float-img" style="width:110px;height:160px;top:45%;left:5%;animation:floatB 12s ease-in-out infinite 3s;">
+        <img src="https://i.pinimg.com/1200x/4a/ff/26/4aff265d5641174eaa861e86e0a053c9.jpg" alt="Outdoor">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="contact-form">
+  <div class="contact-form-inner">
+    <div class="contact-form-copy">
+      <p class="section-label">Reach Out</p>
+      <h2 class="section-title">Book Your Photographer<br><em>Today</em></h2>
+      <p>Have a session in mind? Share your details and we'll follow up quickly with availability and a custom quote. Our team is ready to capture your most important moments.</p>
+    </div>
+    <form class="contact-form-grid" action="https://formspree.io/f/mlgzbqko" method="post">
+      <input type="text" name="name" placeholder="Full Name" aria-label="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" aria-label="Email Address" required>
+      <input type="tel" name="phone" placeholder="Phone Number" aria-label="Phone Number" required>
+      <input type="text" name="service" placeholder="Service Required (wedding, portrait, corporate)" aria-label="Service Required">
+      <textarea name="message" placeholder="Tell us about your shoot" aria-label="Tell us about your shoot" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-bg"></div>
+  <div class="cta-content">
+    <span class="cta-tag">Ready When You Are</span>
+    <h2 class="cta-title">Ready to Capture<br>Your Moment?</h2>
+    <p class="cta-desc">Let's create something beautiful together. Get in touch today to discuss your event, session or project — no commitment, just a conversation.</p>
+
+    <div class="cta-btns">
+      <a href="booking.html" class="btn-primary">Book a Session</a>
+      <!-- add a phone number for whatsapp as the link - 0745845976 -->
+      <a href="#" class="btn-wa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#25D366" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.885 3.488"/></svg>
+        WhatsApp Us
+      </a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="logo-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2">
+            <circle cx="12" cy="12" r="2.5"/>
+            <path d="M6.5 6.5h1.8l1.2-2h5l1.2 2h1.8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"/>
+          </svg>
+          <img src="logo.png" alt="logo">
+        </div>
+        <div class="logo-text">
+          <span class="logo-sub">Focus Studios · Kenya</span>
+        </div>
+      </a>
+      <p class="footer-brand-desc">Nairobi-based photography studio providing premium services across Kenya. Weddings, events, portraits and commercial photography — delivered with speed and quality.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="booking.html">Book a Session</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="weddings.html">Weddings &amp; Events</a></li>
+        <li><a href="studio.html">Studio Portraits</a></li>
+        <li><a href="corporate.html">Corporate</a></li>
+        <li><a href="birthdays.html">Birthdays &amp; Baby Showers</a></li>
+        <li><a href="graduations.html">Graduations</a></li>
+        <li><a href="products.html">Products &amp; Branding</a></li>
+        <li><a href="outdoor.html">Outdoor</a></li>
+        <li style="display: none;"><a href="videography.html">Videography</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Get in Touch</div>
+      <div class="footer-contact-item"><span><img src="phone.png" alt="phone"></span> +254 745 845 976</div>
+      <div class="footer-contact-item"><span><img src="mail.png" alt="mail"></span> info@focusstudios.co.ke</div>
+      <div class="footer-contact-item"><span><img src="location.png" alt="location"></span> Westlands, Nairobi, Kenya</div>
+      <div class="footer-contact-item"><span><img src="clock.png" alt="clock"></span> Mon–Sat: 8:00 AM – 6:00 PM</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Focus Studios. All Rights Reserved.</span>
+    <div class="social-links">
+      <a href="#" class="social-link" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="TikTok">
+        <svg viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="YouTube">
+        <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.54C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── TAB SWITCHING ──
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+  });
+});
+
+// ── SCROLL ANIMATION ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.service-card, .city-card, .why-feature').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(24px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+
+// ── MOBILE SIDEBAR ──
+const menuBtn = document.getElementById('menuBtn');
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('sidebarOverlay');
+
+function openSidebar() {
+  menuBtn.classList.add('open');
+  sidebar.classList.add('open');
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSidebar() {
+  menuBtn.classList.remove('open');
+  sidebar.classList.remove('open');
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+menuBtn.addEventListener('click', () => {
+  sidebar.classList.contains('open') ? closeSidebar() : openSidebar();
+});
+
+overlay.addEventListener('click', closeSidebar);
+
+document.querySelectorAll('.sidebar-group-label').forEach(label => {
+  label.addEventListener('click', () => {
+    const targetId = label.dataset.target;
+    const sub = document.getElementById(targetId);
+    const isOpen = sub.classList.contains('open');
+    document.querySelectorAll('.sidebar-sub').forEach(s => s.classList.remove('open'));
+    document.querySelectorAll('.sidebar-group-label').forEach(l => l.classList.remove('open'));
+    if (!isOpen) { sub.classList.add('open'); label.classList.add('open'); }
+  });
+});
+
+// ── TESTIMONIALS CAROUSEL ──
+(function() {
+  const track = document.getElementById('testimonialsTrack');
+  const prevBtn = document.getElementById('tPrev');
+  const nextBtn = document.getElementById('tNext');
+  const dotsContainer = document.getElementById('tDots');
+
+  let cards = Array.from(track.querySelectorAll('.testimonial-card'));
+  let totalCards = cards.length;
+  let currentIndex = 0;
+  let cardWidth = 0;
+  let visibleCount = 3;
+  let autoTimer = null;
+
+  function getVisibleCount() {
+    if (window.innerWidth < 600) return 1;
+    if (window.innerWidth < 900) return 2;
+    return 3;
+  }
+
+  function getCardWidth() {
+    const c = track.querySelector('.testimonial-card');
+    return c ? c.offsetWidth + 24 : 384; // 360 + 24gap
+  }
+
+  function maxIndex() {
+    return Math.max(0, totalCards - visibleCount);
+  }
+
+  function buildDots() {
+    dotsContainer.innerHTML = '';
+    const total = maxIndex() + 1;
+    for (let i = 0; i <= maxIndex(); i++) {
+      const dot = document.createElement('div');
+      dot.className = 't-dot' + (i === currentIndex ? ' active' : '');
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function updateDots() {
+    document.querySelectorAll('.t-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === currentIndex);
+    });
+  }
+
+  function goTo(index) {
+    visibleCount = getVisibleCount();
+    currentIndex = Math.max(0, Math.min(index, maxIndex()));
+    cardWidth = getCardWidth();
+    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    updateDots();
+  }
+
+  function next() { goTo(currentIndex < maxIndex() ? currentIndex + 1 : 0); }
+  function prev() { goTo(currentIndex > 0 ? currentIndex - 1 : maxIndex()); }
+
+  function startAuto() {
+    stopAuto();
+    autoTimer = setInterval(next, 4500);
+  }
+
+  function stopAuto() {
+    if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+  }
+
+  nextBtn.addEventListener('click', () => { next(); stopAuto(); startAuto(); });
+  prevBtn.addEventListener('click', () => { prev(); stopAuto(); startAuto(); });
+
+  // Touch/drag
+  let startX = 0;
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; stopAuto(); }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) { diff > 0 ? next() : prev(); }
+    startAuto();
+  });
+
+  function init() {
+    visibleCount = getVisibleCount();
+    buildDots();
+    goTo(0);
+    startAuto();
+  }
+
+  window.addEventListener('resize', () => { visibleCount = getVisibleCount(); buildDots(); goTo(Math.min(currentIndex, maxIndex())); });
+
+  init();
+})();
+
+// ── FAQ ACCORDION ──
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-question');
+  q.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    // Toggle clicked
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// ── POPUP AD (every 90 seconds) ──
+(function() {
+  const overlay = document.getElementById('adOverlay');
+  const closeBtn = document.getElementById('adClose');
+  const skipBtn = document.getElementById('adSkip');
+
+  function showAd() { overlay.classList.add('show'); }
+  function hideAd() { overlay.classList.remove('show'); }
+
+  // Show after first 90s, then repeat every 90s
+  function schedule() {
+    setTimeout(() => {
+      showAd();
+      setInterval(showAd, 900000);
+    }, 900000);
+  }
+
+  closeBtn.addEventListener('click', hideAd);
+  skipBtn.addEventListener('click', hideAd);
+  overlay.addEventListener('click', e => { if (e.target === overlay) hideAd(); });
+
+  schedule();
+})();
+</script>
+
+<!-- ══ SCROLL TO TOP ══ -->
+<div id="scrollTopWrapper">
+  <button id="scrollTopBtn" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+  <script>
+    (function () {
+      const btn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', function () {
+        btn.classList.toggle('visible', window.scrollY > 400);
+      }, { passive: true });
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</div>
+</body>
+</html>

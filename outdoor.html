@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Outdoor Photography Sessions – Focus Studios Kenya</title>
+<meta name="description" content="Professional outdoor photography across Kenya's most stunning landscapes. Portraits, families, couples, and lifestyle sessions in nature. Book Focus Studios today.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles (1).css">
+
+<style>
+/* ═══════════════════════════════════════════════════
+   OUTDOOR PAGE – Specific Styles
+   ═══════════════════════════════════════════════════ */
+
+/* ── PAGE HERO OVERRIDE ── */
+.page-outdoor .hero-img-bg {
+  background: url('https://i.pinimg.com/1200x/42/16/cc/4216ccf53e2bb83c8dd18da5a5d97307.jpg') center 60%/cover no-repeat;
+  animation: heroZoom 12s ease-out forwards;
+}
+
+.page-outdoor .hero-bg {
+  background:
+    linear-gradient(to right, rgba(10,10,10,0.7) 40%, rgba(10,10,10,0.1) 100%),
+    linear-gradient(to top, rgba(10,10,10,0.7) 0%, transparent 55%);
+}
+
+/* ── OUTDOOR SCENE TYPES ── */
+.outdoor-scenes {
+  padding: 7rem 4rem;
+  background: var(--dark);
+}
+
+.outdoor-scenes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 4rem;
+}
+
+.scenes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5px;
+}
+
+.scene-card {
+  position: relative;
+  overflow: hidden;
+  height: 460px;
+  cursor: pointer;
+}
+
+.scene-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s ease, filter 0.7s ease;
+  filter: brightness(0.65) saturate(1.1);
+}
+
+.scene-card:hover img {
+  transform: scale(1.07);
+  filter: brightness(0.5) saturate(1.2);
+}
+
+.scene-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,10,10,0.92) 0%, transparent 55%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem 1.75rem;
+  transition: background 0.4s ease;
+}
+
+.scene-card:hover .scene-card-overlay {
+  background: linear-gradient(to top, rgba(10,10,10,0.97) 0%, rgba(10,10,10,0.4) 100%);
+}
+
+.scene-tag {
+  font-size: 0.58rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.scene-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.scene-name em {
+  font-style: italic;
+  color: var(--gold-light);
+}
+
+.scene-desc {
+  font-size: 0.75rem;
+  color: var(--white-dim);
+  line-height: 1.7;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
+  max-width: 260px;
+}
+
+.scene-card:hover .scene-desc {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── FIELD GUIDE SECTION (The Challenges) ── */
+.field-guide {
+  padding: 7rem 4rem;
+  background: var(--black);
+}
+
+.field-guide-intro {
+  max-width: 700px;
+  margin-bottom: 5rem;
+}
+
+.field-guide-intro .section-title { margin-bottom: 1.25rem; }
+
+.field-guide-lead {
+  font-size: 0.88rem;
+  color: var(--white-dim);
+  line-height: 1.95;
+}
+
+.challenges-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.challenge-block {
+  position: relative;
+  overflow: hidden;
+  background: var(--dark-2);
+  border: 0.5px solid var(--border);
+  padding: 2.5rem 2rem;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.challenge-block:hover {
+  border-color: var(--gold-dim);
+  background: var(--dark-3);
+}
+
+.challenge-number {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 300;
+  color: rgba(201,168,76,0.08);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  user-select: none;
+}
+
+.challenge-icon {
+  width: 44px; height: 44px;
+  border: 0.5px solid var(--gold-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.challenge-block:hover .challenge-icon {
+  border-color: var(--gold);
+  background: rgba(201,168,76,0.08);
+}
+
+.challenge-icon svg {
+  width: 20px; height: 20px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.challenge-title {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--white);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.challenge-subtitle {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--gold-light);
+  margin-bottom: 1rem;
+  font-style: italic;
+  line-height: 1.2;
+}
+
+.challenge-body {
+  font-size: 0.78rem;
+  color: var(--white-dim);
+  line-height: 1.9;
+  margin-bottom: 1.25rem;
+}
+
+.challenge-tips {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.challenge-tips li {
+  font-size: 0.7rem;
+  color: rgba(250,250,248,0.55);
+  padding-left: 1rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.challenge-tips li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--gold-dim);
+}
+
+/* ── HOW WE PREPARE (2-col editorial) ── */
+.outdoor-prepare {
+  padding: 7rem 4rem;
+  background: var(--dark);
+}
+
+.outdoor-prepare-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.prepare-img-block { position: relative; }
+
+.prepare-img-block img {
+  width: 100%;
+  height: 560px;
+  object-fit: cover;
+  display: block;
+}
+
+.prepare-badge {
+  position: absolute;
+  bottom: 2.5rem;
+  right: -1.5rem;
+  background: var(--gold);
+  color: var(--black);
+  padding: 1.5rem 2rem;
+}
+
+.prepare-badge strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.prepare-badge span {
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.prepare-content .section-title { margin-bottom: 1rem; }
+
+.prepare-desc {
+  font-size: 0.83rem;
+  color: var(--white-dim);
+  line-height: 1.95;
+  margin-bottom: 2.5rem;
+}
+
+.prepare-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.prepare-step {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.prepare-step-num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 2rem;
+}
+
+.prepare-step-text strong {
+  display: block;
+  font-size: 0.63rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--white);
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+}
+
+.prepare-step-text p {
+  font-size: 0.78rem;
+  color: var(--white-dim);
+  line-height: 1.75;
+}
+
+/* ── LIGHT & TIMING SECTION ── */
+.light-timing {
+  padding: 7rem 4rem;
+  background: var(--black);
+}
+
+.light-timing-header { margin-bottom: 4rem; }
+
+.light-timing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.light-card {
+  border: 0.5px solid var(--border);
+  background: var(--dark-2);
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+
+.light-card:hover { border-color: var(--gold-dim); }
+
+.light-card-img {
+  height: 220px;
+  overflow: hidden;
+}
+
+.light-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+  filter: brightness(0.88);
+}
+
+.light-card:hover .light-card-img img {
+  transform: scale(1.05);
+  filter: brightness(1);
+}
+
+.light-card-body {
+  padding: 1.75rem;
+}
+
+.light-card-time {
+  font-size: 0.58rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.light-card-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.light-card-desc {
+  font-size: 0.76rem;
+  color: var(--white-dim);
+  line-height: 1.8;
+}
+
+/* ── LOCATION FEATURES ── */
+.outdoor-locations {
+  padding: 7rem 4rem;
+  background: var(--dark);
+}
+
+.outdoor-locations-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 4rem;
+}
+
+.locations-editorial {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2px;
+  margin-bottom: 2px;
+}
+
+.locations-editorial-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2px;
+}
+
+.loc-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.loc-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease, filter 0.6s ease;
+  filter: brightness(0.6) saturate(1.05);
+  min-height: 260px;
+}
+
+.loc-item:hover img {
+  transform: scale(1.05);
+  filter: brightness(0.45);
+}
+
+.loc-item-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, transparent 100%);
+}
+
+.loc-item-name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 0.2rem;
+}
+
+.loc-item-tag {
+  font-size: 0.58rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.loc-item.large img { min-height: 420px; }
+
+/* ── WHAT TO EXPECT / FAQ ── */
+.outdoor-expect {
+  padding: 7rem 4rem;
+  background: var(--black);
+}
+
+.expect-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: start;
+}
+
+.expect-content .section-title { margin-bottom: 1.25rem; }
+
+.expect-intro {
+  font-size: 0.83rem;
+  color: var(--white-dim);
+  line-height: 1.95;
+  margin-bottom: 2.5rem;
+}
+
+.expect-accordion {
+  display: flex;
+  flex-direction: column;
+  border-top: 0.5px solid var(--border);
+}
+
+.accordion-item {
+  border-bottom: 0.5px solid var(--border);
+}
+
+.accordion-trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 0;
+  cursor: pointer;
+  gap: 1rem;
+}
+
+.accordion-trigger-text {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.accordion-trigger:hover .accordion-trigger-text { color: var(--gold); }
+
+.accordion-icon {
+  width: 22px; height: 22px;
+  border: 0.5px solid var(--gold-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1rem;
+  color: var(--gold-dim);
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.accordion-item.open .accordion-icon { transform: rotate(45deg); border-color: var(--gold); color: var(--gold); }
+
+.accordion-body {
+  font-size: 0.78rem;
+  color: var(--white-dim);
+  line-height: 1.85;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+}
+
+.accordion-item.open .accordion-body {
+  max-height: 300px;
+  padding-bottom: 1.25rem;
+}
+
+.expect-img-stack {
+  position: relative;
+}
+
+.expect-img-main {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+}
+
+.expect-img-inset {
+  position: absolute;
+  bottom: -2rem;
+  left: -2rem;
+  width: 200px;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+  border: 3px solid var(--dark);
+}
+
+/* ── EQUIPMENT CALLOUT STRIP ── */
+.equipment-strip {
+  padding: 4rem;
+  background: var(--dark-2);
+  border-top: 0.5px solid var(--border);
+  border-bottom: 0.5px solid var(--border);
+}
+
+.equipment-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4rem;
+  align-items: center;
+}
+
+.equipment-text .section-label { margin-bottom: 0.5rem; }
+
+.equipment-text .section-title { margin-bottom: 1rem; }
+
+.equipment-desc {
+  font-size: 0.82rem;
+  color: var(--white-dim);
+  line-height: 1.85;
+  max-width: 600px;
+}
+
+.equipment-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+
+.equipment-tag {
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 0.5px solid var(--border);
+  padding: 0.35rem 0.85rem;
+  background: rgba(201,168,76,0.05);
+}
+
+/* ── PACKAGES ── */
+/* reuses global .packages, .pkg-card etc. */
+
+/* ── GALLERY ── */
+.gallery {
+  padding: 10px;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 280px;
+  gap: 1.5px;
+}
+.gallery-grid .gallery-item:nth-child(4) {
+  grid-column: span 2;
+}
+
+/* ── TESTIMONIALS ── */
+/* reuses global .testimonials, .tcard etc */
+
+/* ══════════════════════════════════════════
+   RESPONSIVE – OUTDOOR PAGE
+   ══════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .outdoor-scenes { padding: 4rem 1.5rem; }
+  .outdoor-scenes-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .scenes-grid { grid-template-columns: 1fr 1fr; }
+  .scene-card { height: 320px; }
+
+  .field-guide { padding: 4rem 1.5rem; }
+  .challenges-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+
+  .outdoor-prepare { padding: 4rem 1.5rem; }
+  .outdoor-prepare-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .prepare-img-block img { height: 360px; }
+  .prepare-badge { right: 0.5rem; bottom: -1.5rem; }
+
+  .light-timing { padding: 4rem 1.5rem; }
+  .light-timing-grid { grid-template-columns: 1fr; gap: 1rem; }
+
+  .outdoor-locations { padding: 4rem 1.5rem; }
+  .outdoor-locations-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .locations-editorial { grid-template-columns: 1fr; }
+  .locations-editorial-bottom { grid-template-columns: 1fr 1fr; }
+  .loc-item img, .loc-item.large img { min-height: 220px; }
+
+  .outdoor-expect { padding: 4rem 1.5rem; }
+  .expect-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .expect-img-main { height: 340px; }
+  .expect-img-inset { width: 140px; height: 180px; left: -0.75rem; bottom: -1rem; }
+
+  .equipment-strip { padding: 3rem 1.5rem; }
+  .equipment-inner { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+@media (max-width: 600px) {
+  .scenes-grid { grid-template-columns: 1fr; }
+  .scene-card { height: 280px; }
+  .locations-editorial-bottom { grid-template-columns: 1fr; }
+  .loc-item img { min-height: 200px; }
+  .expect-img-inset { display: none; }
+
+  .gallery-grid {
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 280px;
+  gap: 0.3rem;
+}
+.gallery-grid .gallery-item:nth-child(1) {
+  grid-row: span 2;
+}
+.gallery-grid .gallery-item:nth-child(4) {
+  grid-column: span 2;
+}
+.gallery-grid .gallery-item:nth-child(5) {
+  grid-column: span 2;
+}
+}
+</style>
+</head>
+<body class="page-outdoor">
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2">
+        <circle cx="12" cy="12" r="2.5"/>
+        <path d="M6.5 6.5h1.8l1.2-2h5l1.2 2h1.8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"/>
+      </svg>
+      <img src="logo.png" alt="logo">
+    </div>
+    <div class="logo-text">
+      <span class="logo-sub">Focus Studios</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li class="nav-item">
+      <a href="services.html" id="myServices">Services</a>
+      <script>document.getElementById("myServices").addEventListener("click",e=>e.preventDefault());</script>
+      <ul class="dropdown">
+        <li><a href="weddings.html">Weddings &amp; Events</a></li>
+        <li><a href="studio.html">Studio Portraits</a></li>
+        <li><a href="corporate.html">Corporate</a></li>
+        <li><a href="birthdays.html">Birthdays &amp; Baby Showers</a></li>
+        <li><a href="graduations.html">Graduations</a></li>
+        <li><a href="products.html">Products &amp; Branding</a></li>
+        <li><a href="outdoor.html">Outdoor</a></li>
+        <li style="display: none;"><a href="videography.html">Videography</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a href="#" id="myLocations">Locations</a>
+      <script>document.getElementById("myLocations").addEventListener("click",e=>e.preventDefault());</script>
+      <ul class="dropdown" >
+        <li><a href="locations/nairobi.html">Nairobi</a></li>
+        <li><a href="locations/mombasa.html">Mombasa</a></li>
+        <li><a href="locations/nyeri.html">Nyeri</a></li>
+        <li><a href="locations/nakuru.html">Nakuru</a></li>
+        <li><a href="locations/thika.html">Thika</a></li>
+      </ul>
+    </li>
+    <li><a href="about.html" style="color:var(--gold);">About</a></li>
+    <li><a href="booking.html" class="nav-cta">Book a Session</a></li>
+  </ul>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<aside class="sidebar" id="sidebar">
+  <ul class="sidebar-nav">
+    <li>
+      <span class="sidebar-group-label" data-target="sub-services">Services</span>
+      <ul class="sidebar-sub" id="sub-services">
+        <li><a href="weddings.html">Weddings &amp; Events</a></li>
+        <li><a href="studio.html">Studio Portraits</a></li>
+        <li><a href="corporate.html">Corporate</a></li>
+        <li><a href="birthdays.html">Birthdays &amp; Baby Showers</a></li>
+        <li><a href="graduations.html">Graduations</a></li>
+        <li><a href="products.html">Products &amp; Branding</a></li>
+        <li><a href="outdoor.html">Outdoor</a></li>
+        <li style="display: none;"><a href="videography.html">Videography</a></li>
+      </ul>
+    </li>
+    <li>
+      <span class="sidebar-group-label" data-target="sub-locations">Locations</span>
+      <ul class="sidebar-sub" id="sub-locations">
+        <li><a href="locations/nairobi.html">Nairobi</a></li>
+        <li><a href="locations/mombasa.html">Mombasa</a></li>
+        <li><a href="locations/nyeri.html">Nyeri</a></li>
+        <li><a href="locations/nakuru.html">Nakuru</a></li>
+        <li><a href="locations/thika.html">Thika</a></li>
+      </ul>
+    </li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <a href="booking.html" class="sidebar-cta">Book a Session</a>
+</aside>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img-bg"></div>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="innerWrapper">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span>›</span>
+        <a href="outdoor.html" style="color:var(--gold);">Outdoor Sessions</a>
+      </div>
+      <span class="hero-tag">Outdoor & Location Photography</span>
+      <h1 class="hero-title">Mother Nature,<br>@ <em>'Ur' Studio</em></h1>
+      <p class="hero-desc">From the mist-covered ridges of Mount Kenya to the shores of the Indian Ocean — we bring professional photography wherever the landscape calls. Every environment tells a story. Let us capture yours.</p>
+      <div class="hero-btns">
+        <a href="booking.html" class="btn-primary">Book Your Session</a>
+        <a href="#services" class="btn-ghost">SEE WHAT WE OFFER</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div><span class="scroll-text">Scroll to explore</span></div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <div class="stat-icon">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    </div>
+    <div><div class="stat-value">On-Location</div><div class="stat-label">We Come to You</div></div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    </div>
+    <div><div class="stat-value">All Weather</div><div class="stat-label">Fully Prepared</div></div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">
+      <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    </div>
+    <div><div class="stat-value">5+ Regions</div><div class="stat-label">Across Kenya</div></div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+    </div>
+    <div><div class="stat-value">RAW Editing</div><div class="stat-label">Pro Post-Processing</div></div>
+  </div>
+</div>
+
+<!-- SESSION TYPES / OUTDOOR SCENES -->
+<section class="outdoor-scenes" id="services">
+  <div class="outdoor-scenes-header">
+    <div>
+      <p class="section-label">What We Shoot</p>
+      <h2 class="section-title">Outdoor <em>Session Types</em></h2>
+    </div>
+    <a href="#packages" class="btn-ghost" style="white-space:nowrap;">view packages</a>
+  </div>
+
+  <div class="scenes-grid">
+    <div class="scene-card">
+      <img src="https://i.pinimg.com/1200x/13/a1/b5/13a1b559d7db051263b91f58faf71c36.jpg" alt="Couple outdoor shoot" loading="lazy">
+      <div class="scene-card-overlay">
+        <div class="scene-tag">Romance</div>
+        <div class="scene-name">Couples &<br><em>Engagement</em></div>
+        <p class="scene-desc">Sunrise forest trails, lakesides, botanical gardens — natural backdrops that frame your love story with authenticity and depth.</p>
+      </div>
+    </div>
+    <div class="scene-card">
+      <img src="https://i.pinimg.com/1200x/46/13/c1/4613c1066b275e8d65d820e47906c433.jpg" alt="Family outdoors" loading="lazy">
+      <div class="scene-card-overlay">
+        <div class="scene-tag">Together</div>
+        <div class="scene-name">Family &<br><em>Lifestyle</em></div>
+        <p class="scene-desc">Parks, open meadows, coastal beaches. Relaxed family sessions where genuine moments unfold between posed portraits.</p>
+      </div>
+    </div>
+    <div class="scene-card">
+      <img src="https://images.unsplash.com/photo-1506956191951-7a88da4435e5?w=600&q=80" alt="Solo portrait outdoors" loading="lazy">
+      <div class="scene-card-overlay">
+        <div class="scene-tag">Individual</div>
+        <div class="scene-name">Solo <em>Portraits</em></div>
+        <p class="scene-desc">Environmental portraits that tell the story of who you are — where you live, what you love, and the landscape that shapes you.</p>
+      </div>
+    </div>
+    <div class="scene-card">
+      <img src="https://i.pinimg.com/736x/69/f7/08/69f7085cb158155114c8a0f734d2681d.jpg" alt="Nature and landscape" loading="lazy">
+      <div class="scene-card-overlay">
+        <div class="scene-tag">Adventure</div>
+        <div class="scene-name">Nature &<br><em>Adventure</em></div>
+        <p class="scene-desc">Hiking trails, crater lakes, forest canopies, wildlife backdrops. For the bold and the explorers who want their portraits to feel alive.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIELD GUIDE – THE CHALLENGES OF OUTDOOR PHOTOGRAPHY -->
+<section class="field-guide" id="challenges">
+  <div class="field-guide-intro">
+    <p class="section-label">The Craft Behind It All</p>
+    <h2 class="section-title">Real Conditions.<br><em>Real Solutions.</em></h2>
+    <p class="field-guide-lead">
+      Outdoor photography is a discipline unlike any other. Unlike the controlled environment of a studio, every outdoor shoot is a negotiation with nature — and nature rarely cooperates on cue. Wind, rain, harsh midday sun, rugged terrain, unpredictable wildlife, and rapidly shifting light are not obstacles we avoid. They are conditions we are trained to master. Here is how we navigate every challenge the outdoors presents.
+    </p>
+  </div>
+
+  <div class="challenges-grid">
+
+    <!-- 1. Bad Weather -->
+    <div class="challenge-block">
+      <div class="challenge-icon">
+        <svg viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/><line x1="11" y1="13" x2="11" y2="17"/><line x1="8" y1="13" x2="8" y2="17"/><line x1="14" y1="13" x2="14" y2="17"/></svg>
+      </div>
+      <div class="challenge-title">Challenge 01</div>
+      <div class="challenge-subtitle">Unpredictable Weather</div>
+      <p class="challenge-body">Kenya's highland regions — particularly around Nyeri, Nyahururu, and the Aberdares — are known for fast-moving cloud cover and afternoon rain showers that can arrive without warning. Near the coast, humidity and sudden storms are equally common. Bad weather is not simply inconvenient; it can destroy unprotected equipment and invalidate hours of planning. Yet overcast skies produce some of the most flattering, even light imaginable — diffused like a giant softbox across the entire landscape. We train to see weather as a creative tool, not a threat.</p>
+      <ul class="challenge-tips">
+        <li>All camera bodies and lenses are weather-sealed or housed in protective covers during shoots</li>
+        <li>Overcast conditions are actively preferred for portrait work — they eliminate harsh shadows and reduce squinting</li>
+        <li>We track 72-hour weather forecasts using hyper-local meteorological data before any outdoor session</li>
+        <li>Rescheduling policies are built into every outdoor booking at no extra cost for clients</li>
+        <li>Light rain during a shoot can create stunning atmospheric effects — mist, soft bokeh, moody tones</li>
+      </ul>
+    </div>
+
+    <!-- 2. Difficult Terrain -->
+    <div class="challenge-block">
+      <div class="challenge-icon">
+        <svg viewBox="0 0 24 24"><polygon points="3 17 8 7 13 13 17 9 21 17"/><line x1="3" y1="21" x2="21" y2="21"/></svg>
+      </div>
+      <div class="challenge-title">Challenge 02</div>
+      <div class="challenge-subtitle">Rugged & Remote Terrain</div>
+      <p class="challenge-body">Some of the most breathtaking photographic locations in Kenya are not easily accessible. The rocky outcrops around Hell's Gate, the forested slopes of Karura, the tea fields of Limuru, and the volcanic landscapes near Longonot all require the photographer to carry full professional equipment across uneven, steep, or muddy ground. Tripods, multiple lens systems, portable reflectors, and backup batteries must all travel with the photographer — and stability is essential to sharp imagery in challenging light conditions.</p>
+      <ul class="challenge-tips">
+        <li>Our photographers maintain a high level of physical fitness for hike-in shoots</li>
+        <li>Rugged, padded carry systems protect all gear in rough terrain</li>
+        <li>Location scouting trips are conducted ahead of every major outdoor assignment</li>
+        <li>We carry lightweight carbon-fibre tripods for stability without compromising mobility</li>
+        <li>Alternative access routes and backup locations are always identified in advance</li>
+      </ul>
+    </div>
+
+    <!-- 3. Harsh & Variable Light -->
+    <div class="challenge-block">
+      <div class="challenge-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
+      </div>
+      <div class="challenge-title">Challenge 03</div>
+      <div class="challenge-subtitle">Harsh Sun & Flat Light</div>
+      <p class="challenge-body">Equatorial sunlight at midday is among the most technically demanding lighting conditions for portraiture. Positioned almost directly overhead, it creates deep eye socket shadows, unflattering nose shadows, and washed-out skin tones. This is compounded near the equator, where the sun angle is extreme year-round. Conversely, flat overcast light on a grey day can render images looking dull and lifeless without skilled use of supplemental lighting. Neither extreme is good — professional outdoor photographers work the edges of the day and bring supplemental light sources when needed.</p>
+      <ul class="challenge-tips">
+        <li>Sessions are scheduled around golden hour — the 30–60 minutes after sunrise or before sunset</li>
+        <li>Portable LED panels and off-camera flash units supplement harsh or flat ambient light</li>
+        <li>5-in-1 reflectors are always carried to bounce or diffuse natural light onto subjects</li>
+        <li>Natural shade structures — tree canopies, building overhangs — are used creatively as light modifiers</li>
+        <li>Post-processing colour grading restores tonal richness in challenging lighting conditions</li>
+      </ul>
+    </div>
+
+    <!-- 4. Wind -->
+    <div class="challenge-block">
+      <div class="challenge-icon">
+        <svg viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+      </div>
+      <div class="challenge-title">Challenge 04</div>
+      <div class="challenge-subtitle">Wind & Movement</div>
+      <p class="challenge-body">Wind is perhaps the most underestimated challenge in outdoor photography. For portrait shoots, it disrupts carefully composed hair, blows fabric out of position, and causes subjects to squint or turn away from the camera. For landscape-portrait composites, wind introduces motion blur in background elements that can clash tonally with a sharp subject. Near the coast — particularly Mombasa and Malindi — sea breezes are near-constant and can reach speeds that make long-exposure work nearly impossible without specialised stabilisation. Highland areas like the Aberdares frequently experience powerful gusts at elevation.</p>
+      <ul class="challenge-tips">
+        <li>Shoot timing is adjusted to the calmest part of the day — typically early morning</li>
+        <li>Fast shutter speeds (1/500s and above) are used to freeze hair and fabric movement artistically</li>
+        <li>Wind can create genuinely beautiful dynamic shots — flowing dresses, movement in tall grass</li>
+        <li>Image stabilised lenses and in-body stabilisation compensate for camera shake in gusty conditions</li>
+        <li>Clients are briefed on clothing and hair choices that perform well in windy conditions</li>
+      </ul>
+    </div>
+
+    <!-- 5. Wildlife & Environment -->
+    <div class="challenge-block">
+      <div class="challenge-icon">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
+      <div class="challenge-title">Challenge 05</div>
+      <div class="challenge-subtitle">Wildlife & Insects</div>
+      <p class="challenge-body">Outdoor shoots in Kenya's parks, reserves, and forest areas come with the very real presence of wildlife — from curious vervet monkeys and baboons in the Nairobi arboretum to buffalo and elephant in peripheral conservancy areas. Even smaller creatures — bees, safari ants, and mosquitoes — can quickly disrupt a shoot and cause real discomfort to clients. Wildlife encounters require calm, decisive action and a thorough pre-shoot risk assessment. Permits and ranger escorts are mandatory in gazetted wildlife zones and are always arranged in advance for any session inside such areas.</p>
+      <ul class="challenge-tips">
+        <li>All national park and conservancy shoots are pre-cleared with relevant Kenya Wildlife Service permits</li>
+        <li>Safari ant column routes and beehive proximity are checked during location scouting</li>
+        <li>Clients are briefed on behaviour around wildlife — no sudden movements, no food visible</li>
+        <li>Wildlife encounters are treated as extraordinary creative opportunities when safe to do so</li>
+        <li>First aid and emergency communication protocols are maintained at every outdoor session</li>
+      </ul>
+    </div>
+
+    <!-- 6. Crowds & Public Spaces -->
+    <div class="challenge-block">
+      <div class="challenge-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div class="challenge-title">Challenge 06</div>
+      <div class="challenge-subtitle">Crowds & Public Spaces</div>
+      <p class="challenge-body">Urban outdoor shoots — along Nairobi's CBD, at Uhuru Park, the Arboretum, or the coastal waterfront — present the constant challenge of managing uninvited people in frame, dealing with curious onlookers, and maintaining client composure and privacy in public settings. Popular outdoor locations on weekends can become extremely congested, making careful timing and positioning essential. Additionally, in Nairobi's neighbourhoods, photography in certain areas may attract attention that requires sensitive handling and, in some cases, prior engagement with local authorities or estate management.</p>
+      <ul class="challenge-tips">
+        <li>Weekday morning sessions are scheduled for popular public locations whenever possible</li>
+        <li>Telephoto lenses isolate subjects beautifully against blurred, anonymous crowds</li>
+        <li>Natural crowd-blocking techniques — elevated positions, walls, foliage — are used to clear the frame</li>
+        <li>Where applicable, location permits from Nairobi County are obtained in advance</li>
+        <li>A dedicated assistant manages crowd control and client privacy during complex public shoots</li>
+      </ul>
+    </div>
+
+    <!-- 7. Equipment Risk -->
+    <div class="challenge-block">
+      <div class="challenge-icon">
+        <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </div>
+      <div class="challenge-title">Challenge 07</div>
+      <div class="challenge-subtitle">Equipment Risk & Failure</div>
+      <p class="challenge-body">Professional photography equipment represents a significant investment and is not immune to the rigours of field work. Dust ingress from unpaved roads near Kajiado or the Rift Valley floor can infiltrate lens mechanisms and sensor chambers. Water exposure from unexpected rain or coastal spray near Diani and Malindi risks corrosion and electrical failure. Dropping a camera on rocky terrain, or having a tripod collapse on an uneven surface, are real risks that every outdoor photographer must plan around. Battery performance also degrades significantly in cold highland conditions — important for early morning shoots on Mount Kenya's slopes.</p>
+      <ul class="challenge-tips">
+        <li>Full backup camera bodies and key lenses are carried to every outdoor assignment</li>
+        <li>Weather-sealed Lowepro and Think Tank bags protect all equipment during transit and on-site</li>
+        <li>Spare batteries are kept warm in an inner pocket during cold-weather highland shoots</li>
+        <li>Sensor cleaning kits and lens blowers are packed for dusty environments</li>
+        <li>All equipment is insured for loss, theft, and accidental damage</li>
+      </ul>
+    </div>
+
+    <!-- 8. Client Comfort -->
+    <div class="challenge-block">
+      <div class="challenge-icon">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <div class="challenge-title">Challenge 08</div>
+      <div class="challenge-subtitle">Client Comfort & Confidence</div>
+      <p class="challenge-body">Unlike a studio where everything is controlled and clients feel safe, outdoor locations introduce a whole new psychological dimension. Clients can feel exposed in open spaces, self-conscious in front of passersby, physically uncomfortable in the heat or cold, or anxious about ruining clothing in a muddy or dusty environment. Children in particular can become unpredictable and uncooperative outside familiar surroundings. A skilled outdoor photographer must function simultaneously as a creative director, mood manager, comedian, and guide — ensuring every subject feels relaxed, confident, and genuinely present during the shoot.</p>
+      <ul class="challenge-tips">
+        <li>Pre-shoot consultation covers outfit choices, what to bring, and what to expect on location</li>
+        <li>Portable changing screens and private zones are arranged where applicable</li>
+        <li>Child-appropriate sessions include extra time allowances, snack breaks, and playful direction</li>
+        <li>Clients are shown live images on a portable monitor to build confidence in real time</li>
+        <li>Our photographers maintain a calm, encouraging presence throughout every session</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW WE PREPARE -->
+<section class="outdoor-prepare">
+  <div class="outdoor-prepare-inner">
+    <div class="prepare-img-block">
+      <img src="https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?w=800&q=80" alt="Photographer preparing equipment outdoors" loading="lazy">
+      <div class="prepare-badge">
+        <strong>100%</strong>
+        <span>Location Ready</span>
+      </div>
+    </div>
+    <div class="prepare-content">
+      <p class="section-label">Our Process</p>
+      <h2 class="section-title">How We Prepare<br><em>Every Session</em></h2>
+      <p class="prepare-desc">A great outdoor session doesn't happen by accident. It is the product of deliberate planning, extensive experience with Kenyan landscapes, and a deep understanding of how light, weather, and environment interact with the human subject. Here is our pre-shoot process for every outdoor assignment.</p>
+      <div class="prepare-steps">
+        <div class="prepare-step">
+          <div class="prepare-step-num">1</div>
+          <div class="prepare-step-text">
+            <strong>Consultation & Location Selection</strong>
+            <p>We discuss your vision, preferred aesthetic, and any specific locations in mind. If you don't have a preference, we recommend locations suited to your session type — beaches for relaxed couples, highland forests for dramatic environmental portraits, urban parks for lifestyle shoots.</p>
+          </div>
+        </div>
+        <div class="prepare-step">
+          <div class="prepare-step-num">2</div>
+          <div class="prepare-step-text">
+            <strong>Scouting & Permit Acquisition</strong>
+            <p>For premium and signature packages, we conduct a physical location scout before your session day. We identify the best shooting angles, light directions, access routes, and contingency positions. All necessary location permits, entry fees, and KWS approvals are arranged and paid in advance.</p>
+          </div>
+        </div>
+        <div class="prepare-step">
+          <div class="prepare-step-num">3</div>
+          <div class="prepare-step-text">
+            <strong>Weather Monitoring & Timing</strong>
+            <p>We track weather forecasts closely in the days leading up to your shoot. Session start times are calibrated to catch the optimal golden hour light for your location. Backup dates are pre-agreed to eliminate any pressure on the day.</p>
+          </div>
+        </div>
+        <div class="prepare-step">
+          <div class="prepare-step-num">4</div>
+          <div class="prepare-step-text">
+            <strong>Client Briefing & Styling Guidance</strong>
+            <p>You receive a detailed pre-shoot guide covering what to wear, how to prepare your hair and makeup for natural light, what to bring, what to avoid, and what to expect during the session. We remove all uncertainty so you arrive relaxed and confident.</p>
+          </div>
+        </div>
+        <div class="prepare-step">
+          <div class="prepare-step-num">5</div>
+          <div class="prepare-step-text">
+            <strong>Full Equipment Readiness</strong>
+            <p>Every outdoor kit includes primary and backup camera bodies, a range of lenses from wide to telephoto, portable lighting gear, stabilisation equipment, weather protection, and a fully charged battery set. Nothing is left to chance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHT & TIME OF DAY -->
+<section class="light-timing" id="lighting">
+  <div class="light-timing-header">
+    <p class="section-label">Understanding Light</p>
+    <h2 class="section-title">When We Shoot &<br><em>Why It Matters</em></h2>
+  </div>
+  <div class="light-timing-grid">
+    <div class="light-card">
+      <div class="light-card-img">
+        <img src="https://i.pinimg.com/736x/95/a7/db/95a7db59279ab5d0de9901a2a13e6f75.jpg" alt="Golden hour sunrise" loading="lazy">
+      </div>
+      <div class="light-card-body">
+        <div class="light-card-time">5:45 AM – 7:00 AM · Nairobi Sunrise</div>
+        <div class="light-card-title">Golden Hour Morning</div>
+        <p class="light-card-desc">The first hour after sunrise delivers warm, horizontal light that paints subjects in rich amber tones and creates long, dramatic shadows across landscapes. This is the premier shooting window for outdoor portraiture. The air is still calm, locations are uncrowded, and the quality of light is unmatched at any other point in the day. For highland areas like Nyeri and Nanyuki, morning light reflects off dew-covered vegetation for an ethereal, luminous quality that is impossible to replicate artificially. We recommend morning sessions for couples, families, and any client seeking the most flattering, cinematic portrait results.</p>
+      </div>
+    </div>
+    <div class="light-card">
+      <div class="light-card-img">
+        <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=600&q=80" alt="Golden hour sunset" loading="lazy">
+      </div>
+      <div class="light-card-body">
+        <div class="light-card-time">5:30 PM – 6:30 PM · Kenyan Sunset</div>
+        <div class="light-card-title">Golden Hour Evening</div>
+        <p class="light-card-desc">The final hour before sunset mirrors the morning in light quality but carries a distinctly different emotional tone — warmer, more orange-red in hue, and often accompanied by atmospheric clouds that scatter and diffuse the light beautifully. The coastal evening light over the Indian Ocean is particularly extraordinary, as the low sun skims across the water and wraps subjects in a warm, directional glow that no studio setup can replicate. Evening golden hour sessions are ideal for romance, celebratory, and dramatic editorial work. The Kenyan equatorial sky also produces some of the most spectacular sunsets on the African continent, frequently providing a natural backdrop that requires no post-processing enhancement.</p>
+      </div>
+    </div>
+    <div class="light-card">
+      <div class="light-card-img">
+        <img src="https://i.pinimg.com/1200x/5e/be/ce/5ebece1bf020a839ad9e738cfed3d90d.jpg" alt="Overcast natural light" loading="lazy">
+      </div>
+      <div class="light-card-body">
+        <div class="light-card-time">All Day · When Cloud Cover Is Present</div>
+        <div class="light-card-title">Overcast Diffused Light</div>
+        <p class="light-card-desc">A misconception held by many clients is that a cloudy day ruins an outdoor shoot. In fact, full cloud cover creates what photographers call the world's largest softbox — an even, shadow-free, diffused light source that wraps subjects uniformly from all directions. This light is extraordinarily flattering for skin tones, eliminates the harsh shadows of direct sunlight, and allows far greater flexibility in choosing shooting positions throughout the day rather than being locked to a short golden window. Highland Kenya — particularly Nyeri, Muranga, and the Aberdare foothills — frequently enjoys this type of light, making it an excellent year-round outdoor photography destination. Overcast sessions are particularly recommended for skin-tone-forward work, maternity shoots, and detailed editorial portraiture.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATIONS WE SHOOT -->
+<section class="outdoor-locations" id="locations">
+  <div class="outdoor-locations-header">
+    <div>
+      <p class="section-label">Where We Work</p>
+      <h2 class="section-title">Favourite <em>Kenyan Locations</em></h2>
+    </div>
+    <a href="locations.html" class="btn-ghost" style="white-space:nowrap;">All Locations</a>
+  </div>
+
+  <div class="locations-editorial">
+    <div class="loc-item">
+      <img src="https://i.pinimg.com/1200x/48/05/05/480505da4577c3030a7c90fed197332c.jpg" alt="Nairobi National Park" loading="lazy">
+      <div class="loc-item-overlay">
+        <div class="loc-item-name">Nairobi & Arboretum</div>
+        <div class="loc-item-tag">Urban · Parks · Garden · Forest</div>
+      </div>
+    </div>
+    <div class="loc-item large">
+      <img src="https://i.pinimg.com/736x/36/f6/51/36f651f2a6456b18602a2a6a7ba4e976.jpg" alt="Mount Kenya region" loading="lazy">
+      <div class="loc-item-overlay">
+        <div class="loc-item-name">Mount Kenya & Nyeri Region</div>
+        <div class="loc-item-tag">Highland · Forest · Mist · Dramatic Light</div>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="locations-editorial-bottom">
+    <div class="loc-item">
+      <img src="https://i.pinimg.com/736x/02/7b/8e/027b8e3379762631273c508d71cbe071.jpg" alt="Mombasa Coast" loading="lazy">
+      <div class="loc-item-overlay">
+        <div class="loc-item-name">Mombasa Coast</div>
+        <div class="loc-item-tag">Beach · Ocean · Sunset · Coral</div>
+      </div>
+    </div>
+    <div class="loc-item">
+      <img src="https://i.pinimg.com/736x/fd/ef/a9/fdefa997b495bcc9246ad44e644be087.jpg" alt="Rift Valley" loading="lazy">
+      <div class="loc-item-overlay">
+        <div class="loc-item-name">Rift Valley & Nakuru</div>
+        <div class="loc-item-tag">Lakes · Savannah · Flamingos · Escarpment</div>
+      </div>
+    </div>
+    <div class="loc-item">
+      <img src="https://i.pinimg.com/1200x/41/93/58/419358e42130561c0fb3c37100f55fb1.jpg" alt="Tea country Kericho" loading="lazy">
+      <div class="loc-item-overlay">
+        <div class="loc-item-name">Tea Estates & Highlands</div>
+        <div class="loc-item-tag">Tea Fields · Rolling Hills · Cool Air · Green</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPMENT STRIP -->
+<div class="equipment-strip">
+  <div class="equipment-inner">
+    <div class="equipment-text">
+      <p class="section-label">What We Carry</p>
+      <h2 class="section-title">Professional Gear.<br><em>Field-Ready.</em></h2>
+      <p class="equipment-desc">Every outdoor session is packed with full professional kit — not consumer gear pressed into service. Our outdoor kits include full-frame mirrorless camera bodies with dual card slots for redundancy, a curated selection of prime and zoom lenses covering wide to telephoto ranges, portable off-camera flash and LED continuous light systems for fill and creative lighting, carbon fibre tripods, neutral density filters for long-exposure creative work, and complete weather protection for all equipment. We also carry portable studio-quality reflectors, on-location preview monitors, and dedicated power banks to ensure our equipment remains fully operational through extended field sessions.</p>
+      <div class="equipment-tags">
+        <span class="equipment-tag">Full-Frame Mirrorless</span>
+        <span class="equipment-tag">Dual Camera Setup</span>
+        <span class="equipment-tag">Prime & Zoom Lenses</span>
+        <span class="equipment-tag">Off-Camera Flash</span>
+        <span class="equipment-tag">LED Continuous Light</span>
+        <span class="equipment-tag">5-in-1 Reflectors</span>
+        <span class="equipment-tag">ND Filters</span>
+        <span class="equipment-tag">Carbon-Fibre Tripods</span>
+        <span class="equipment-tag">Weather Protection</span>
+        <span class="equipment-tag">Location Monitor</span>
+        <span class="equipment-tag">Power Redundancy</span>
+        <span class="equipment-tag">RAW Capture</span>
+      </div>
+    </div>
+    <div>
+      <a href="booking.html" class="btn-primary" style="display:block; text-align:center; white-space:nowrap;">Book Outdoor Session</a>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT TO EXPECT / FAQ ACCORDION -->
+<section class="outdoor-expect" id="faq">
+  <div class="expect-inner">
+    <div class="expect-content">
+      <p class="section-label">Your Questions, Answered</p>
+      <h2 class="section-title">What to <em>Expect</em></h2>
+      <p class="expect-intro">Outdoor photography is a different experience from a studio session. Here are the most common questions our clients ask when booking an outdoor shoot — and our honest, detailed answers.</p>
+
+      <div class="expect-accordion">
+
+        <div class="accordion-item">
+          <div class="accordion-trigger">
+            <span class="accordion-trigger-text">What happens if it rains on our shoot day?</span>
+            <div class="accordion-icon">+</div>
+          </div>
+          <div class="accordion-body">All outdoor bookings include one free rescheduling if weather conditions are genuinely unsuitable — defined as sustained rain, storm warnings, or visibility below 50 metres. Light drizzle or passing cloud cover is generally not a reason to postpone, as diffused light often produces beautiful results. We make the weather call together with the client by 6:00 AM on the morning of the session. Your backup date is agreed at the time of booking so there is no stressful scrambling if a change is needed.</div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-trigger">
+            <span class="accordion-trigger-text">What should I wear for an outdoor session?</span>
+            <div class="accordion-icon">+</div>
+          </div>
+          <div class="accordion-body">Solid, complementary colours photograph best in natural environments — avoid very busy patterns that compete with landscape backgrounds. Earthy tones, cream, white, navy, terracotta, and olive green all work beautifully in Kenyan landscapes. Avoid neon colours which blow out in bright sunlight. Wear comfortable footwear suited to the terrain — heels on rocky ground or in grassland are rarely practical. Bring one or two outfit changes if your package allows for them. Full styling guidance is sent to every client in our pre-shoot briefing document.</div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-trigger">
+            <span class="accordion-trigger-text">Do you shoot in national parks and game reserves?</span>
+            <div class="accordion-icon">+</div>
+          </div>
+          <div class="accordion-body">Yes — we regularly shoot in Nairobi National Park, Hell's Gate, Lake Nakuru, and other KWS-managed areas. All required permits, conservation fees, and ranger escort fees are included in our premium location packages or quoted separately for bespoke requests. Note that some parks prohibit commercial photography without pre-approval — we handle this entire process on your behalf. Sessions in game reserves require the use of a vehicle and are subject to park operating hours.</div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-trigger">
+            <span class="accordion-trigger-text">How long does an outdoor session take?</span>
+            <div class="accordion-icon">+</div>
+          </div>
+          <div class="accordion-body">Most outdoor portrait sessions run between 1.5 and 3 hours depending on the package. We build in travel time within the location, outfit changes where applicable, and natural breaks. Because we schedule sessions around golden hour, punctuality at the agreed start time is important — the best light window is typically 45–60 minutes and we want to maximise that time for you. Longer sessions for events, extended families, or documentary-style storytelling projects are available with advance planning.</div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-trigger">
+            <span class="accordion-trigger-text">When will I receive my photos?</span>
+            <div class="accordion-icon">+</div>
+          </div>
+          <div class="accordion-body">Edited outdoor galleries are typically delivered within 5–7 business days of the session. Outdoor images require more extensive post-processing than studio work — colour correction for variable light, background cleanup, and careful skin tone balancing across a wide range of lighting conditions. Rush delivery within 48 hours is available as a premium add-on. All images are delivered via a private, password-protected online gallery with high-resolution downloads included.</div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-trigger">
+            <span class="accordion-trigger-text">Can I suggest my own location?</span>
+            <div class="accordion-icon">+</div>
+          </div>
+          <div class="accordion-body">Absolutely — and we actively encourage this. A personally meaningful location — the park where you first met, your family farm, the street where you grew up — produces images with emotional depth that no generic beautiful backdrop can match. We will assess the location in advance for shooting viability, lighting potential, and any permit requirements, and advise you accordingly. The only locations we cannot accommodate are those that present genuine safety risks or require equipment we do not carry.</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="packages" id="packages">
+  <div class="packages-header">
+    <p class="section-label">Transparent Pricing</p>
+    <h2 class="section-title">Outdoor <em>Packages</em></h2>
+  </div>
+  <div class="packages-grid">
+    <div class="pkg-card">
+      <div class="pkg-name">Explorer</div>
+      <div class="pkg-price">KES 12,000</div>
+      <div class="pkg-duration">1.5 Hr Session · 1 Location</div>
+      <ul class="pkg-features">
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>1–2 outfit changes</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>20 fully edited images</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Golden hour scheduling</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Private online gallery</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>1 free reschedule (weather)</li>
+      </ul>
+      <a href="https://wa.me/254745845976?text=Hi%20Focus%20Studios%2C%20I%27d%20like%20to%20book%20the%20Explorer%20outdoor%20package" class="pkg-cta" target="_blank">Book This Package</a>
+    </div>
+    <div class="pkg-card featured">
+      <div class="pkg-badge">Most Popular</div>
+      <div class="pkg-name">Landscape</div>
+      <div class="pkg-price">KES 22,000</div>
+      <div class="pkg-duration">2.5 Hr Session · Up to 2 Locations</div>
+      <ul class="pkg-features">
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>3 outfit changes</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>40 fully edited images</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Off-camera lighting included</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Background cleanup editing</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Pre-shoot styling guide</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Private gallery + USB</li>
+      </ul>
+      <a href="https://wa.me/254745845976?text=Hi%20Focus%20Studios%2C%20I%27d%20like%20to%20book%20the%20Landscape%20outdoor%20package" class="pkg-cta" target="_blank">Book This Package</a>
+    </div>
+    <div class="pkg-card">
+      <div class="pkg-name">Expedition</div>
+      <div class="pkg-price">KES 38,000</div>
+      <div class="pkg-duration">Full-Day · Multiple Locations</div>
+      <ul class="pkg-features">
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Sunrise to sunset coverage</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>60+ fully edited images</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Dedicated location scouting</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Park/reserve permits included</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Full creative direction & styling</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Print-ready files + USB + gallery</li>
+      </ul>
+      <a href="https://wa.me/254745845976?text=Hi%20Focus%20Studios%2C%20I%27d%20like%20to%20book%20the%20Expedition%20outdoor%20package" class="pkg-cta" target="_blank">Book This Package</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="gallery-header">
+    <div>
+      <p class="section-label">Our Work</p>
+      <h2 class="section-title">Outdoor <em>Portfolio</em></h2>
+    </div>
+    <a href="portfolio.html" class="btn-ghost">View Full Gallery</a>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="https://i.pinimg.com/736x/4b/2b/93/4b2b9375fb97c1396da7f1c019300f3c.jpg" alt="Outdoor couple portrait Kenya" loading="lazy">
+    </div>
+    <div class="gallery-item">
+      <img src="https://i.pinimg.com/736x/12/1e/71/121e718a0b230978f7533998aa9f3c91.jpg" alt="Outdoor landscape portrait" loading="lazy">
+    </div>
+    <div class="gallery-item">
+      <img src="https://i.pinimg.com/1200x/da/6c/ea/da6cea73e716f68c457aaae529a27d15.jpg" alt="Family outdoor session Kenya" loading="lazy">
+    </div>
+    <div class="gallery-item">
+      <img src="https://i.pinimg.com/1200x/03/47/ef/0347ef1e10a3c8cb740c10a4c98830fd.jpg" alt="Environmental portrait outdoors" loading="lazy">
+    </div>
+    <div class="gallery-item">
+      <img src="https://i.pinimg.com/736x/42/01/ed/4201ed768b93eb8c2f1ee71f5706e931.jpg" alt="Outdoor golden hour portrait" loading="lazy">
+    </div>
+    
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="testimonials-header">
+    <p class="section-label">From Our Clients</p>
+    <h2 class="section-title">What People <em>Say</em></h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="tcard">
+      <div class="tcard-stars">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="tcard-quote">"We did our engagement shoot in Karura Forest at sunrise. The light was unbelievable and our photographer knew exactly where to position us. These photos are the most beautiful we've ever seen of ourselves."</p>
+      <div class="tcard-author">Amina & Kelvin O.</div>
+      <div class="tcard-event">Engagement Session · Karura Forest, Nairobi</div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-stars">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="tcard-quote">"I was nervous about shooting outside because I thought the weather would ruin everything — it was overcast and I nearly cancelled. The photographer convinced me to continue and the photos came out softer and more beautiful than anything I'd seen. I'm so glad I didn't reschedule."</p>
+      <div class="tcard-author">Grace W.</div>
+      <div class="tcard-event">Solo Portrait · Nyeri Region</div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-stars">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="tcard-quote">"Family of six, two toddlers included. Somehow they kept everyone engaged, laughing, and looking great at the same time. The Expedition package was worth every shilling — we have photos I will print and frame for the rest of my life."</p>
+      <div class="tcard-author">The Muthoni Family</div>
+      <div class="tcard-event">Family Expedition Session · Lake Nakuru Area</div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="booking">
+  <div class="booking-inner">
+    <div class="booking-text">
+      <p class="section-label">Let's Get Outside</p>
+      <h2 class="section-title">Book Your<br><em>Outdoor Session</em></h2>
+      <p class="booking-desc">Whether you have a specific location in mind or want our recommendation, reach out today and we'll plan the perfect outdoor session together. WhatsApp is the fastest way to connect — our team responds within a few hours and we're happy to discuss your vision before you commit to a booking.</p>
+      <div class="booking-btns">
+        <a href="https://wa.me/254745845976?text=Hi%20Focus%20Studios%2C%20I%27d%20like%20to%20book%20an%20outdoor%20photography%20session" class="btn-primary" target="_blank">WhatsApp to Book</a>
+        <a href="tel:+254745845976" class="btn-ghost">Call: 0745 845 976</a>
+      </div>
+    </div>
+    <div class="booking-form" id="booking-form">
+      <h3>Book Your Session</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="Full name">
+        </div>
+        <div class="form-group">
+          <label>Phone / WhatsApp</label>
+          <input type="tel" placeholder="+254 7XX XXX XXX">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Preferred Date</label>
+          <input type="date">
+        </div>
+        <div class="form-group">
+          <label>Session Type</label>
+          <select>
+            <option>Couples / Engagement</option>
+            <option selected>Family & Lifestyle</option>
+            <option>Solo Portrait</option>
+            <option>Nature & Adventure</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Package</label>
+          <select>
+            <option>Explorer – KES 12,000</option>
+            <option selected>Landscape – KES 22,000</option>
+            <option>Expedition – KES 38,000</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Preferred Location</label>
+          <input type="text" placeholder="e.g. Karura Forest, Nyeri...">
+        </div>
+      </div>
+      <button class="form-submit" onclick="alert('Thank you! Our outdoor photography team will reach out within a few hours to discuss your session.')">...venture <span><img src="park.png" alt="park icon"></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="logo-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2">
+            <circle cx="12" cy="12" r="2.5"/>
+            <path d="M6.5 6.5h1.8l1.2-2h5l1.2 2h1.8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"/>
+          </svg>
+          <img src="logo.png" alt="logo">
+        </div>
+        <div class="logo-text">
+          <span class="logo-sub">Focus Studios · Kenya</span>
+        </div>
+      </a>
+      <p class="footer-brand-desc">Nairobi-based photography studio providing premium services across Kenya. Weddings, events, portraits and commercial photography — delivered with speed and quality.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="booking.html">Book a Session</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="weddings.html">Weddings &amp; Events</a></li>
+        <li><a href="studio.html">Studio Portraits</a></li>
+        <li><a href="corporate.html">Corporate</a></li>
+        <li><a href="birthdays.html">Birthdays &amp; Baby Showers</a></li>
+        <li><a href="graduations.html">Graduations</a></li>
+        <li><a href="products.html">Products &amp; Branding</a></li>
+        <li><a href="outdoor.html">Outdoor</a></li>
+        <li style="display: none;"><a href="videography.html">Videography</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Get in Touch</div>
+      <div class="footer-contact-item"><span><img src="phone.png" alt="phone"></span> +254 745 845 976</div>
+      <div class="footer-contact-item"><span><img src="mail.png" alt="mail"></span> info@focusstudios.co.ke</div>
+      <div class="footer-contact-item"><span><img src="location.png" alt="location"></span> Westlands, Nairobi, Kenya</div>
+      <div class="footer-contact-item"><span><img src="clock.png" alt="clock"></span> Mon–Sat: 8:00 AM – 6:00 PM</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Focus Studios. All Rights Reserved.</span>
+    <div class="social-links">
+      <a href="#" class="social-link" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="TikTok">
+        <svg viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="YouTube">
+        <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.54C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── SIDEBAR ──
+const menuBtn = document.getElementById('menuBtn');
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('sidebarOverlay');
+function openSidebar() { menuBtn.classList.add('open'); sidebar.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeSidebar() { menuBtn.classList.remove('open'); sidebar.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow = ''; }
+menuBtn.addEventListener('click', () => sidebar.classList.contains('open') ? closeSidebar() : openSidebar());
+overlay.addEventListener('click', closeSidebar);
+document.querySelectorAll('.sidebar-group-label').forEach(label => {
+  label.addEventListener('click', () => {
+    const sub = document.getElementById(label.dataset.target);
+    const isOpen = sub.classList.contains('open');
+    document.querySelectorAll('.sidebar-sub').forEach(s => s.classList.remove('open'));
+    document.querySelectorAll('.sidebar-group-label').forEach(l => l.classList.remove('open'));
+    if (!isOpen) { sub.classList.add('open'); label.classList.add('open'); }
+  });
+});
+
+// ── ACCORDION ──
+document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+  trigger.addEventListener('click', () => {
+    const item = trigger.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// ── SCROLL REVEAL ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.scene-card, .challenge-block, .pkg-card, .tcard, .light-card, .prepare-step, .loc-item').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(28px)';
+  el.style.transition = 'opacity 0.65s ease, transform 0.65s ease';
+  observer.observe(el);
+});
+</script>
+
+<!-- ══ SCROLL TO TOP ══ -->
+<div id="scrollTopWrapper">
+  <button id="scrollTopBtn" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+  <script>
+    (function () {
+      const btn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', function () {
+        btn.classList.toggle('visible', window.scrollY > 400);
+      }, { passive: true });
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</div>
+</body>
+</html>

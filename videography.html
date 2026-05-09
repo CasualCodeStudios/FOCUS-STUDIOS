@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Videography Services – Focus Studios Kenya</title>
+<meta name="description" content="Professional videography across Kenya — weddings, corporate films, documentaries, commercials and more. Cinematic quality, professional delivery. Book Focus Studios today.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles (1).css">
+
+<style>
+/* ═══════════════════════════════════════════════════
+   VIDEOGRAPHY PAGE – Specific Styles
+   ═══════════════════════════════════════════════════ */
+
+/* ── PAGE HERO ── */
+.page-video .hero-img-bg {
+  background: url('https://i.pinimg.com/1200x/6c/2e/0b/6c2e0b1e2c8e2e6e2e6e2e6e2e6e2e6e.jpg') center 50%/cover no-repeat;
+  animation: heroZoom 14s ease-out forwards;
+}
+
+/* Fallback solid bg in case image fails */
+.page-video .hero-img-bg {
+  background-color: #0a0a0a;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 60% 40%, rgba(201,168,76,0.07) 0%, transparent 65%),
+    url('https://images.unsplash.com/photo-1601506521793-dc748fc80b67?w=1600&q=80') center/cover no-repeat;
+}
+
+.page-video .hero-bg {
+  background:
+    linear-gradient(to right, rgba(10,10,10,0.82) 45%, rgba(10,10,10,0.15) 100%),
+    linear-gradient(to top, rgba(10,10,10,0.75) 0%, transparent 55%);
+}
+
+/* ── PLAY BUTTON BADGE on hero ── */
+.hero-play-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  color: var(--white-dim);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.hero-play-badge:hover { color: var(--gold); }
+
+.play-circle {
+  width: 48px; height: 48px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.hero-play-badge:hover .play-circle {
+  background: rgba(201,168,76,0.15);
+}
+
+.play-circle svg {
+  width: 14px; height: 14px;
+  fill: var(--gold);
+  margin-left: 2px;
+}
+
+/* ── VIDEO LIGHTBOX ── */
+.video-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(0,0,0,0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.video-lightbox.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.video-lightbox-inner {
+  position: relative;
+  width: min(900px, 92vw);
+  aspect-ratio: 16/9;
+}
+
+.video-lightbox-inner iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -3rem;
+  right: 0;
+  background: none;
+  border: none;
+  color: var(--white-dim);
+  font-size: 1.4rem;
+  cursor: pointer;
+  letter-spacing: 0.15em;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.2s;
+}
+
+.lightbox-close:hover { color: var(--gold); }
+
+/* ── REEL GRID ── */
+.video-reels {
+  padding: 7rem 4rem;
+  background: var(--dark);
+}
+
+.video-reels-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 4rem;
+}
+
+.reels-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2px;
+  margin-bottom: 2px;
+}
+
+.reels-grid-bottom {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.reel-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--dark-2);
+}
+
+.reel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 280px;
+  filter: brightness(0.6) saturate(1.1);
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.reel-item:hover img {
+  transform: scale(1.05);
+  filter: brightness(0.45);
+}
+
+.reel-item.large img { min-height: 460px; }
+
+.reel-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+  background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, transparent 55%);
+  transition: background 0.4s;
+}
+
+.reel-item:hover .reel-overlay {
+  background: linear-gradient(to top, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.3) 100%);
+}
+
+.reel-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.85);
+  width: 60px; height: 60px;
+  border: 1.5px solid rgba(201,168,76,0.7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.reel-play svg {
+  width: 18px; height: 18px;
+  fill: var(--gold);
+  margin-left: 3px;
+}
+
+.reel-item:hover .reel-play {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.reel-tag {
+  font-size: 0.55rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.reel-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+/* ── VIDEO TYPES / SERVICES GRID ── */
+.video-services {
+  padding: 7rem 4rem;
+  background: var(--black);
+}
+
+.video-services-header { margin-bottom: 4rem; }
+
+.vservice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.vservice-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--dark-2);
+  border: 0.5px solid var(--border);
+  padding: 2.5rem 2rem;
+  transition: border-color 0.3s, background 0.3s;
+  cursor: default;
+}
+
+.vservice-card:hover {
+  border-color: var(--gold-dim);
+  background: var(--dark-3);
+}
+
+.vservice-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--gold);
+  transition: width 0.45s ease;
+}
+
+.vservice-card:hover::before { width: 100%; }
+
+.vservice-num {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: rgba(201,168,76,0.07);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  user-select: none;
+  transition: color 0.3s;
+}
+
+.vservice-card:hover .vservice-num { color: rgba(201,168,76,0.18); }
+
+.vservice-icon {
+  width: 44px; height: 44px;
+  border: 0.5px solid var(--gold-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.vservice-card:hover .vservice-icon {
+  border-color: var(--gold);
+  background: rgba(201,168,76,0.08);
+}
+
+.vservice-icon svg {
+  width: 20px; height: 20px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.vservice-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.vservice-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 0.8rem;
+  line-height: 1.2;
+  font-style: italic;
+}
+
+.vservice-body {
+  font-size: 0.78rem;
+  color: var(--white-dim);
+  line-height: 1.9;
+  margin-bottom: 1.2rem;
+}
+
+.vservice-includes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.vservice-includes li {
+  font-size: 0.7rem;
+  color: rgba(250,250,248,0.5);
+  padding-left: 1rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.vservice-includes li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--gold-dim);
+}
+
+/* ── PROCESS TIMELINE ── */
+.video-process {
+  padding: 7rem 4rem;
+  background: var(--dark);
+}
+
+.video-process-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.process-img-block { position: relative; }
+
+.process-img-block img {
+  width: 100%;
+  height: 580px;
+  object-fit: cover;
+  display: block;
+}
+
+.process-img-accent {
+  position: absolute;
+  top: -1.5rem;
+  right: -1.5rem;
+  width: 160px;
+  height: 160px;
+  border: 1px solid var(--gold-dim);
+  pointer-events: none;
+}
+
+.process-img-badge {
+  position: absolute;
+  bottom: 2.5rem;
+  left: -1.5rem;
+  background: var(--gold);
+  color: var(--black);
+  padding: 1.4rem 1.8rem;
+}
+
+.process-img-badge strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.process-img-badge span {
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.process-content .section-title { margin-bottom: 1rem; }
+
+.process-desc {
+  font-size: 0.83rem;
+  color: var(--white-dim);
+  line-height: 1.95;
+  margin-bottom: 2.5rem;
+}
+
+.process-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-left: 1px solid var(--border);
+  padding-left: 2rem;
+}
+
+.process-step {
+  position: relative;
+  padding-bottom: 2rem;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.process-step.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.process-step:last-child { padding-bottom: 0; }
+
+.process-step::before {
+  content: '';
+  position: absolute;
+  left: -2.37rem;
+  top: 0.35rem;
+  width: 11px; height: 11px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+}
+
+.process-step-label {
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+
+.process-step-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.process-step-body {
+  font-size: 0.77rem;
+  color: var(--white-dim);
+  line-height: 1.8;
+}
+
+/* ── TECHNICAL SPECS ── */
+.tech-strip {
+  padding: 4rem;
+  background: var(--dark-2);
+  border-top: 0.5px solid var(--border);
+  border-bottom: 0.5px solid var(--border);
+}
+
+.tech-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4rem;
+  align-items: center;
+}
+
+.tech-desc {
+  font-size: 0.82rem;
+  color: var(--white-dim);
+  line-height: 1.85;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+
+.tech-tag {
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 0.5px solid var(--border);
+  padding: 0.35rem 0.85rem;
+  background: rgba(201,168,76,0.05);
+}
+
+/* ── RESOLUTION SPECS ROW ── */
+.res-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.res-card {
+  border: 0.5px solid var(--border);
+  padding: 1.75rem 1.5rem;
+  background: var(--dark-3);
+  text-align: center;
+  transition: border-color 0.3s;
+}
+
+.res-card:hover { border-color: var(--gold-dim); }
+
+.res-value {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.res-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  margin-bottom: 0.5rem;
+}
+
+.res-desc {
+  font-size: 0.72rem;
+  color: rgba(250,250,248,0.45);
+  line-height: 1.6;
+}
+
+/* ── FAQ ACCORDION ── */
+.video-faq {
+  padding: 7rem 4rem;
+  background: var(--black);
+}
+
+.video-faq-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: start;
+}
+
+.faq-content .section-title { margin-bottom: 1.25rem; }
+
+.faq-intro {
+  font-size: 0.83rem;
+  color: var(--white-dim);
+  line-height: 1.95;
+  margin-bottom: 2.5rem;
+}
+
+/* reuses accordion styles from outdoor.html */
+
+.faq-img-block {
+  position: relative;
+}
+
+.faq-img-block img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  display: block;
+}
+
+.faq-img-block::after {
+  content: '';
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  bottom: -1.5rem;
+  left: -1.5rem;
+  border: 1px solid var(--gold-dim);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.faq-img-block img { position: relative; z-index: 1; }
+
+/* ── DELIVERABLES ROW ── */
+.deliverables {
+  padding: 5rem 4rem;
+  background: var(--dark);
+}
+
+.deliverables-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 0.5px solid var(--border);
+  margin-top: 3rem;
+}
+
+.deliv-cell {
+  background: var(--dark-3);
+  padding: 2rem 1.75rem;
+  transition: background 0.3s;
+}
+
+.deliv-cell:hover { background: var(--dark-2); }
+
+.deliv-icon {
+  width: 40px; height: 40px;
+  border: 0.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  transition: border-color 0.3s;
+}
+
+.deliv-cell:hover .deliv-icon { border-color: var(--gold-dim); }
+
+.deliv-icon svg {
+  width: 18px; height: 18px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.deliv-label {
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.deliv-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 0.6rem;
+}
+
+.deliv-body {
+  font-size: 0.75rem;
+  color: var(--white-dim);
+  line-height: 1.75;
+}
+
+/* ── PACKAGES ── */
+/* reuses global .packages, .pkg-card */
+
+/* ── TESTIMONIALS ── */
+/* reuses global .testimonials, .tcard */
+
+/* ══════════════════════════════════════════
+   RESPONSIVE – VIDEO PAGE
+   ══════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .video-reels { padding: 4rem 1.5rem; }
+  .video-reels-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .reels-grid { grid-template-columns: 1fr; }
+  .reels-grid-bottom { grid-template-columns: 1fr 1fr; }
+
+  .video-services { padding: 4rem 1.5rem; }
+  .vservice-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+
+  .video-process { padding: 4rem 1.5rem; }
+  .video-process-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .process-img-block img { height: 360px; }
+  .process-img-badge { left: 0.5rem; }
+  .process-img-accent { right: 0; top: 0; }
+
+  .tech-strip { padding: 3rem 1.5rem; }
+  .tech-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .res-row { grid-template-columns: 1fr 1fr; }
+
+  .video-faq { padding: 4rem 1.5rem; }
+  .video-faq-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .faq-img-block img { height: 340px; }
+
+  .deliverables { padding: 3.5rem 1.5rem; }
+  .deliverables-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 600px) {
+  .reels-grid-bottom { grid-template-columns: 1fr; }
+  .res-row { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .deliverables-grid { grid-template-columns: 1fr; }
+  .reel-item img, .reel-item.large img { min-height: 240px; }
+}
+</style>
+</head>
+<body class="page-video">
+
+<!-- ══ NAVIGATION ══ -->
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2">
+        <circle cx="12" cy="12" r="2.5"/>
+        <path d="M6.5 6.5h1.8l1.2-2h5l1.2 2h1.8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"/>
+      </svg>
+      <img src="logo.png" alt="logo">
+    </div>
+    <div class="logo-text">
+      <span class="logo-sub">Focus Studios</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li class="nav-item">
+      <a href="services.html" id="myServices">Services</a>
+      <script>document.getElementById("myServices").addEventListener("click",e=>e.preventDefault());</script>
+      <ul class="dropdown">
+        <li><a href="weddings.html">Weddings &amp; Events</a></li>
+        <li><a href="studio.html">Studio Portraits</a></li>
+        <li><a href="corporate.html">Corporate</a></li>
+        <li><a href="birthdays.html">Birthdays &amp; Baby Showers</a></li>
+        <li><a href="graduations.html">Graduations</a></li>
+        <li><a href="products.html">Products &amp; Branding</a></li>
+        <li><a href="outdoor.html">Outdoor</a></li>
+        <li><a href="videography.html">Videography</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a href="#" id="myLocations">Locations</a>
+      <script>document.getElementById("myLocations").addEventListener("click",e=>e.preventDefault());</script>
+      <ul class="dropdown">
+        <li><a href="locations/nairobi.html">Nairobi</a></li>
+        <li><a href="locations/mombasa.html">Mombasa</a></li>
+        <li><a href="locations/nyeri.html">Nyeri</a></li>
+        <li><a href="locations/nakuru.html">Nakuru</a></li>
+        <li><a href="locations/thika.html">Thika</a></li>
+      </ul>
+    </li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="booking.html" class="nav-cta">Book a Session</a></li>
+  </ul>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+  <ul class="sidebar-nav">
+    <li>
+      <span class="sidebar-group-label" data-target="sub-services">Services</span>
+      <ul class="sidebar-sub" id="sub-services">
+        <li><a href="weddings.html">Weddings &amp; Events</a></li>
+        <li><a href="studio.html">Studio Portraits</a></li>
+        <li><a href="corporate.html">Corporate</a></li>
+        <li><a href="birthdays.html">Birthdays &amp; Baby Showers</a></li>
+        <li><a href="graduations.html">Graduations</a></li>
+        <li><a href="products.html">Products &amp; Branding</a></li>
+        <li><a href="outdoor.html">Outdoor</a></li>
+        <li><a href="videography.html">Videography</a></li>
+      </ul>
+    </li>
+    <li>
+      <span class="sidebar-group-label" data-target="sub-locations">Locations</span>
+      <ul class="sidebar-sub" id="sub-locations">
+        <li><a href="locations/nairobi.html">Nairobi</a></li>
+        <li><a href="locations/mombasa.html">Mombasa</a></li>
+        <li><a href="locations/nyeri.html">Nyeri</a></li>
+        <li><a href="locations/nakuru.html">Nakuru</a></li>
+        <li><a href="locations/thika.html">Thika</a></li>
+      </ul>
+    </li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+  <a href="booking.html" class="sidebar-cta">Book a Session</a>
+</aside>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-img-bg"></div>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="innerWrapper">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span>›</span>
+        <a href="videography.html" style="color:var(--gold);">Videography</a>
+      </div>
+      <span class="hero-tag">Cinematic Videography · Kenya</span>
+      <h1 class="hero-title">Your Story,<br><em>In Motion</em></h1>
+      <p class="hero-desc">From intimate wedding films to high-impact brand commercials — we craft cinematic video content that moves people, drives business, and outlasts the moment. Professional videography across Kenya, delivered with precision and heart.</p>
+      <div class="hero-btns">
+        <a href="booking.html" class="btn-primary">Book Your Film</a>
+        <a href="#services" class="btn-ghost">See What We Shoot</a>
+      </div>
+      <button class="hero-play-badge" id="openReel">
+        <div class="play-circle">
+          <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+        Watch Our Showreel
+      </button>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div><span class="scroll-text">Scroll to explore</span></div>
+</section>
+
+<!-- ══ STATS STRIP ══ -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <div class="stat-icon">
+      <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.54C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+    </div>
+    <div><div class="stat-value">4K Cinema</div><div class="stat-label">Ultra HD Delivery</div></div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    </div>
+    <div><div class="stat-value">All Genres</div><div class="stat-label">Weddings to Commercials</div></div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    </div>
+    <div><div class="stat-value">7–10 Days</div><div class="stat-label">Turnaround</div></div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">
+      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </div>
+    <div><div class="stat-value">Licensed Music</div><div class="stat-label">Soundtrack Included</div></div>
+  </div>
+</div>
+
+<!-- ══ PORTFOLIO REEL GRID ══ -->
+<section class="video-reels" id="portfolio">
+  <div class="video-reels-header">
+    <div>
+      <p class="section-label">Our Work</p>
+      <h2 class="section-title">Recent <em>Productions</em></h2>
+    </div>
+    <a href="#packages" class="btn-ghost" style="white-space:nowrap;">View Packages</a>
+  </div>
+
+  <div class="reels-grid">
+    <div class="reel-item large" data-video="https://www.youtube.com/embed/ysz5S6PUM-U">
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80" alt="Wedding film" loading="lazy">
+      <div class="reel-overlay">
+        <div class="reel-tag">Wedding Film</div>
+        <div class="reel-title">Faith & Daniel — <br>A Nairobi Love Story</div>
+      </div>
+      <div class="reel-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+    </div>
+    <div class="reel-item" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
+      <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=700&q=80" alt="Corporate film" loading="lazy">
+      <div class="reel-overlay">
+        <div class="reel-tag">Corporate Film</div>
+        <div class="reel-title">Brand Story — Equity Group</div>
+      </div>
+      <div class="reel-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+    </div>
+  </div>
+
+  <div class="reels-grid-bottom">
+    <div class="reel-item" data-video="https://www.youtube.com/embed/ysz5S6PUM-U">
+      <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80" alt="Event coverage" loading="lazy">
+      <div class="reel-overlay">
+        <div class="reel-tag">Event Coverage</div>
+        <div class="reel-title">Gala Night — Nairobi</div>
+      </div>
+      <div class="reel-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+    </div>
+    <div class="reel-item" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Documentary" loading="lazy">
+      <div class="reel-overlay">
+        <div class="reel-tag">Documentary</div>
+        <div class="reel-title">Roots — A Kenya Story</div>
+      </div>
+      <div class="reel-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+    </div>
+    <div class="reel-item" data-video="https://www.youtube.com/embed/ysz5S6PUM-U">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Commercial" loading="lazy">
+      <div class="reel-overlay">
+        <div class="reel-tag">Commercial</div>
+        <div class="reel-title">Product Launch — Nairobi</div>
+      </div>
+      <div class="reel-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ VIDEO SERVICES ══ -->
+<section class="video-services" id="services">
+  <div class="video-services-header">
+    <p class="section-label">What We Film</p>
+    <h2 class="section-title">Videography <em>Services</em></h2>
+    <p style="font-size:0.85rem;color:var(--white-dim);line-height:1.85;max-width:600px;margin-top:1rem;">Every video project is different. We approach each one with a fresh creative eye, tailored pre-production planning, and the technical expertise to deliver cinematic results — whatever the genre.</p>
+  </div>
+
+  <div class="vservice-grid">
+
+    <div class="vservice-card">
+      <div class="vservice-num">01</div>
+      <div class="vservice-icon">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <div class="vservice-label">Romance</div>
+      <div class="vservice-title">Wedding Films</div>
+      <p class="vservice-body">Your wedding day is the most cinematic story you will ever live. We don't just record it — we craft a film. Emotional, beautifully edited, and scored with licensed music that matches your love story's mood. From the quiet anticipation of the morning preparation to the euphoria of the first dance, every beat is captured and woven into a film you will watch for the rest of your lives.</p>
+      <ul class="vservice-includes">
+        <li>Full-day dual-camera coverage</li>
+        <li>Highlight film (3–6 minutes) + full ceremony cut</li>
+        <li>Drone aerial footage where permitted</li>
+        <li>Licensed soundtrack selection</li>
+        <li>Same-day teaser (premium packages)</li>
+        <li>Private Vimeo delivery + USB</li>
+      </ul>
+    </div>
+
+    <div class="vservice-card">
+      <div class="vservice-num">02</div>
+      <div class="vservice-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <div class="vservice-label">Brand</div>
+      <div class="vservice-title">Corporate & Brand Films</div>
+      <p class="vservice-body">A powerful brand film can do more for your business than any advertisement. We produce company profile videos, CEO interviews, product launch films, annual report videos, and internal communications content that positions your brand with authority and visual excellence. We work with Kenya's leading companies and growing SMEs — and we bring the same cinematic quality to every budget level.</p>
+      <ul class="vservice-includes">
+        <li>Scripting and creative direction</li>
+        <li>Professional teleprompter setup</li>
+        <li>Multi-camera interview setups</li>
+        <li>Colour grading in cinematic LUTs</li>
+        <li>Motion graphics and lower thirds</li>
+        <li>Deliverables for broadcast, web & social</li>
+      </ul>
+    </div>
+
+    <div class="vservice-card">
+      <div class="vservice-num">03</div>
+      <div class="vservice-icon">
+        <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+      </div>
+      <div class="vservice-label">Events</div>
+      <div class="vservice-title">Event Coverage</div>
+      <p class="vservice-body">Concerts, galas, product launches, award ceremonies, conferences and cultural events — our multi-camera event coverage ensures that no moment is missed and every highlight is captured with broadcast-quality precision. We produce both a raw, uncut record and a crafted highlights edit suitable for social media, press, and archive purposes.</p>
+      <ul class="vservice-includes">
+        <li>Multi-camera live event coverage</li>
+        <li>Highlights reel (2–5 minutes)</li>
+        <li>Full uncut footage archive</li>
+        <li>Social media vertical cuts included</li>
+        <li>Same-day turnaround available</li>
+        <li>On-site monitor director available</li>
+      </ul>
+    </div>
+
+    <div class="vservice-card">
+      <div class="vservice-num">04</div>
+      <div class="vservice-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </div>
+      <div class="vservice-label">Storytelling</div>
+      <div class="vservice-title">Documentaries</div>
+      <p class="vservice-body">Kenya's communities, landscapes, and human stories deserve to be told with depth and integrity. Our documentary work spans social impact projects, NGO field films, cultural heritage documentation, and personal stories. We approach documentary production with journalistic rigour, sensitivity, and the visual craft needed to make complex stories accessible and compelling to a global audience.</p>
+      <ul class="vservice-includes">
+        <li>Full pre-production research & scripting</li>
+        <li>Extended shoot schedules across locations</li>
+        <li>Verite and interview hybrid styles</li>
+        <li>Licensed or original score</li>
+        <li>Festival and broadcast deliverable formats</li>
+        <li>Subtitling and voice-over available</li>
+      </ul>
+    </div>
+
+    <div class="vservice-card">
+      <div class="vservice-num">05</div>
+      <div class="vservice-icon">
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      </div>
+      <div class="vservice-label">Commerce</div>
+      <div class="vservice-title">Product & Commercial</div>
+      <p class="vservice-body">Sell more. Product videos increase conversion rates dramatically on e-commerce platforms. Our commercial production team shoots product hero films, unboxing sequences, lifestyle product videos, and full TVC-grade advertising spots. We understand the Kenyan consumer market and create content that resonates locally while meeting international production standards.</p>
+      <ul class="vservice-includes">
+        <li>Product styling and art direction</li>
+        <li>Macro and detail shots</li>
+        <li>Lifestyle integration shoots</li>
+        <li>Motion graphics and text overlays</li>
+        <li>Platform-optimised exports (TV, YouTube, Meta)</li>
+        <li>Multiple cut lengths for ad formats</li>
+      </ul>
+    </div>
+
+    <div class="vservice-card">
+      <div class="vservice-num">06</div>
+      <div class="vservice-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div class="vservice-label">Personal</div>
+      <div class="vservice-title">Family & Lifestyle</div>
+      <p class="vservice-body">A family film is one of the most precious things you can commission. Newborn days, birthday milestones, anniversary celebrations, family reunions — we create intimate, beautifully filmed memories that capture not just what people look like, but how they feel with each other. Narrated, music-driven, or natural-sound — we tailor the style entirely to your family's personality.</p>
+      <ul class="vservice-includes">
+        <li>2–4 hour lifestyle shoot</li>
+        <li>Cinematic highlights film (3–5 min)</li>
+        <li>Natural audio or licensed music</li>
+        <li>Colour graded in warm, timeless tones</li>
+        <li>Private online delivery + USB</li>
+        <li>Print-ready thumbnail stills included</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ PRODUCTION PROCESS ══ -->
+<section class="video-process">
+  <div class="video-process-inner">
+    <div class="process-img-block">
+      <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&q=80" alt="Videographer behind the camera" loading="lazy">
+      <div class="process-img-accent"></div>
+      <div class="process-img-badge">
+        <strong>3-Stage</strong>
+        <span>Production Process</span>
+      </div>
+    </div>
+    <div class="process-content">
+      <p class="section-label">How It Works</p>
+      <h2 class="section-title">From Brief to<br><em>Finished Film</em></h2>
+      <p class="process-desc">Great video isn't made on the day of the shoot — it's built across three carefully managed stages. Every project we take on goes through this process, whether it's a 90-second social reel or a full wedding feature film.</p>
+
+      <div class="process-steps" id="processSteps">
+        <div class="process-step">
+          <div class="process-step-label">Stage 01 · Pre-Production</div>
+          <div class="process-step-title">Discovery & Creative Planning</div>
+          <p class="process-step-body">We start with a detailed brief — understanding your vision, audience, message, and must-have moments. From this we develop a shot list, run-of-show schedule, location plan, talent and equipment requirements, and a production timeline. Nothing reaches camera day without a plan.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-step-label">Stage 02 · Production</div>
+          <div class="process-step-title">Shoot Day — Capturing the Film</div>
+          <p class="process-step-body">Our camera teams shoot with cinema-grade Sony, Canon, and DJI equipment across multiple cameras and angles. Audio is captured with professional wireless lavalier and directional microphone systems. Drone flights are handled by a licensed remote pilot where applicable. Every card is backed up on-site before we leave.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-step-label">Stage 03 · Post-Production</div>
+          <div class="process-step-title">Edit, Grade & Deliver</div>
+          <p class="process-step-body">Footage is logged, organised and edited in Adobe Premiere Pro. Colour grading in DaVinci Resolve brings the visual tone to life. Licensed music is synchronised and mixed with location audio. You receive a first cut for review, one round of revisions, and the final approved export in all required formats. Delivery is via private link and USB.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-step-label">Stage 04 · Distribution</div>
+          <div class="process-step-title">Platform-Ready Exports</div>
+          <p class="process-step-body">We don't just hand you one file. Every project is exported in formats optimised for your specific platforms — broadcast-grade H.264/H.265 masters, YouTube-ready uploads, compressed social media versions, vertical 9:16 cuts for Reels and TikTok, and compressed WhatsApp-ready previews. Your film works everywhere.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TECH SPECS STRIP ══ -->
+<div class="tech-strip">
+  <div class="tech-inner">
+    <div>
+      <p class="section-label">Our Equipment</p>
+      <h2 class="section-title">Cinema-Grade<br><em>Technology</em></h2>
+      <p class="tech-desc">We shoot with professional cinema and mirrorless systems — not consumer video cameras. Our kit includes Sony FX3 and FX6 cinema lines, Canon EOS C70, DJI Ronin gimbals, DJI Mavic 3 Pro drones, Sennheiser wireless audio systems, Aputure LED cinema lighting, and Atomos external recorders for RAW video capture. Every element of our technical setup is chosen to produce images that hold up at any screen size — from a smartphone to a cinema projection.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Sony FX3 / FX6</span>
+        <span class="tech-tag">Canon EOS C70</span>
+        <span class="tech-tag">DJI Mavic 3 Pro Drone</span>
+        <span class="tech-tag">DJI RS3 Pro Gimbal</span>
+        <span class="tech-tag">Sennheiser Wireless Audio</span>
+        <span class="tech-tag">Aputure Cinema Lights</span>
+        <span class="tech-tag">Atomos RAW Recorder</span>
+        <span class="tech-tag">DaVinci Resolve Grade</span>
+        <span class="tech-tag">Adobe Premiere Pro Edit</span>
+        <span class="tech-tag">Licensed Music Library</span>
+        <span class="tech-tag">Dual Backup Cards</span>
+        <span class="tech-tag">On-Site Backup NAS</span>
+      </div>
+    </div>
+    <div>
+      <a href="booking.html" class="btn-primary" style="display:block;text-align:center;white-space:nowrap;">Book a Video Session</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══ RESOLUTION SPECS ROW ══ -->
+<div style="padding: 3rem 4rem; background: var(--dark-2);">
+  <div style="max-width:1200px; margin:0 auto;">
+    <div class="res-row">
+      <div class="res-card">
+        <div class="res-value">4K</div>
+        <div class="res-label">Cinema Ultra HD</div>
+        <div class="res-desc">3840×2160 — our standard delivery resolution for all productions. Future-proofed for any screen.</div>
+      </div>
+      <div class="res-card">
+        <div class="res-value">120</div>
+        <div class="res-label">FPS Slow Motion</div>
+        <div class="res-desc">Up to 120 frames per second for silky, cinematic slow-motion sequences in highlight films.</div>
+      </div>
+      <div class="res-card">
+        <div class="res-value">Log</div>
+        <div class="res-label">S-Log3 / C-Log</div>
+        <div class="res-desc">Flat colour profiles preserve maximum dynamic range for rich, controlled colour grading in post.</div>
+      </div>
+      <div class="res-card">
+        <div class="res-value">24bit</div>
+        <div class="res-label">Audio Depth</div>
+        <div class="res-desc">Broadcast-quality audio recording with dual redundant tracks and on-camera mix monitoring.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ DELIVERABLES ══ -->
+<section class="deliverables">
+  <p class="section-label">What You Receive</p>
+  <h2 class="section-title">Every <em>Deliverable</em></h2>
+  <p style="font-size:0.85rem;color:var(--white-dim);line-height:1.85;max-width:600px;margin-top:0.5rem;">We believe in complete, transparent delivery. You'll always know exactly what's included before you book.</p>
+
+  <div class="deliverables-grid">
+    <div class="deliv-cell">
+      <div class="deliv-icon">
+        <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+      </div>
+      <div class="deliv-label">Film</div>
+      <div class="deliv-title">Highlight Film</div>
+      <p class="deliv-body">A cinematic, music-driven edit of your best moments — typically 3 to 8 minutes long depending on your package. Colour graded, mixed, and ready to share.</p>
+    </div>
+    <div class="deliv-cell">
+      <div class="deliv-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7"/></svg>
+      </div>
+      <div class="deliv-label">Archive</div>
+      <div class="deliv-title">Full Footage Archive</div>
+      <p class="deliv-body">The complete uncut footage from the day — organised, labelled, and exported in high quality. Yours to keep, forever. Included in Signature and above packages.</p>
+    </div>
+    <div class="deliv-cell">
+      <div class="deliv-icon">
+        <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+      </div>
+      <div class="deliv-label">Social</div>
+      <div class="deliv-title">Social Media Cuts</div>
+      <p class="deliv-body">Vertical 9:16 cuts optimised for Instagram Reels, TikTok, and YouTube Shorts. Horizontal 16:9 cuts for YouTube and Facebook. All sized and compressed correctly.</p>
+    </div>
+    <div class="deliv-cell">
+      <div class="deliv-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      </div>
+      <div class="deliv-label">Access</div>
+      <div class="deliv-title">Private Online Link</div>
+      <p class="deliv-body">All files delivered via a password-protected Vimeo or Google Drive link. Download at full quality anytime. USB drive included in premium packages.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="video-faq" id="faq">
+  <div class="video-faq-inner">
+    <div class="faq-content">
+      <p class="section-label">Your Questions, Answered</p>
+      <h2 class="section-title">Frequently <em>Asked</em></h2>
+      <p class="faq-intro">Everything you need to know before booking a video project with Focus Studios. Honest, detailed answers — no sales fluff.</p>
+
+      <div class="expect-accordion">
+
+        <div class="accordion-item">
+          <div class="accordion-trigger">
+            <span class="accordion-trigger-text">How far in advance should I book?</span>
+            <div class="accordion-icon">+</div>
+          </div>
+          <div class="accordion-body">For weddings and large events, we recommend booking at least 3–6 months in advance, particularly for peak season (December, August, and long weekends). For corporate and commercial projects, 3–6 weeks typically allows for proper pre-production planning. We do accommodate short-notice bookings where our schedule allows — reach out via WhatsApp for availability checks.</div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-trigger">
+            <span class="accordion-trigger-text">Do you provide drone footage?</span>
+            <div class="accordion-icon">+</div>
+          </div>
+          <div class="accordion-body">Yes. We operate DJI Mavic 3 Pro drones flown by a licensed remote pilot in command. Drone footage is included in our Signature and Cinematic packages, and available as an add-on for Standard. Note that drone operations are subject to Kenya Civil Aviation Authority (KCAA) regulations — certain urban areas, airspace near airports, and national parks require permits that we arrange in advance. There are a small number of locations where drones cannot legally fly; we will advise you during the booking process.</div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-trigger">
+            <span class="accordion-trigger-text">Can I choose the music for my film?</span>
+            <div class="accordion-icon">+</div>
+          </div>
+          <div class="accordion-body">Absolutely. We maintain a licensed music library spanning cinematic orchestral, Afrobeats, gospel, contemporary pop, and ambient genres. You can browse and select from our library, or request a genre/mood and we'll suggest tracks. If you have a specific song in mind, we'll do our best to source a licensed version. Note: unlicensed popular music cannot be used in videos intended for YouTube or social media publication — we will always advise on this to protect your content from copyright strikes.</div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-trigger">
+            <span class="accordion-trigger-text">How many cameras do you use?</span>
+            <div class="accordion-icon">+</div>
+          </div>
+          <div class="accordion-body">Our Standard package uses a single cinema camera with a gimbal operator. Signature and Cinematic packages use dual-camera setups — one primary camera operator and one secondary/roaming operator — plus drone where applicable. For large events and weddings, we can deploy up to three ground cameras simultaneously. Multi-camera coverage ensures that the same moment is never missed and gives our editors richer material to work with during the cut.</div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-trigger">
+            <span class="accordion-trigger-text">What is the turnaround time for editing?</span>
+            <div class="accordion-icon">+</div>
+          </div>
+          <div class="accordion-body">Standard turnaround is 7–10 business days for highlight films. Full footage archive delivery takes 3–5 additional days. Social media cuts are typically delivered within 2–3 days of final film approval. Rush delivery (within 48 hours) is available as a premium add-on for urgent projects. Wedding films follow the same timeline — a teaser clip (60–90 seconds) can be delivered within 48 hours as an optional add-on for sharing on social media while you wait for the full edit.</div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-trigger">
+            <span class="accordion-trigger-text">Do you shoot outside Nairobi?</span>
+            <div class="accordion-icon">+</div>
+          </div>
+          <div class="accordion-body">Yes — we travel across Kenya. We regularly shoot in Mombasa, Nyeri, Nakuru, Kisumu, Eldoret, and remote locations. Travel costs (transport, accommodation where required, and per diem) are quoted separately based on the shoot location. For international shoots — particularly destination weddings or corporate projects — we are also available with advance booking and appropriate travel arrangements. WhatsApp us with your location and dates for a custom quote.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="faq-img-block">
+      <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80" alt="Videographer at work" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ══ PACKAGES ══ -->
+<section class="packages" id="packages">
+  <div class="packages-header">
+    <p class="section-label">Transparent Pricing</p>
+    <h2 class="section-title">Videography <em>Packages</em></h2>
+  </div>
+  <div class="packages-grid">
+
+    <div class="pkg-card">
+      <div class="pkg-name">Standard</div>
+      <div class="pkg-price">KES 25,000</div>
+      <div class="pkg-duration">Half-Day · Single Camera</div>
+      <ul class="pkg-features">
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Up to 4 hours on-site</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>4K highlight film (3–4 min)</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Licensed music soundtrack</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>1 social media cut (9:16)</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Private online delivery</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>7–10 day turnaround</li>
+      </ul>
+      <a href="https://wa.me/254745845976?text=Hi%20Focus%20Studios%2C%20I%27d%20like%20to%20book%20the%20Standard%20videography%20package" class="pkg-cta" target="_blank">Book This Package</a>
+    </div>
+
+    <div class="pkg-card featured">
+      <div class="pkg-badge">Most Popular</div>
+      <div class="pkg-name">Signature</div>
+      <div class="pkg-price">KES 55,000</div>
+      <div class="pkg-duration">Full Day · Dual Camera + Drone</div>
+      <ul class="pkg-features">
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Full-day dual camera coverage</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>4K highlight film (5–8 min)</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Drone aerial footage</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Full uncut archive footage</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>3 social media cuts (9:16 + 16:9)</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Private gallery + USB drive</li>
+      </ul>
+      <a href="https://wa.me/254745845976?text=Hi%20Focus%20Studios%2C%20I%27d%20like%20to%20book%20the%20Signature%20videography%20package" class="pkg-cta" target="_blank">Book This Package</a>
+    </div>
+
+    <div class="pkg-card">
+      <div class="pkg-name">Cinematic</div>
+      <div class="pkg-price">KES 95,000</div>
+      <div class="pkg-duration">Multi-Day · Full Production</div>
+      <ul class="pkg-features">
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Pre-production scripting & planning</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>3-camera crew + drone</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>4K feature film (8–15 min)</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Motion graphics & colour grade</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Broadcast + social + web exports</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>48hr teaser + full film + archive</li>
+      </ul>
+      <a href="https://wa.me/254745845976?text=Hi%20Focus%20Studios%2C%20I%27d%20like%20to%20discuss%20the%20Cinematic%20videography%20package" class="pkg-cta" target="_blank">Book This Package</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ══ -->
+<section class="testimonials">
+  <div class="testimonials-header">
+    <p class="section-label">From Our Clients</p>
+    <h2 class="section-title">What People <em>Say</em></h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="tcard">
+      <div class="tcard-stars">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="tcard-quote">"Our wedding film made my mother cry from the very first frame. Every tiny moment we didn't even know was being recorded — our private look before the ceremony, my mother fixing my veil — all of it was there. This team is extraordinary."</p>
+      <div class="tcard-author">Wanjiru & Tobias M.</div>
+      <div class="tcard-event">Signature Wedding Film · Windsor Golf Hotel, Nairobi</div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-stars">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="tcard-quote">"We commissioned a brand film for our product launch. The team came with a full script, shot list, and creative brief already prepared — we were impressed before they even pressed record. The final film has been running as a paid ad and the results have been remarkable."</p>
+      <div class="tcard-author">Sandra A. — Marketing Director</div>
+      <div class="tcard-event">Cinematic Brand Film · Nairobi CBD</div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-stars">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="tcard-quote">"The drone footage of our Mombasa event was jaw-dropping. Guests who attended still ask me where I got that aerial clip. On top of that, turnaround was under a week and the edits were clean on first delivery. Will be using them for every event going forward."</p>
+      <div class="tcard-author">James K. — Events Director</div>
+      <div class="tcard-event">Corporate Event Film · Mombasa Serena</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BOOKING ══ -->
+<section class="booking" id="booking">
+  <div class="booking-inner">
+    <div class="booking-text">
+      <p class="section-label">Let's Make Something Great</p>
+      <h2 class="section-title">Book Your<br><em>Video Project</em></h2>
+      <p class="booking-desc">Have a project in mind? Whether it's a wedding film, a brand commercial, a documentary or a social media series — reach out and we'll put together the right team and plan for your vision. WhatsApp is the fastest way to start the conversation.</p>
+      <div class="booking-btns">
+        <a href="https://wa.me/254745845976?text=Hi%20Focus%20Studios%2C%20I%27d%20like%20to%20book%20a%20videography%20session" class="btn-primary" target="_blank">WhatsApp to Book</a>
+        <a href="tel:+254745845976" class="btn-ghost">Call: 0745 845 976</a>
+      </div>
+    </div>
+    <div class="booking-form" id="booking-form">
+      <h3>Start Your Project</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="Full name">
+        </div>
+        <div class="form-group">
+          <label>Phone / WhatsApp</label>
+          <input type="tel" placeholder="+254 7XX XXX XXX">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Preferred Date</label>
+          <input type="date">
+        </div>
+        <div class="form-group">
+          <label>Video Type</label>
+          <select>
+            <option>Wedding Film</option>
+            <option>Corporate / Brand Film</option>
+            <option>Event Coverage</option>
+            <option>Documentary</option>
+            <option>Product / Commercial</option>
+            <option>Family & Lifestyle</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Package</label>
+          <select>
+            <option>Standard – KES 25,000</option>
+            <option selected>Signature – KES 55,000</option>
+            <option>Cinematic – KES 95,000</option>
+            <option>Custom Quote</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Location</label>
+          <input type="text" placeholder="e.g. Nairobi, Mombasa...">
+        </div>
+      </div>
+      <button class="form-submit" onclick="alert('Thank you! Our videography team will reach out within a few hours to discuss your project.')">Roll Camera <span>🎬</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-grid">
+    <div class="logo-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2">
+            <circle cx="12" cy="12" r="2.5"/>
+            <path d="M6.5 6.5h1.8l1.2-2h5l1.2 2h1.8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"/>
+          </svg>
+          <img src="logo.png" alt="logo">
+        </div>
+        <div class="logo-text">
+          <span class="logo-sub">Focus Studios · Kenya</span>
+        </div>
+      </a>
+      <p class="footer-brand-desc">Nairobi-based photography & videography studio providing premium services across Kenya. Weddings, events, portraits and commercial productions — delivered with speed and quality.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="booking.html">Book a Session</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="weddings.html">Weddings &amp; Events</a></li>
+        <li><a href="studio.html">Studio Portraits</a></li>
+        <li><a href="corporate.html">Corporate</a></li>
+        <li><a href="birthdays.html">Birthdays &amp; Baby Showers</a></li>
+        <li><a href="graduations.html">Graduations</a></li>
+        <li><a href="products.html">Products &amp; Branding</a></li>
+        <li><a href="outdoor.html">Outdoor</a></li>
+        <li><a href="videography.html" style="color:var(--gold);">Videography</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Get in Touch</div>
+      <div class="footer-contact-item"><span><img src="phone.png" alt="phone"></span> +254 745 845 976</div>
+      <div class="footer-contact-item"><span><img src="mail.png" alt="mail"></span> info@focusstudios.co.ke</div>
+      <div class="footer-contact-item"><span><img src="location.png" alt="location"></span> Westlands, Nairobi, Kenya</div>
+      <div class="footer-contact-item"><span><img src="clock.png" alt="clock"></span> Mon–Sat: 8:00 AM – 6:00 PM</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Focus Studios. All Rights Reserved.</span>
+    <div class="social-links">
+      <a href="#" class="social-link" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="TikTok">
+        <svg viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="YouTube">
+        <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.54C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ VIDEO LIGHTBOX ══ -->
+<div class="video-lightbox" id="videoLightbox">
+  <div class="video-lightbox-inner">
+    <button class="lightbox-close" id="closeLightbox">✕ &nbsp;Close</button>
+    <iframe id="lightboxFrame" src="" title="Focus Studios Showreel" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script>
+// ── SIDEBAR ──
+const menuBtn = document.getElementById('menuBtn');
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('sidebarOverlay');
+function openSidebar(){ menuBtn.classList.add('open'); sidebar.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow='hidden'; }
+function closeSidebar(){ menuBtn.classList.remove('open'); sidebar.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow=''; }
+menuBtn.addEventListener('click', ()=> sidebar.classList.contains('open') ? closeSidebar() : openSidebar());
+overlay.addEventListener('click', closeSidebar);
+document.querySelectorAll('.sidebar-group-label').forEach(lbl => {
+  lbl.addEventListener('click', ()=>{
+    const sub = document.getElementById(lbl.dataset.target);
+    const wasOpen = sub.classList.contains('open');
+    document.querySelectorAll('.sidebar-sub').forEach(s=>s.classList.remove('open'));
+    document.querySelectorAll('.sidebar-group-label').forEach(l=>l.classList.remove('open'));
+    if(!wasOpen){ sub.classList.add('open'); lbl.classList.add('open'); }
+  });
+});
+
+// ── ACCORDION ──
+document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+  trigger.addEventListener('click', ()=>{
+    const item = trigger.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.accordion-item').forEach(i=>i.classList.remove('open'));
+    if(!isOpen) item.classList.add('open');
+  });
+});
+
+// ── VIDEO LIGHTBOX ──
+const lightbox = document.getElementById('videoLightbox');
+const frame = document.getElementById('lightboxFrame');
+const SHOWREEL = 'https://www.youtube.com/embed/ysz5S6PUM-U?autoplay=1&rel=0';
+
+function openLightbox(src){
+  frame.src = src + (src.includes('?') ? '&' : '?') + 'autoplay=1&rel=0';
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(){
+  lightbox.classList.remove('open');
+  frame.src = '';
+  document.body.style.overflow = '';
+}
+
+document.getElementById('openReel').addEventListener('click', ()=> openLightbox('https://www.youtube.com/embed/ysz5S6PUM-U'));
+document.getElementById('closeLightbox').addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', e=>{ if(e.target === lightbox) closeLightbox(); });
+
+document.querySelectorAll('.reel-item[data-video]').forEach(item => {
+  item.addEventListener('click', ()=> openLightbox(item.dataset.video));
+});
+
+// ── PROCESS STEPS SCROLL REVEAL ──
+const stepObserver = new IntersectionObserver((entries)=>{
+  entries.forEach((entry, i)=>{
+    if(entry.isIntersecting){
+      setTimeout(()=> entry.target.classList.add('visible'), entry.target.dataset.delay || 0);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.process-step').forEach((step, i)=>{
+  step.dataset.delay = i * 120;
+  stepObserver.observe(step);
+});
+
+// ── GENERAL SCROLL REVEAL ──
+const revealObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.vservice-card, .pkg-card, .tcard, .reel-item, .deliv-cell, .res-card').forEach(el=>{
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(28px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  revealObserver.observe(el);
+});
+</script>
+
+<!-- ══ SCROLL TO TOP ══ -->
+<div id="scrollTopWrapper">
+  <button id="scrollTopBtn" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+  <script>
+    (function(){
+      const btn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', function(){
+        btn.classList.toggle('visible', window.scrollY > 400);
+      }, { passive: true });
+      btn.addEventListener('click', function(){
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</div>
+</body>
+</html>

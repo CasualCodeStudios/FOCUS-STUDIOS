@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corporate Photography Kenya – Focus Studios</title>
+<meta name="description" content="Professional corporate photography in Kenya. Staff headshots, office photography, branding shoots, and corporate events. Focus Studios serves businesses nationwide.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles (1).css">
+
+</head>
+
+<body class="page-corporate">
+
+<!-- NAVIGATION / HEADER -->
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2">
+        <circle cx="12" cy="12" r="2.5"/>
+        <path d="M6.5 6.5h1.8l1.2-2h5l1.2 2h1.8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"/>
+      </svg>
+      <img src="logo.png" alt="logo">
+    </div>
+    <div class="logo-text">
+      <span class="logo-sub">Focus Studios</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li class="nav-item">
+      <a href="services.html" id="myServices">Services</a>
+      <script>document.getElementById("myServices").addEventListener("click",e=>e.preventDefault());</script>
+      <ul class="dropdown">
+        <li><a href="weddings.html">Weddings &amp; Events</a></li>
+        <li><a href="studio.html">Studio Portraits</a></li>
+        <li><a href="corporate.html">Corporate</a></li>
+        <li><a href="birthdays.html">Birthdays &amp; Baby Showers</a></li>
+        <li><a href="graduations.html">Graduations</a></li>
+        <li><a href="products.html">Products &amp; Branding</a></li>
+        <li><a href="outdoor.html">Outdoor</a></li>
+        <li style="display: none;"><a href="videography.html">Videography</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a href="#" id="myLocations">Locations</a>
+      <script>document.getElementById("myLocations").addEventListener("click",e=>e.preventDefault());</script>
+      <ul class="dropdown" >
+        <li><a href="locations/nairobi.html">Nairobi</a></li>
+        <li><a href="locations/mombasa.html">Mombasa</a></li>
+        <li><a href="locations/nyeri.html">Nyeri</a></li>
+        <li><a href="locations/nakuru.html">Nakuru</a></li>
+        <li><a href="locations/thika.html">Thika</a></li>
+      </ul>
+    </li>
+    <li><a href="about.html" style="color:var(--gold);">About</a></li>
+    <li><a href="booking.html" class="nav-cta">Book a Session</a></li>
+  </ul>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <ul class="sidebar-nav">
+    <li>
+      <span class="sidebar-group-label" data-target="sub-services">Services</span>
+      <ul class="sidebar-sub" id="sub-services">
+        <li><a href="weddings.html">Weddings &amp; Events</a></li>
+        <li><a href="studio.html">Studio Portraits</a></li>
+        <li><a href="corporate.html">Corporate</a></li>
+        <li><a href="birthdays.html">Birthdays &amp; Baby Showers</a></li>
+        <li><a href="graduations.html">Graduations</a></li>
+        <li><a href="products.html">Products &amp; Branding</a></li>
+        <li><a href="outdoor.html">Outdoor</a></li>
+        <li style="display: none;"><a href="videography.html">Videography</a></li>
+      </ul>
+    </li>
+    <li>
+      <span class="sidebar-group-label" data-target="sub-locations">Locations</span>
+      <ul class="sidebar-sub" id="sub-locations">
+        <li><a href="locations/nairobi.html">Nairobi</a></li>
+        <li><a href="locations/mombasa.html">Mombasa</a></li>
+        <li><a href="locations/nyeri.html">Nyeri</a></li>
+        <li><a href="locations/nakuru.html">Nakuru</a></li>
+        <li><a href="locations/thika.html">Thika</a></li>
+      </ul>
+    </li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <a href="booking.html" class="sidebar-cta">Book a Session</a>
+</aside>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img-bg"></div>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="innerWrapper">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span>›</span>
+        <a href="#">Services</a><span>›</span>
+        <a href="#" style="color:var(--gold);">Corporate Photography</a>
+      </div>
+      <span class="hero-tag">Business Photography Kenya</span>
+      <h1 class="hero-title">Corporate Shoots,<br>@ <em>Credible</em></h1>
+      <p class="hero-desc">Professional visuals that build trust, authority, and credibility. We serve businesses across Kenya with headshots, office photography, branding shoots and corporate events.</p>
+      <div class="hero-btns">
+        <a href="booking.html" class="btn-primary">BOOK YOUR SESSION</a>
+        <a href="#services" class="btn-ghost">See What We OFFER</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div><span class="scroll-text">Scroll to explore</span></div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <div class="stat-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="12.01"/></svg></div>
+    <div><div class="stat-value">50+</div><div class="stat-label">Business Clients</div></div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+    <div><div class="stat-value">48 Hrs</div><div class="stat-label">Photo Delivery</div></div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+    <div><div class="stat-value">On-Location</div><div class="stat-label">We Come to Your Office</div></div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+    <div><div class="stat-value">Custom</div><div class="stat-label">Packages Available</div></div>
+  </div>
+</div>
+
+<!-- CORPORATE SERVICES -->
+<section class="corp-services" id="services">
+  <div class="corp-services-header">
+    <div>
+      <p class="section-label">What We Offer</p>
+      <h2 class="section-title">Corporate <em>Photography Services</em></h2>
+    </div>
+    <a href="#packages" class="btn-ghost" style="white-space:nowrap;">View packages</a>
+  </div>
+  <div class="corp-grid">
+    <div class="corp-card">
+      <div class="corp-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <div>
+        <div class="corp-card-name">Staff Headshots</div>
+        <p class="corp-card-desc">Clean, consistent, professional headshots for your entire team. Perfect for websites, LinkedIn, company directories, and media releases.</p>
+        <ul class="corp-card-includes">
+          <li>Individual and group headshots</li>
+          <li>Studio or on-location at your office</li>
+          <li>Consistent background for brand uniformity</li>
+          <li>Fast turnaround, bulk pricing available</li>
+        </ul>
+      </div>
+    </div>
+    <div class="corp-card">
+      <div class="corp-card-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <div>
+        <div class="corp-card-name">Office & Workspace Photography</div>
+        <p class="corp-card-desc">Showcase your office environment, culture, and facilities. Great for recruitment pages, investor decks, and brand storytelling.</p>
+        <ul class="corp-card-includes">
+          <li>Interior and workspace photography</li>
+          <li>Team culture and lifestyle shots</li>
+          <li>Architecture and facility coverage</li>
+          <li>Ideal for hospitality and tech companies</li>
+        </ul>
+      </div>
+    </div>
+    <div class="corp-card">
+      <div class="corp-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div>
+        <div class="corp-card-name">Corporate Events</div>
+        <p class="corp-card-desc">Conferences, product launches, AGMs, award nights, and team events — captured with professionalism and precision.</p>
+        <ul class="corp-card-includes">
+          <li>Speakers, panelists, and audience shots</li>
+          <li>Networking and candid moments</li>
+          <li>Award ceremonies and stage photography</li>
+          <li>Same-day highlight gallery available</li>
+        </ul>
+      </div>
+    </div>
+    <div class="corp-card">
+      <div class="corp-card-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+      </div>
+      <div>
+        <div class="corp-card-name">Brand & Marketing Visuals</div>
+        <p class="corp-card-desc">Strategic photography for marketing campaigns, social media content, websites, and print materials. We make your brand look undeniable.</p>
+        <ul class="corp-card-includes">
+          <li>Campaign-ready photos and content sets</li>
+          <li>Social media content batches</li>
+          <li>Website hero and about-page imagery</li>
+          <li>Annual report and pitch deck photos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why-corp">
+  <div class="why-inner">
+    <div class="why-content">
+      <p class="section-label">Why Focus Studios</p>
+      <h2 class="section-title">Trusted by <em>Businesses</em><br>Across Kenya</h2>
+      <p class="why-desc">We understand that corporate photography is an investment in your brand's credibility. Our process is efficient, non-disruptive, and delivers results your team will be proud of.</p>
+      <div class="why-points">
+        <div class="why-point">
+          <div class="why-point-num">1</div>
+          <div class="why-point-text">
+            <strong>We Come to You</strong>
+            <p>We bring equipment to your office or event venue across Kenya. No need for your staff to travel anywhere.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-point-num">2</div>
+          <div class="why-point-text">
+            <strong>Fast, Reliable Delivery</strong>
+            <p>Edited photos delivered within 48 hours — ready for your website, press release, or social media.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-point-num">3</div>
+          <div class="why-point-text">
+            <strong>Volume Pricing for Teams</strong>
+            <p>Booking for 10, 20, or 50+ staff? We offer competitive bulk rates that scale with your team size.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-point-num">4</div>
+          <div class="why-point-text">
+            <strong>Brand Consistency</strong>
+            <p>Consistent lighting, backgrounds, and editing style so all your team photos look unified and professional.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="why-img-block">
+      <img src="https://i.pinimg.com/736x/d1/45/8d/d1458d5d1d6e97d0e19f0d024ea568a9.jpg" alt="Corporate photography session" loading="lazy">
+      <div class="why-img-overlay">
+        <strong>48hrs</strong>
+        <span>Photo Delivery</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="packages" id="packages">
+  <div class="packages-header">
+    <p class="section-label">Transparent Pricing</p>
+    <h2 class="section-title">Corporate <em>Packages</em></h2>
+  </div>
+  <div class="packages-grid">
+    <div class="pkg-card">
+      <div class="pkg-name">Essential</div>
+      <div class="pkg-price">KES 60,000</div>
+      <div class="pkg-duration">Photography Only · Half-Day</div>
+      <ul class="pkg-features">
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>1 Photographer on-location</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Team headshots (up to 20 staff)</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Office & workspace photos</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>50+ edited photos</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>48-hour delivery</li>
+      </ul>
+      <a href="https://wa.me/254745845976?text=Hi%20Focus%20Studios%2C%20I%27d%20like%20the%20Essential%20corporate%20package" class="pkg-cta" target="_blank">Get This Package</a>
+    </div>
+    <div class="pkg-card featured">
+      <div class="pkg-badge">Most Popular</div>
+      <div class="pkg-name">Professional</div>
+      <div class="pkg-price">KES 100,000</div>
+      <div class="pkg-duration">Photo & Video · Full Day</div>
+      <ul class="pkg-features">
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Photographer + Videographer</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Unlimited staff headshots</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Office, culture & event coverage</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>100+ edited photos + video highlights</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>48-hour delivery</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Full usage rights included</li>
+      </ul>
+      <a href="https://wa.me/254745845976?text=Hi%20Focus%20Studios%2C%20I%27d%20like%20the%20Professional%20corporate%20package" class="pkg-cta" target="_blank">Get This Package</a>
+    </div>
+    <div class="pkg-card">
+      <div class="pkg-name">Enterprise</div>
+      <div class="pkg-price">KES 150,000</div>
+      <div class="pkg-duration">Full Branding Suite · Photo & Video</div>
+      <ul class="pkg-features">
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>2 Photographers + Videographer</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Multi-day coverage available</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Full brand & marketing content set</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>150+ edited photos + full video</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Priority 24-hour delivery</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Dedicated account manager</li>
+      </ul>
+      <a href="https://wa.me/254745845976?text=Hi%20Focus%20Studios%2C%20I%27d%20like%20to%20discuss%20the%20Enterprise%20corporate%20package" class="pkg-cta" target="_blank">Let's Discuss</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+ 
+<section class="gallery" id="gallery">
+  <div class="gallery-header">
+    <div>
+      <p class="section-label">Our Work</p>
+      <h2 class="section-title">Corporate <em>Portfolio</em></h2>
+    </div>
+    <a href="portfolio.html" class="btn-ghost">View Full Gallery</a>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="https://i.pinimg.com/736x/44/df/8a/44df8a8008521b73d41ea3414e9f32b5.jpg" alt="Corporate headshot" loading="lazy">
+    </div>
+    <div class="gallery-item">
+      <img src="https://i.pinimg.com/736x/4f/5b/25/4f5b250525d2268237f4868ac070c7a6.jpg" alt="Business professional portrait" loading="lazy">
+    </div>
+    <div class="gallery-item">
+      <img src="https://i.pinimg.com/1200x/58/36/80/583680a23323caf0ed0446c5c87f0739.jpg" alt="Corporate event" loading="lazy">
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=400&q=80" alt="Office photography" loading="lazy">
+    </div>
+    <div class="gallery-item">
+      <img src="https://i.pinimg.com/736x/9a/76/ad/9a76ad4f6d7bf0bc9f02a5b5835bc930.jpg" alt="Team culture shot" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="testimonials-header">
+    <p class="section-label">Business Clients</p>
+    <h2 class="section-title">What <em>Companies Say</em></h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="tcard">
+      <div class="tcard-stars">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="tcard-quote">"Very professional and reliable. They came to our office, photographed our entire team of 30 staff, and delivered everything in 36 hours. Excellent value."</p>
+      <div class="tcard-author">Sarah K., HR Manager</div>
+      <div class="tcard-event">Tech Startup · Nairobi CBD</div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-stars">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="tcard-quote">"Our product launch photos were stunning. The team truly understood our brand vision and translated it into beautiful, usable content for our campaign."</p>
+      <div class="tcard-author">James M., Marketing Director</div>
+      <div class="tcard-event">FMCG Brand · Westlands</div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-stars">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="tcard-quote">"We hired Focus Studios for our annual conference. Exceptional coverage from start to finish. Our board was impressed with the quality."</p>
+      <div class="tcard-author">Patricia W., Events Manager</div>
+      <div class="tcard-event">NGO Conference · KICC, Nairobi</div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="booking">
+  <div class="booking-inner">
+    <div class="booking-text">
+      <p class="section-label">Work With Us</p>
+      <h2 class="section-title">Elevate Your<br><em>Brand Today</em></h2>
+      <p class="booking-desc">Whether you need headshots for 5 people or a full corporate branding shoot, we're ready to help. Fill out the form or WhatsApp us directly for a quick quote.</p>
+      <div class="booking-btns">
+        <a href="https://wa.me/254745845976?text=Hi%20Focus%20Studios%2C%20I%27d%20like%20to%20enquire%20about%20corporate%20photography" class="btn-primary" target="_blank">WhatsApp for Quote</a>
+        <a href="tel:+254745845976" class="btn-ghost">Call: 0745 845 976</a>
+      </div>
+    </div>
+    <div class="booking-form">
+      <h3>Corporate Enquiry</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="Full name">
+        </div>
+        <div class="form-group">
+          <label>Company Name</label>
+          <input type="text" placeholder="Your company">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Phone / WhatsApp</label>
+          <input type="tel" placeholder="+254 7XX XXX XXX">
+        </div>
+        <div class="form-group">
+          <label>Service Needed</label>
+          <select>
+            <option>Staff Headshots</option>
+            <option>Office Photography</option>
+            <option>Corporate Event</option>
+            <option selected>Full Branding Shoot</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Number of Staff (if headshots)</label>
+          <input type="number" placeholder="e.g. 15">
+        </div>
+        <div class="form-group">
+          <label>Preferred Date</label>
+          <input type="date">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Additional Details</label>
+        <textarea placeholder="Tell us about your project, location, goals..."></textarea>
+      </div>
+      <button class="form-submit" onclick="alert('Thank you! Our team will send you a quote within a few hours.')">BRANDED <span><img src="corporation.png" alt="Branding"></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="logo-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2">
+            <circle cx="12" cy="12" r="2.5"/>
+            <path d="M6.5 6.5h1.8l1.2-2h5l1.2 2h1.8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"/>
+          </svg>
+          <img src="logo.png" alt="logo">
+        </div>
+        <div class="logo-text">
+          <span class="logo-sub">Focus Studios · Kenya</span>
+        </div>
+      </a>
+      <p class="footer-brand-desc">Nairobi-based photography studio providing premium services across Kenya. Weddings, events, portraits and commercial photography — delivered with speed and quality.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="booking.html">Book a Session</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="weddings.html">Weddings &amp; Events</a></li>
+        <li><a href="studio.html">Studio Portraits</a></li>
+        <li><a href="corporate.html">Corporate</a></li>
+        <li><a href="birthdays.html">Birthdays &amp; Baby Showers</a></li>
+        <li><a href="graduations.html">Graduations</a></li>
+        <li><a href="products.html">Products &amp; Branding</a></li>
+        <li><a href="outdoor.html">Outdoor</a></li>
+        <li style="display: none;"><a href="videography.html">Videography</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Get in Touch</div>
+      <div class="footer-contact-item"><span><img src="phone.png" alt="phone"></span> +254 745 845 976</div>
+      <div class="footer-contact-item"><span><img src="mail.png" alt="mail"></span> info@focusstudios.co.ke</div>
+      <div class="footer-contact-item"><span><img src="location.png" alt="location"></span> Westlands, Nairobi, Kenya</div>
+      <div class="footer-contact-item"><span><img src="clock.png" alt="clock"></span> Mon–Sat: 8:00 AM – 6:00 PM</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Focus Studios. All Rights Reserved.</span>
+    <div class="social-links">
+      <a href="#" class="social-link" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="TikTok">
+        <svg viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="YouTube">
+        <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.54C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+const menuBtn = document.getElementById('menuBtn');
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('sidebarOverlay');
+function openSidebar() { menuBtn.classList.add('open'); sidebar.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeSidebar() { menuBtn.classList.remove('open'); sidebar.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow = ''; }
+menuBtn.addEventListener('click', () => sidebar.classList.contains('open') ? closeSidebar() : openSidebar());
+overlay.addEventListener('click', closeSidebar);
+document.querySelectorAll('.sidebar-group-label').forEach(label => {
+  label.addEventListener('click', () => {
+    const sub = document.getElementById(label.dataset.target);
+    const isOpen = sub.classList.contains('open');
+    document.querySelectorAll('.sidebar-sub').forEach(s => s.classList.remove('open'));
+    document.querySelectorAll('.sidebar-group-label').forEach(l => l.classList.remove('open'));
+    if (!isOpen) { sub.classList.add('open'); label.classList.add('open'); }
+  });
+});
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) { entry.target.style.opacity = '1'; entry.target.style.transform = 'translateY(0)'; } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.corp-card, .pkg-card, .tcard, .why-point').forEach(el => {
+  el.style.opacity = '0'; el.style.transform = 'translateY(24px)'; el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+</script>
+
+<!-- ══ SCROLL TO TOP ══ -->
+<div id="scrollTopWrapper">
+  <button id="scrollTopBtn" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+  <script>
+    (function () {
+      const btn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', function () {
+        btn.classList.toggle('visible', window.scrollY > 400);
+      }, { passive: true });
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</div>
+</body>
+</html>

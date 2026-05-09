@@ -1,0 +1,2017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Session – Focus Studios | Premium Photography Kenya</title>
+<link rel="stylesheet" href="styles (1).css">
+<link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ══════════════════════════════════════════
+   BOOKING PAGE — Simplified & Refined
+   ══════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ── PAGE SHELL ── */
+.bk-page {
+  min-height: 100vh;
+  background: var(--black);
+  padding-top: 80px; /* nav offset */
+}
+
+/* ── HERO STRIP ── */
+.bk-hero {
+  padding: 4rem 2rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.bk-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 80% at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.bk-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.58rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+.bk-hero-eyebrow::before,
+.bk-hero-eyebrow::after {
+  content: '';
+  width: 22px; height: 0.5px;
+  background: var(--gold-dim);
+}
+
+.bk-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 6vw, 4.5rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.08;
+  margin-bottom: 0.8rem;
+}
+
+.bk-hero-title em {
+  font-style: italic;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--gold);
+}
+
+.bk-hero-sub {
+  font-size: 0.82rem;
+  color: var(--white-dim);
+  max-width: 420px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.85;
+}
+
+/* Chips row */
+.bk-chips {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.bk-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(201,168,76,0.07);
+  border: 0.5px solid var(--border);
+  padding: 0.4rem 0.9rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+}
+
+.bk-chip svg {
+  width: 11px; height: 11px;
+  stroke: var(--gold);
+  fill: none;
+  flex-shrink: 0;
+}
+
+/* ── MAIN LAYOUT ── */
+.bk-main {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 0;
+  min-height: 70vh;
+}
+
+/* ── FORM PANEL ── */
+.bk-form-panel {
+  padding: 4rem 3rem 5rem;
+  border-right: 0.5px solid var(--border);
+}
+
+/* Step progress */
+.step-progress {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.step-dot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  position: relative;
+  flex: 1;
+  cursor: pointer;
+}
+
+.step-dot-inner {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 0.5px solid var(--border);
+  background: var(--dark-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: var(--white-dim);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.step-dot.active .step-dot-inner {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--black);
+  box-shadow: 0 0 0 4px rgba(201,168,76,0.15);
+}
+
+.step-dot.done .step-dot-inner {
+  border-color: var(--gold);
+  background: rgba(201,168,76,0.15);
+  color: var(--gold);
+}
+
+.step-dot-label {
+  font-size: 0.52rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  transition: color 0.3s;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.step-dot.active .step-dot-label { color: var(--gold); }
+.step-dot.done .step-dot-label { color: rgba(201,168,76,0.6); }
+
+.step-line {
+  flex: 1;
+  height: 0.5px;
+  background: var(--border);
+  position: relative;
+  top: -10px;
+  transition: background 0.4s;
+  max-width: 60px;
+}
+
+.step-line.done { background: var(--gold-dim); }
+
+/* Steps */
+.form-step {
+  display: none;
+  animation: stepIn 0.38s cubic-bezier(0.4,0,0.2,1);
+}
+
+.form-step.active { display: block; }
+
+@keyframes stepIn {
+  from { opacity: 0; transform: translateX(18px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.step-heading {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 0.4rem;
+  line-height: 1.1;
+}
+
+.step-heading em { font-style: italic; color: var(--gold); }
+
+.step-sub {
+  font-size: 0.76rem;
+  color: var(--white-dim);
+  margin-bottom: 2.2rem;
+  line-height: 1.7;
+}
+
+/* ── SERVICE GRID ── */
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.svc-tile {
+  border: 0.5px solid var(--border);
+  background: var(--dark-2);
+  padding: 1.2rem 0.6rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.22s, background 0.22s, transform 0.18s;
+  position: relative;
+  user-select: none;
+}
+
+.svc-tile input[type="radio"] {
+  position: absolute; opacity: 0; width: 0; height: 0;
+}
+
+.svc-tile:hover {
+  border-color: var(--gold-dim);
+  transform: translateY(-2px);
+}
+
+.svc-tile.sel {
+  border-color: var(--gold);
+  background: rgba(201,168,76,0.1);
+}
+
+.svc-tile.sel::after {
+  content: '✓';
+  position: absolute;
+  top: 5px; right: 7px;
+  font-size: 0.5rem;
+  color: var(--gold);
+}
+
+.svc-ico { margin-bottom: 0.6rem; }
+.svc-ico svg { width: 18px; height: 18px; stroke: var(--gold-dim); fill: none; display: block; margin: 0 auto; transition: stroke 0.2s; }
+.svc-tile.sel .svc-ico svg,
+.svc-tile:hover .svc-ico svg { stroke: var(--gold); }
+
+.svc-name {
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  line-height: 1.4;
+  transition: color 0.2s;
+}
+.svc-tile.sel .svc-name,
+.svc-tile:hover .svc-name { color: var(--white); }
+
+/* ── FORM FIELDS ── */
+.f-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+.f-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.8rem;
+}
+
+.f-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.38rem;
+  margin-bottom: 0.9rem;
+}
+
+.f-group.span2 { grid-column: 1 / -1; }
+
+.f-label {
+  font-size: 0.54rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  font-weight: 500;
+}
+
+.f-group input,
+.f-group select,
+.f-group textarea {
+  width: 100%;
+  background: var(--dark-2);
+  border: 0.5px solid rgba(201,168,76,0.18);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  padding: 0.85rem 1rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  appearance: none; -webkit-appearance: none;
+  border-radius: 0;
+}
+
+.f-group input:focus,
+.f-group select:focus,
+.f-group textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.09);
+  background: rgba(201,168,76,0.04);
+}
+
+.f-group input::placeholder,
+.f-group textarea::placeholder { color: rgba(250,250,248,0.22); }
+.f-group select option { background: var(--dark-2); color: var(--white); }
+.f-group textarea { min-height: 110px; resize: vertical; }
+
+.sel-wrap { position: relative; }
+.sel-wrap::after {
+  content: '';
+  position: absolute;
+  top: 50%; right: 1rem;
+  width: 5px; height: 5px;
+  border-right: 1px solid var(--gold-dim);
+  border-bottom: 1px solid var(--gold-dim);
+  transform: translateY(-65%) rotate(45deg);
+  pointer-events: none;
+}
+
+/* Budget pills */
+.budget-row {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.2rem;
+}
+
+.b-pill {
+  border: 0.5px solid var(--border);
+  background: var(--dark-2);
+  padding: 0.5rem 1rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  position: relative; user-select: none;
+}
+.b-pill input { position: absolute; opacity:0; width:0; height:0; }
+.b-pill:hover { border-color: var(--gold-dim); color: var(--white); }
+.b-pill.sel { border-color: var(--gold); background: rgba(201,168,76,0.1); color: var(--gold); }
+
+/* Referral checkboxes */
+.ref-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+.ref-check {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  font-size: 0.7rem;
+  color: var(--white-dim);
+  transition: color 0.18s;
+  user-select: none;
+}
+.ref-check:hover { color: var(--white); }
+.ref-check input[type="checkbox"] {
+  appearance: none; -webkit-appearance: none;
+  width: 14px; height: 14px;
+  border: 0.5px solid var(--border);
+  background: var(--dark-2);
+  cursor: pointer; flex-shrink: 0;
+  transition: border-color 0.18s, background 0.18s;
+  position: relative;
+}
+.ref-check input[type="checkbox"]:checked { background: var(--gold); border-color: var(--gold); }
+.ref-check input[type="checkbox"]:checked::after {
+  content: '✓'; position: absolute;
+  top: 50%; left: 50%; transform: translate(-50%,-50%);
+  font-size: 0.6rem; color: var(--black); font-weight: 700;
+}
+
+/* Consent */
+.consent-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: 2rem 0;
+  padding: 1.2rem 1.4rem;
+  background: var(--dark-2);
+  border: 0.5px solid var(--border);
+}
+
+.consent-row input[type="checkbox"] {
+  appearance: none; -webkit-appearance: none;
+  width: 15px; height: 15px; flex-shrink: 0;
+  border: 0.5px solid var(--border);
+  background: var(--dark);
+  cursor: pointer; margin-top: 2px;
+  transition: border-color 0.18s, background 0.18s;
+  position: relative;
+}
+.consent-row input[type="checkbox"]:checked { background: var(--gold); border-color: var(--gold); }
+.consent-row input[type="checkbox"]:checked::after {
+  content: '✓'; position: absolute;
+  top: 50%; left: 50%; transform: translate(-50%,-50%);
+  font-size: 0.62rem; color: var(--black); font-weight: 700;
+}
+.consent-text { font-size: 0.7rem; color: var(--white-dim); line-height: 1.7; }
+.consent-text a { color: var(--gold); }
+
+/* ── NAV BUTTONS ── */
+.step-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.btn-back {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  background: none;
+  border: 0.5px solid var(--border);
+  padding: 0.9rem 1.6rem;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: color 0.2s, border-color 0.2s;
+}
+.btn-back:hover { color: var(--white); border-color: var(--white-dim); }
+
+.btn-next {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--black);
+  background: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 0.9rem 2.2rem;
+  cursor: pointer;
+  font-family: var(--font-body);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+.btn-next::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(255,255,255,0.18);
+  transform: translateX(-100%);
+  transition: transform 0.28s ease;
+}
+.btn-next:hover::before { transform: translateX(0); }
+.btn-next:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(201,168,76,0.2); }
+
+.btn-wa-side {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #25D366;
+  border: 0.5px solid rgba(37,211,102,0.4);
+  padding: 0.9rem 1.4rem;
+  transition: background 0.2s;
+  font-family: var(--font-body);
+  text-decoration: none;
+}
+.btn-wa-side:hover { background: rgba(37,211,102,0.07); }
+
+/* ── SUCCESS STATE ── */
+.bk-success {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 5rem 2rem;
+  gap: 1.2rem;
+}
+
+.success-ring {
+  width: 80px; height: 80px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: ringPop 0.5s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+@keyframes ringPop {
+  from { transform: scale(0.5); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+.success-ring svg { width: 32px; height: 32px; stroke: var(--gold); fill: none; }
+
+.success-title {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 300;
+  color: var(--white);
+}
+
+.success-desc {
+  font-size: 0.8rem;
+  color: var(--white-dim);
+  line-height: 1.85;
+  max-width: 360px;
+}
+
+/* ── SIDEBAR ── */
+.bk-sidebar {
+  background: var(--dark-2);
+  padding: 4rem 2rem;
+  border-left: 0.5px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.sb-section-title {
+  font-size: 0.56rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.1rem;
+  display: block;
+}
+
+/* Packages */
+.pkg-card {
+  background: var(--dark);
+  border: 0.5px solid var(--border);
+  padding: 1.4rem;
+  margin-bottom: 0.6rem;
+  position: relative;
+  transition: border-color 0.2s;
+}
+.pkg-card:hover { border-color: var(--gold-dim); }
+.pkg-card.featured { border-color: var(--gold); }
+
+.pkg-badge {
+  position: absolute; top: -1px; right: 1.2rem;
+  background: var(--gold); color: var(--black);
+  font-size: 0.44rem; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; padding: 0.22rem 0.6rem;
+}
+
+.pkg-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem; font-weight: 300;
+  color: var(--white); margin-bottom: 0.2rem;
+}
+
+.pkg-price {
+  font-size: 0.58rem; letter-spacing: 0.1em;
+  color: var(--gold); margin-bottom: 0.8rem; display: block;
+}
+
+.pkg-features { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+.pkg-features li {
+  font-size: 0.68rem; color: var(--white-dim);
+  display: flex; align-items: flex-start; gap: 0.45rem; line-height: 1.4;
+}
+.pkg-features li::before { content: '—'; color: var(--gold-dim); flex-shrink: 0; font-size: 0.66rem; }
+
+/* Trust badges */
+.trust-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;
+}
+
+.trust-tile {
+  background: var(--dark);
+  border: 0.5px solid var(--border);
+  padding: 0.9rem; text-align: center;
+}
+
+.trust-val {
+  font-family: var(--font-display);
+  font-size: 1.4rem; font-weight: 300;
+  color: var(--white); line-height: 1; display: block;
+}
+
+.trust-label {
+  font-size: 0.48rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--white-dim);
+  margin-top: 0.2rem; display: block;
+}
+
+/* Contact */
+.sb-contact-item {
+  display: flex; align-items: center; gap: 0.7rem;
+  margin-bottom: 0.85rem; font-size: 0.74rem; color: var(--white-dim);
+}
+.sb-contact-item svg { width: 13px; height: 13px; stroke: var(--gold-dim); fill: none; flex-shrink: 0; }
+.sb-contact-item a { color: var(--white-dim); transition: color 0.18s; }
+.sb-contact-item a:hover { color: var(--gold); }
+.sb-hours { font-size: 0.58rem; color: rgba(250,250,248,0.3); letter-spacing: 0.06em; margin-top: 0.3rem; }
+
+/* ── FAQ ── */
+.bk-faq {
+  padding: 5rem 2rem;
+  background: var(--black);
+  border-top: 0.5px solid var(--border);
+}
+
+.bk-faq-inner {
+  max-width: 760px; margin: 0 auto;
+  display: flex; flex-direction: column; gap: 2.5rem;
+}
+
+.faq-header { text-align: center; }
+.faq-header .section-label { margin-bottom: 0.5rem; display: block; }
+.faq-header h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300; color: var(--white); margin-bottom: 0.8rem; }
+.faq-header h2 em { font-style: italic; color: var(--gold); }
+.faq-header p { font-size: 0.8rem; color: var(--white-dim); line-height: 1.8; }
+
+.faq-list { display: flex; flex-direction: column; gap: 0; }
+
+.faq-item { border-bottom: 0.5px solid var(--border); }
+.faq-item:first-child { border-top: 0.5px solid var(--border); }
+
+.faq-q {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.2rem 1.5rem; font-size: 0.82rem; font-weight: 500;
+  color: var(--white); cursor: pointer; user-select: none;
+  transition: color 0.2s;
+}
+.faq-q:hover { color: var(--gold); }
+
+.faq-q::after {
+  content: '+'; font-size: 1.3rem; font-weight: 300;
+  color: var(--gold-dim); flex-shrink: 0;
+  transition: transform 0.3s ease; line-height: 1; margin-left: 1rem;
+}
+
+.faq-item.open .faq-q { color: var(--gold); }
+.faq-item.open .faq-q::after { transform: rotate(45deg); }
+
+.faq-a {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.3s;
+  font-size: 0.78rem; color: var(--white-dim); line-height: 1.85;
+  padding: 0 1.5rem;
+}
+.faq-item.open .faq-a { max-height: 220px; padding: 0.8rem 1.5rem 1.4rem; border-top: 0.5px solid var(--border); }
+
+/* ── BOTTOM CTA ── */
+.bk-cta {
+  padding: 6rem 2rem;
+  background: var(--dark-2);
+  border-top: 0.5px solid var(--border);
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.bk-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 50% 100%, rgba(201,168,76,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.bk-cta-inner { position: relative; z-index: 1; }
+.bk-cta-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  font-weight: 300; color: var(--white); margin-bottom: 0.8rem;
+}
+.bk-cta-title em { font-style: italic; color: transparent; -webkit-text-stroke: 1px var(--gold); }
+.bk-cta-desc { font-size: 0.82rem; color: var(--white-dim); max-width: 400px; margin: 0 auto 2.2rem; line-height: 1.85; }
+.bk-cta-btns { display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap; }
+
+/* ── SELECT PACKAGE label ── */
+.pkg-select-label {
+  font-size: 0.54rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+/* ── Visibility helpers ── */
+.mob-only { display: none; }
+.desk-only { display: flex; }
+
+@media (max-width: 700px) {
+  .mob-only { display: flex; }
+  .desk-only { display: none !important; }
+}
+
+/* Bigger prices in packages sidebar */
+.pkg-price {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1000px) {
+  .bk-main { grid-template-columns: 1fr; }
+  .bk-sidebar {
+    border-left: none;
+    border-top: 0.5px solid var(--border);
+    padding: 3rem 2rem;
+  }
+  .trust-grid { grid-template-columns: repeat(4, 1fr); }
+  #pkgSidebarCards { display: flex; gap: 0.6rem; overflow-x: auto; padding-bottom: 0.5rem; }
+  #pkgSidebarCards .pkg-card { min-width: 220px; flex-shrink: 0; }
+}
+
+@media (max-width: 700px) {
+  .bk-form-panel { padding: 2rem 1.2rem 3rem; }
+  .svc-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .f-grid-2, .f-grid-3 { grid-template-columns: 1fr; }
+  .ref-grid { grid-template-columns: 1fr 1fr; }
+  .trust-grid { grid-template-columns: 1fr 1fr; }
+  .step-dot-label { font-size: 0.46rem; }
+}
+
+@media (max-width: 480px) {
+  .svc-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .ref-grid { grid-template-columns: 1fr; }
+  .bk-chips { gap: 0.4rem; }
+}
+
+/* ═══════════════════════════════════════════
+   MOBILE STEP PAGES — phones only (<= 700px)
+   ═══════════════════════════════════════════ */
+@media (max-width: 700px) {
+
+  /* Hide desktop step-progress on mobile – we show our own */
+  .step-progress { display: none; }
+
+  /* Each mobile "page" is hidden by default */
+  .mob-page {
+    display: none;
+    animation: stepIn 0.35s cubic-bezier(0.4,0,0.2,1);
+  }
+  .mob-page.mob-active { display: block; }
+
+  /* Mobile step header bar */
+  .mob-step-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.6rem;
+    padding-bottom: 1rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .mob-step-label {
+    font-size: 0.54rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .mob-step-dots {
+    display: flex;
+    gap: 0.35rem;
+  }
+  .mob-step-dot {
+    width: 22px; height: 3px;
+    background: var(--border);
+    border-radius: 2px;
+    transition: background 0.3s;
+  }
+  .mob-step-dot.active { background: var(--gold); }
+  .mob-step-dot.done { background: rgba(201,168,76,0.4); }
+}
+
+/* ═══════════════════════════════════════════
+   PACKAGE MODAL — phones only
+   ═══════════════════════════════════════════ */
+.pkg-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 8000;
+  background: rgba(0,0,0,0.82);
+  backdrop-filter: blur(6px);
+  align-items: flex-end;
+  justify-content: center;
+}
+.pkg-modal-overlay.open {
+  display: flex;
+  animation: modalFadeIn 0.25s ease;
+}
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.pkg-modal {
+  background: var(--dark-2);
+  border: 0.5px solid var(--border);
+  border-bottom: none;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 0;
+  border-radius: 16px 16px 0 0;
+  animation: slideUp 0.32s cubic-bezier(0.4,0,0.2,1);
+}
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+.pkg-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 1.4rem 0.9rem;
+  border-bottom: 0.5px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: var(--dark-2);
+  z-index: 1;
+}
+.pkg-modal-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--white);
+}
+.pkg-modal-title em { font-style: italic; color: var(--gold); }
+.pkg-modal-close {
+  background: none;
+  border: 0.5px solid var(--border);
+  color: var(--white-dim);
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: color 0.2s, border-color 0.2s;
+}
+.pkg-modal-close:hover { color: var(--white); border-color: var(--white-dim); }
+.pkg-modal-body {
+  padding: 1.2rem 1.4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.pkg-modal-hint {
+  font-size: 0.68rem;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+/* Cards inside modal stack vertically */
+.pkg-modal-body .pkg-card {
+  margin-bottom: 0;
+  cursor: pointer;
+  transition: border-color 0.2s, outline 0.2s;
+}
+.pkg-modal-body .pkg-card:hover { border-color: var(--gold-dim); }
+
+/* ── AD POPUP (unchanged from original) ── */
+.ad-overlay {
+  position: fixed; inset: 0; z-index: 9000;
+  background: rgba(0,0,0,0.75); backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s;
+}
+.ad-overlay.show { opacity: 1; pointer-events: all; }
+.ad-popup {
+  background: var(--dark-2); border: 0.5px solid var(--border);
+  max-width: 480px; width: 90%; position: relative; overflow: hidden;
+}
+.ad-top-bar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.7rem 1.2rem; background: var(--dark); border-bottom: 0.5px solid var(--border);
+}
+.ad-badge { font-size: 0.52rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-dim); }
+.ad-close {
+  background: none; border: none; color: var(--white-dim); cursor: pointer; font-size: 0.9rem;
+  transition: color 0.2s; padding: 0.2rem;
+}
+.ad-close:hover { color: var(--white); }
+.ad-body { padding: 2rem 2rem 1.8rem; }
+.ad-logo-row { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.4rem; }
+.ad-logo-mark { width: 36px; height: 36px; background: var(--gold); display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--black); font-size: 1rem; flex-shrink: 0; }
+.ad-brand { font-size: 0.68rem; font-weight: 600; color: var(--white); letter-spacing: 0.06em; }
+.ad-brand span { display: block; font-size: 0.58rem; font-weight: 300; color: var(--white-dim); margin-top: 0.1rem; }
+.ad-headline { font-family: var(--font-display); font-size: 1.8rem; font-weight: 300; color: var(--white); line-height: 1.1; margin-bottom: 0.8rem; }
+.ad-headline em { font-style: italic; color: var(--gold); }
+.ad-desc { font-size: 0.76rem; color: var(--white-dim); line-height: 1.7; margin-bottom: 1.2rem; }
+.ad-features { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.6rem; }
+.ad-feature { font-size: 0.54rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); border: 0.5px solid var(--border); padding: 0.3rem 0.7rem; }
+.ad-cta-row { display: flex; align-items: center; gap: 1rem; }
+.ad-cta { background: var(--gold); color: var(--black); font-family: var(--font-body); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 0.8rem 1.6rem; text-decoration: none; transition: opacity 0.2s; }
+.ad-cta:hover { opacity: 0.85; }
+.ad-skip { background: none; border: none; font-family: var(--font-body); font-size: 0.62rem; color: var(--white-dim); cursor: pointer; transition: color 0.2s; letter-spacing: 0.08em; }
+.ad-skip:hover { color: var(--white); }
+.ad-deco { position: absolute; bottom: -30px; right: -30px; width: 100px; height: 100px; border: 0.5px solid var(--border); border-radius: 50%; opacity: 0.4; }
+</style>
+</head>
+
+<body class="page-booking">
+
+<!-- ══ AD POPUP ══ -->
+<div class="ad-overlay" id="adOverlay">
+  <div class="ad-popup">
+    <div class="ad-top-bar">
+      <span class="ad-badge">Sponsored · Advertisement</span>
+      <button class="ad-close" id="adClose" aria-label="Close">✕</button>
+    </div>
+    <div class="ad-body">
+      <div class="ad-logo-row">
+        <div class="ad-logo-mark">C</div>
+        <div class="ad-brand">
+          WEB DESIGN - Casual Code Studios
+          <span>Web Design · Kenya</span>
+        </div>
+      </div>
+      <h2 class="ad-headline">Your Dream Website,<br><em>Built to Impress</em></h2>
+      <p class="ad-desc">We craft beautiful, fast, and modern websites for photographers, studios, and small businesses across Kenya.</p>
+      <div class="ad-features">
+        <div class="ad-feature">Custom Designs</div>
+        <div class="ad-feature">Mobile First</div>
+        <div class="ad-feature">SEO Optimised</div>
+        <div class="ad-feature">Fast Delivery</div>
+        <div class="ad-feature">Affordable Rates</div>
+        <div class="ad-feature">Local Support</div>
+      </div>
+      <div class="ad-cta-row">
+        <a href="https://casual-code-studios.vercel.app/" class="ad-cta" target="_blank">Get a Free Quote</a>
+        <button class="ad-skip" id="adSkip">No thanks, dismiss</button>
+      </div>
+    </div>
+    <div class="ad-deco"></div>
+  </div>
+</div>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2">
+        <circle cx="12" cy="12" r="2.5"/>
+        <path d="M6.5 6.5h1.8l1.2-2h5l1.2 2h1.8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"/>
+      </svg>
+      <img src="logo.png" alt="logo">
+    </div>
+    <div class="logo-text">
+      <span class="logo-sub">Focus Studios</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li class="nav-item">
+      <a href="services.html" id="myServices">Services</a>
+      <script>document.getElementById("myServices").addEventListener("click",e=>e.preventDefault());</script>
+      <ul class="dropdown">
+        <li><a href="weddings.html">Weddings &amp; Events</a></li>
+        <li><a href="studio.html">Studio Portraits</a></li>
+        <li><a href="corporate.html">Corporate</a></li>
+        <li><a href="birthdays.html">Birthdays &amp; Baby Showers</a></li>
+        <li><a href="graduations.html">Graduations</a></li>
+        <li><a href="products.html">Products &amp; Branding</a></li>
+        <li><a href="outdoor.html">Outdoor</a></li>
+        <li style="display: none;"><a href="videography.html">Videography</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a href="#" id="myLocations">Locations</a>
+      <script>document.getElementById("myLocations").addEventListener("click",e=>e.preventDefault());</script>
+      <ul class="dropdown" >
+        <li><a href="locations/nairobi.html">Nairobi</a></li>
+        <li><a href="locations/mombasa.html">Mombasa</a></li>
+        <li><a href="locations/nyeri.html">Nyeri</a></li>
+        <li><a href="locations/nakuru.html">Nakuru</a></li>
+        <li><a href="locations/thika.html">Thika</a></li>
+      </ul>
+    </li>
+    <li><a href="about.html" style="color:var(--gold);">About</a></li>
+    <li><a href="booking.html" class="nav-cta">Book a Session</a></li>
+  </ul>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<aside class="sidebar" id="sidebar">
+  <ul class="sidebar-nav">
+    <li>
+      <span class="sidebar-group-label" data-target="sub-services">Services</span>
+      <ul class="sidebar-sub" id="sub-services">
+        <li><a href="weddings.html">Weddings &amp; Events</a></li>
+        <li><a href="studio.html">Studio Portraits</a></li>
+        <li><a href="corporate.html">Corporate</a></li>
+        <li><a href="birthdays.html">Birthdays &amp; Baby Showers</a></li>
+        <li><a href="graduations.html">Graduations</a></li>
+        <li><a href="products.html">Products &amp; Branding</a></li>
+        <li><a href="outdoor.html">Outdoor</a></li>
+        <li style="display: none;"><a href="videography.html">Videography</a></li>
+      </ul>
+    </li>
+    <li>
+      <span class="sidebar-group-label" data-target="sub-locations">Locations</span>
+      <ul class="sidebar-sub" id="sub-locations">
+        <li><a href="locations/nairobi.html">Nairobi</a></li>
+        <li><a href="locations/mombasa.html">Mombasa</a></li>
+        <li><a href="locations/nyeri.html">Nyeri</a></li>
+        <li><a href="locations/nakuru.html">Nakuru</a></li>
+        <li><a href="locations/thika.html">Thika</a></li>
+      </ul>
+    </li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <a href="booking.html" class="sidebar-cta">Book a Session</a>
+</aside>
+
+<!-- ══ PAGE ══ -->
+<div class="bk-page">
+
+  <!-- HERO -->
+  <div class="bk-hero">
+    <span class="bk-hero-eyebrow">Reserve Your Date</span>
+    <h1 class="bk-hero-title">Let's Capture<br>Your <em>Moment</em></h1>
+    <p class="bk-hero-sub">3 quick steps. We respond within 2 hours with a custom quote and confirmed date.</p>
+    <div class="bk-chips">
+      <span class="bk-chip">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        2-hour response
+      </span>
+      <span class="bk-chip">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        24–48 hr delivery
+      </span>
+      <span class="bk-chip">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Nationwide coverage
+      </span>
+      <span class="bk-chip">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        500+ happy clients
+      </span>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="bk-main">
+
+    <!-- FORM PANEL -->
+    <div class="bk-form-panel">
+
+      <!-- Step progress -->
+      <div class="step-progress" id="stepProgress">
+        <div class="step-dot active" data-step="1">
+          <div class="step-dot-inner">01</div>
+          <span class="step-dot-label">Service</span>
+        </div>
+        <div class="step-line" id="line1"></div>
+        <div class="step-dot" data-step="2">
+          <div class="step-dot-inner">02</div>
+          <span class="step-dot-label">Details</span>
+        </div>
+        <div class="step-line" id="line2"></div>
+        <div class="step-dot" data-step="3">
+          <div class="step-dot-inner">03</div>
+          <span class="step-dot-label">Confirm</span>
+        </div>
+      </div>
+
+      <form id="bookingForm" action="https://formspree.io/f/mlgzbqko" method="POST" novalidate>
+        <input type="hidden" name="service" id="hiddenService" value="Weddings &amp; Events">
+        <input type="hidden" name="selected_package" id="hiddenPackage" value="">
+
+        <!-- ══ STEP 1: Service & Contact ══ -->
+        <div class="form-step active" id="step1">
+
+          <!-- MOBILE PAGE 1 of 3: Service Selection -->
+          <div class="mob-page mob-active" id="mob1">
+            <div class="mob-step-bar">
+              <span class="mob-step-label">Step 1 of 3 — Choose Service</span>
+              <div class="mob-step-dots">
+                <div class="mob-step-dot active"></div>
+                <div class="mob-step-dot"></div>
+                <div class="mob-step-dot"></div>
+              </div>
+            </div>
+            <h2 class="step-heading">Choose Your <em>Service</em></h2>
+            <p class="step-sub">Select the type of shoot you're interested in.</p>
+
+            <div class="svc-grid" id="serviceSelector">
+            <label class="svc-tile sel" data-service="Weddings &amp; Events">
+              <input type="radio" name="service_type" value="Weddings & Events" checked>
+              <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+              <span class="svc-name">Weddings &amp; Events</span>
+            </label>
+            <label class="svc-tile" data-service="Studio Portraits">
+              <input type="radio" name="service_type" value="Studio Portraits">
+              <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+              <span class="svc-name">Studio Portraits</span>
+            </label>
+            <label class="svc-tile" data-service="Corporate">
+              <input type="radio" name="service_type" value="Corporate">
+              <div class="svc-ico"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+              <span class="svc-name">Corporate</span>
+            </label>
+            <label class="svc-tile" data-service="Graduation">
+              <input type="radio" name="service_type" value="Graduation Shoot">
+              <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+              <span class="svc-name">Graduation</span>
+            </label>
+            <label class="svc-tile" data-service="Birthday &amp; Baby Shower">
+              <input type="radio" name="service_type" value="Birthday & Baby Shower">
+              <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+              <span class="svc-name">Birthdays &amp; Showers</span>
+            </label>
+            <label class="svc-tile" data-service="Products &amp; Branding">
+              <input type="radio" name="service_type" value="Products & Branding">
+              <div class="svc-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+              <span class="svc-name">Products &amp; Branding</span>
+            </label>
+            <label class="svc-tile" data-service="Outdoor">
+              <input type="radio" name="service_type" value="Outdoor & Lifestyle">
+              <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+              <span class="svc-name">Outdoor</span>
+            </label>
+
+          </div><!-- end svc-grid -->
+
+          <!-- Selected package confirmation tag (mobile) -->
+          <div id="mobSelectedPkg" style="display:none;margin-top:0.8rem;font-size:0.7rem;color:var(--gold);border:0.5px solid rgba(201,168,76,0.35);padding:0.6rem 1rem;letter-spacing:0.06em;"></div>
+
+          <!-- mob1 bottom nav -->
+          <div class="step-nav mob-only" style="margin-top:1.6rem;">
+            <a href="https://wa.me/254745845976" class="btn-wa-side" target="_blank" style="font-size:0.54rem;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="#25D366" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.885 3.488"/></svg>
+              WhatsApp
+            </a>
+            <button type="button" class="btn-next" id="mobNext1">Next: Your Details →</button>
+          </div>
+
+          </div><!-- end mob1 -->
+          <div class="mob-page" id="mob2">
+            <div class="mob-step-bar">
+              <span class="mob-step-label">Step 2 of 3 — Your Details</span>
+              <div class="mob-step-dots">
+                <div class="mob-step-dot done"></div>
+                <div class="mob-step-dot active"></div>
+                <div class="mob-step-dot"></div>
+              </div>
+            </div>
+            <h2 class="step-heading">Your <em>Details</em></h2>
+            <p class="step-sub">Tell us who you are so we can reach you.</p>
+
+          <div class="f-grid-2">
+            <div class="f-group">
+              <label class="f-label" for="b-fname">First Name *</label>
+              <input type="text" id="b-fname" name="first_name" placeholder="Jane">
+            </div>
+            <div class="f-group">
+              <label class="f-label" for="b-lname">Last Name *</label>
+              <input type="text" id="b-lname" name="last_name" placeholder="Mwangi">
+            </div>
+          </div>
+          <div class="f-grid-2">
+            <div class="f-group">
+              <label class="f-label" for="b-email">Email Address *</label>
+              <input type="text" id="b-email" name="email" placeholder="jane@example.com">
+            </div>
+            <div class="f-group">
+              <label class="f-label" for="b-phone">Phone / WhatsApp *</label>
+              <input type="text" id="b-phone" name="phone" placeholder="+254 700 000 000">
+            </div>
+          </div>
+
+          <!-- Mobile-only sub-nav for mob2 back/next -->
+          <div class="step-nav mob-only" id="mobContact2Nav" style="margin-top:1.4rem;">
+            <button type="button" class="btn-back" id="mobBack2">← Back</button>
+            <button type="button" class="btn-next" id="mobNextToStep2">Next: Session Details →</button>
+          </div>
+
+          </div><!-- end mob2 -->
+
+          <!-- Desktop step-nav (hidden on mobile) -->
+          <div class="step-nav desk-only">
+            <a href="https://wa.me/254745845976" class="btn-wa-side" target="_blank">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="#25D366" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.885 3.488"/></svg>
+              WhatsApp Instead
+            </a>
+            <button type="button" class="btn-next" id="next1">Next: Session Details →</button>
+          </div>
+        </div>
+
+        <!-- ══ STEP 2: Session Details & Budget ══ -->
+        <div class="form-step" id="step2">
+          <div class="mob-step-bar mob-only">
+            <span class="mob-step-label">Step 2 of 3 — Session Details</span>
+            <div class="mob-step-dots">
+              <div class="mob-step-dot done"></div>
+              <div class="mob-step-dot done"></div>
+              <div class="mob-step-dot active"></div>
+            </div>
+          </div>
+          <h2 class="step-heading">Session <em>Details</em></h2>
+          <p class="step-sub">Tell us when, where, and how long. The more detail the better — we'll build your quote around it.</p>
+
+          <div class="f-grid-3">
+            <div class="f-group">
+              <label class="f-label" for="b-date">Preferred Date *</label>
+              <input type="date" id="b-date" name="preferred_date" required>
+            </div>
+            <div class="f-group">
+              <label class="f-label" for="b-alt-date">Alternate Date</label>
+              <input type="date" id="b-alt-date" name="alternate_date">
+            </div>
+            <div class="f-group">
+              <label class="f-label" for="b-time">Preferred Time</label>
+              <div class="sel-wrap">
+                <select id="b-time" name="preferred_time">
+                  <option value="">Select time</option>
+                  <option>Morning (8am – 11am)</option>
+                  <option>Midday (11am – 2pm)</option>
+                  <option>Afternoon (2pm – 5pm)</option>
+                  <option>Evening (5pm – 7pm)</option>
+                  <option>Flexible</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="f-grid-2">
+            <div class="f-group">
+              <label class="f-label" for="b-county">County / City *</label>
+              <div class="sel-wrap">
+                <select id="b-county" name="location" required>
+                  <option value="">Select location</option>
+                  <option>Nairobi</option>
+                  <option>Mombasa</option>
+                  <option>Nyeri</option>
+                  <option>Nakuru</option>
+                  <option>Thika</option>
+                  <option>Other (nationwide travel)</option>
+                </select>
+              </div>
+            </div>
+            <div class="f-group">
+              <label class="f-label" for="b-venue">Venue / Location Name</label>
+              <input type="text" id="b-venue" name="venue" placeholder="e.g. Windsor Hotel, Westlands">
+            </div>
+          </div>
+
+          <div class="f-grid-2">
+            <div class="f-group">
+              <label class="f-label" for="b-duration">Session Duration</label>
+              <div class="sel-wrap">
+                <select id="b-duration" name="duration">
+                  <option value="">Select duration</option>
+                  <option>1 Hour</option>
+                  <option>2 Hours</option>
+                  <option>Half Day (4 Hours)</option>
+                  <option>Full Day (8+ Hours)</option>
+                  <option>Not sure — advise me</option>
+                </select>
+              </div>
+            </div>
+            <div class="f-group">
+              <label class="f-label" for="b-guests">Number of People</label>
+              <input type="number" id="b-guests" name="guests" placeholder="e.g. 2" min="1">
+            </div>
+          </div>
+
+
+
+          <div class="step-nav">
+            <button type="button" class="btn-back" id="back2">← Back</button>
+            <button type="button" class="btn-next" id="next2">Next: Final Step →</button>
+          </div>
+        </div>
+
+        <!-- ══ STEP 3: Vision & Submit ══ -->
+        <div class="form-step" id="step3">
+          <div class="mob-step-bar mob-only">
+            <span class="mob-step-label">Step 3 of 3 — Your Vision</span>
+            <div class="mob-step-dots">
+              <div class="mob-step-dot done"></div>
+              <div class="mob-step-dot done"></div>
+              <div class="mob-step-dot done"></div>
+            </div>
+          </div>
+          <h2 class="step-heading">Almost <em>Done</em></h2>
+          <p class="step-sub">Tell us your vision and any add-ons you'd like. We'll take it from here.</p>
+
+          <div class="f-group">
+            <label class="f-label" for="b-special">Your Vision / Special Requests *</label>
+            <textarea id="b-special" name="message" placeholder="Tell us about your session — theme, mood, specific shots you want, any concerns, or anything that helps us prepare." required></textarea>
+          </div>
+
+          <div class="f-group">
+            <label class="f-label" for="b-addons">Add-ons Interested In</label>
+            <div class="sel-wrap">
+              <select id="b-addons" name="addons">
+                <option value="">Select if applicable</option>
+                <option>Photo + Video Bundle</option>
+                <option>Rush Delivery (same day)</option>
+                <option>Fine Art Prints / Album</option>
+                <option>Drone / Aerial Coverage</option>
+                <option>Not sure — will discuss</option>
+                <option>None</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="f-group">
+            <label class="f-label">How Did You Find Us?</label>
+            <div class="ref-grid">
+              <label class="ref-check"><input type="checkbox" name="referral[]" value="Instagram"> Instagram</label>
+              <label class="ref-check"><input type="checkbox" name="referral[]" value="Facebook"> Facebook</label>
+              <label class="ref-check"><input type="checkbox" name="referral[]" value="TikTok"> TikTok</label>
+              <label class="ref-check"><input type="checkbox" name="referral[]" value="Google Search"> Google</label>
+              <label class="ref-check"><input type="checkbox" name="referral[]" value="Word of Mouth"> Word of Mouth</label>
+              <label class="ref-check"><input type="checkbox" name="referral[]" value="Returning Client"> Returning Client</label>
+            </div>
+          </div>
+
+          <div class="consent-row">
+            <input type="checkbox" id="b-consent" name="consent" required>
+            <label class="consent-text" for="b-consent">
+              I agree to be contacted by Focus Studios regarding my booking. My information won't be shared with third parties. I accept the <a href="#">privacy policy</a>.
+            </label>
+          </div>
+
+          <div class="step-nav">
+            <button type="button" class="btn-back" id="back3">← Back</button>
+            <button type="submit" class="btn-next" id="submitBtn">Send Booking Request →</button>
+          </div>
+        </div>
+
+      </form>
+
+      <!-- Success -->
+      <div class="bk-success" id="bookingSuccess">
+        <div class="success-ring">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3 class="step-heading" style="font-size:2rem;">Request <em>Sent!</em></h3>
+        <p class="step-sub" style="max-width:360px;margin:0 auto;">Thank you — we've received your booking request and will be in touch within 2 hours to confirm availability and share your custom quote.</p>
+        <a href="index.html" class="btn-back" style="display:inline-block;margin-top:1rem;">← Back to Home</a>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="bk-sidebar">
+
+      <div id="pkgSidebarSection">
+        <span class="sb-section-title" id="pkgSidebarTitle">Select a Service</span>
+        <p class="pkg-select-label" id="pkgSelectHint" style="margin-bottom:0.8rem;">← Choose a service to view packages</p>
+        <div id="pkgSidebarCards">
+          <p style="font-size:0.76rem;color:var(--white-dim);line-height:1.8;margin-top:0.5rem;">Choose your service on the left to see the available packages for that category.</p>
+        </div>
+        <p style="font-size:0.67rem;color:var(--white-dim);margin-top:0.9rem;line-height:1.7;">All packages include full copyright. Custom quotes available on request.</p>
+      </div>
+
+      <div>
+        <span class="sb-section-title">Why Clients Trust Us</span>
+        <div class="trust-grid">
+          <div class="trust-tile">
+            <span class="trust-val">500+</span>
+            <span class="trust-label">Happy Clients</span>
+          </div>
+          <div class="trust-tile">
+            <span class="trust-val">7+</span>
+            <span class="trust-label">Years Active</span>
+          </div>
+          <div class="trust-tile">
+            <span class="trust-val">48h</span>
+            <span class="trust-label">Delivery</span>
+          </div>
+          <div class="trust-tile">
+            <span class="trust-val">5★</span>
+            <span class="trust-label">Avg. Rating</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <span class="sb-section-title">Quick Contact</span>
+        <div class="sb-contact-item">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.58a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+254745845976">+254 745 845 976</a>
+        </div>
+        <div class="sb-contact-item">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:info@focusstudios.co.ke">info@focusstudios.co.ke</a>
+        </div>
+        <div class="sb-contact-item">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Westlands, Nairobi, Kenya
+        </div>
+        <p class="sb-hours">Mon – Sat · 8:00 AM – 6:00 PM</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <section class="bk-faq">
+    <div class="bk-faq-inner">
+      <div class="faq-header">
+        <p class="section-label">Common Questions</p>
+        <h2>Before You <em>Book</em></h2>
+        <p>Everything you need to know. Still unsure? <a href="https://wa.me/254745845976" style="color:var(--gold);">Chat on WhatsApp →</a></p>
+      </div>
+      <div class="faq-list">
+        <article class="faq-item">
+          <div class="faq-q">How soon should I book?</div>
+          <div class="faq-a">We recommend 2–4 weeks for portraits, and 3–6 months for weddings. That said, last-minute bookings are welcome subject to availability — don't hesitate to enquire.</div>
+        </article>
+        <article class="faq-item">
+          <div class="faq-q">Is a deposit required?</div>
+          <div class="faq-a">Yes. A 30% retainer secures your date. It's non-refundable but fully transferable if you reschedule within 7 days. Balance is due on or before shoot day.</div>
+        </article>
+        <article class="faq-item">
+          <div class="faq-q">How long until I receive my photos?</div>
+          <div class="faq-a">Fully edited images are delivered within 24–48 hours via a private online gallery. Same-day delivery of selected images is available as an add-on.</div>
+        </article>
+        <article class="faq-item">
+          <div class="faq-q">Can you travel outside Nairobi?</div>
+          <div class="faq-a">Absolutely. We have photographers in Mombasa, Nyeri, Nakuru, and Thika. We also travel nationwide on request — travel costs are quoted separately.</div>
+        </article>
+        <article class="faq-item">
+          <div class="faq-q">What if the weather is bad?</div>
+          <div class="faq-a">We monitor forecasts and reach out 24 hours ahead. Free rescheduling for weather cancellations, or we can pivot to our Westlands studio as a backup.</div>
+        </article>
+        <article class="faq-item">
+          <div class="faq-q">How many photos will I receive?</div>
+          <div class="faq-a">Essentials: 50+, Premium: 150+, Full Day: 300+. All are individually retouched and colour-corrected. We don't deliver unedited raws as standard.</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="bk-cta">
+    <div class="bk-cta-inner">
+      <span class="cta-tag" style="display:block;margin-bottom:1rem;font-size:0.58rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);">Still Thinking?</span>
+      <h2 class="bk-cta-title">No Commitment.<br>Just a <em>Conversation.</em></h2>
+      <p class="bk-cta-desc">Not ready for the full form? Send us a message — we'll share pricing and help you decide, no pressure.</p>
+      <div class="bk-cta-btns">
+        <a href="https://wa.me/254745845976" class="btn-wa" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#25D366" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.885 3.488"/></svg>
+          Chat on WhatsApp
+        </a>
+        <a href="tel:+254745845976" class="btn-ghost">Call: +254 745 845 976</a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- end bk-page -->
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-grid">
+    <div class="logo-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2">
+            <circle cx="12" cy="12" r="2.5"/>
+            <path d="M6.5 6.5h1.8l1.2-2h5l1.2 2h1.8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"/>
+          </svg>
+          <img src="logo.png" alt="logo">
+        </div>
+        <div class="logo-text">
+          <span class="logo-sub">Focus Studios · Kenya</span>
+        </div>
+      </a>
+      <p class="footer-brand-desc">Nairobi-based photography studio providing premium services across Kenya. Weddings, events, portraits and commercial photography — delivered with speed and quality.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="booking.html">Book a Session</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="weddings.html">Weddings &amp; Events</a></li>
+        <li><a href="studio.html">Studio Portraits</a></li>
+        <li><a href="corporate.html">Corporate</a></li>
+        <li><a href="birthdays.html">Birthdays &amp; Baby Showers</a></li>
+        <li><a href="graduations.html">Graduations</a></li>
+        <li><a href="products.html">Products &amp; Branding</a></li>
+        <li><a href="outdoor.html">Outdoor</a></li>
+        <li style="display: none;"><a href="videography.html">Videography</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Get in Touch</div>
+      <div class="footer-contact-item"><span><img src="phone.png" alt="phone"></span> +254 745 845 976</div>
+      <div class="footer-contact-item"><span><img src="mail.png" alt="mail"></span> info@focusstudios.co.ke</div>
+      <div class="footer-contact-item"><span><img src="location.png" alt="location"></span> Westlands, Nairobi, Kenya</div>
+      <div class="footer-contact-item"><span><img src="clock.png" alt="clock"></span> Mon–Sat: 8:00 AM – 6:00 PM</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Focus Studios. All Rights Reserved.</span>
+    <div class="social-links">
+      <a href="#" class="social-link" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="TikTok">
+        <svg viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="YouTube">
+        <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.54C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- TICKER -->
+<div class="ticker-bar">
+  <span class="ticker-label">Focus Studios</span>
+  <div class="ticker-track-wrap">
+    <div class="ticker-track">
+      WEDDINGS &amp; EVENTS &nbsp;✦&nbsp; STUDIO PORTRAITS &nbsp;✦&nbsp; CORPORATE PHOTOGRAPHY &nbsp;✦&nbsp; GRADUATIONS &nbsp;✦&nbsp; BIRTHDAYS &amp; BABY SHOWERS &nbsp;✦&nbsp; PRODUCTS &amp; BRANDING &nbsp;✦&nbsp; OUTDOOR SESSIONS &nbsp;✦&nbsp; VIDEOGRAPHY &nbsp;✦&nbsp; 24–48 HR DELIVERY &nbsp;✦&nbsp; NAIROBI · MOMBASA · NYERI · NAKURU · THIKA &nbsp;✦&nbsp;
+      WEDDINGS &amp; EVENTS &nbsp;✦&nbsp; STUDIO PORTRAITS &nbsp;✦&nbsp; CORPORATE PHOTOGRAPHY &nbsp;✦&nbsp; GRADUATIONS &nbsp;✦&nbsp; BIRTHDAYS &amp; BABY SHOWERS &nbsp;✦&nbsp; PRODUCTS &amp; BRANDING &nbsp;✦&nbsp; OUTDOOR SESSIONS &nbsp;✦&nbsp; VIDEOGRAPHY &nbsp;✦&nbsp; 24–48 HR DELIVERY &nbsp;✦&nbsp; NAIROBI · MOMBASA · NYERI · NAKURU · THIKA &nbsp;✦&nbsp;
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+// ════════════════════════════════════════════
+//  FOCUS STUDIOS — BOOKING PAGE JS
+// ════════════════════════════════════════════
+
+// ── PACKAGES DATA ──
+const PACKAGES = {
+  'Weddings & Events': {
+    title: 'Wedding Packages',
+    cards: [
+      { name: 'Classic', price: 'KES 65,000', duration: 'Full-Day Coverage · Soft Copy Delivery', features: ['1 Photographer','Ceremony + Reception coverage','100+ edited photos','Online gallery + USB delivery','48-hour turnaround'], wa: 'Classic%20Wedding' },
+      { name: 'Premium', price: 'KES 85,000', duration: 'Full-Day Coverage · Photos + Photobook', features: ['2 Photographers','Ceremony + Reception + Getting Ready','150+ edited photos','Printed premium photobook','Online gallery + USB','48-hour turnaround'], featured: true, badge: 'Most Popular', wa: 'Premium%20Wedding' },
+      { name: 'Luxury', price: 'KES 120,000', duration: 'Full Coverage · Photos, Video & Drone', features: ['2 Photographers + Videographer','All-day unlimited coverage','200+ edited photos','Drone aerial shots included','Highlight video + full footage','Premium photobook + USB'], wa: 'Luxury%20Wedding' }
+    ]
+  },
+  'Studio Portraits': {
+    title: 'Studio Packages',
+    cards: [
+      { name: 'Essential', price: 'KES 10,000', duration: 'Portrait Session · From KES 300 / photo', features: ['1–2 outfits/looks','Up to 20 edited photos','Professional retouching','Digital gallery delivery','Same-day ready'], wa: 'Essential%20Studio%20Session' },
+      { name: 'Standard', price: 'KES 20,000', duration: 'Full Session · From KES 500 / photo', features: ['3–4 outfits/looks','Up to 40 edited photos','Full skin retouching','Creative lighting setups','Digital gallery + USB'], featured: true, badge: 'Best Value', wa: 'Standard%20Studio%20Session' },
+      { name: 'Premium', price: 'KES 30,000', duration: 'Creative Session · From KES 1,000 / photo', features: ['Unlimited looks & backdrops','60+ edited photos','Advanced compositing & retouching','Print-ready high-res files','USB + digital delivery'], wa: 'Premium%20Studio%20Session' }
+    ]
+  },
+  'Corporate': {
+    title: 'Corporate Packages',
+    cards: [
+      { name: 'Essential', price: 'KES 60,000', duration: 'Photography Only · Half-Day', features: ['1 Photographer on-location','Team headshots (up to 20 staff)','Office & workspace photos','50+ edited photos','48-hour delivery'], wa: 'Essential%20corporate%20package' },
+      { name: 'Professional', price: 'KES 100,000', duration: 'Photo & Video · Full Day', features: ['Photographer + Videographer','Unlimited staff headshots','Office, culture & event coverage','100+ edited photos + video highlights','48-hour delivery','Full usage rights included'], featured: true, badge: 'Most Popular', wa: 'Professional%20corporate%20package' },
+      { name: 'Enterprise', price: 'KES 150,000', duration: 'Full Branding Suite · Photo & Video', features: ['2 Photographers + Videographer','Multi-day coverage available','Full brand & marketing content set','150+ edited photos + full video','Priority 24-hour delivery','Dedicated account manager'], wa: 'Enterprise%20corporate%20package' }
+    ]
+  },
+  'Graduation': {
+    title: 'Graduation Packages',
+    cards: [
+      { name: 'Graduate', price: 'KES 5,000', duration: 'Individual · Studio or On-Site', features: ['Solo graduation portrait session','2 outfit/look changes','15+ edited photos','Digital gallery delivery','48-hour turnaround'], wa: 'Graduate%20graduation%20package' },
+      { name: 'Milestone', price: 'KES 12,000', duration: 'Graduate + Family · Full Ceremony Day', features: ['Full graduation day coverage','Individual + family portraits','Ceremony & candid shots','40+ edited photos','Digital gallery + USB','48-hour turnaround'], featured: true, badge: 'Most Popular', wa: 'Milestone%20graduation%20package' },
+      { name: 'Legacy', price: 'KES 22,000', duration: 'Full Day · Photos + Printed Album', features: ['Full-day event coverage','2 photographers','80+ edited photos','Printed premium photo album','Campus / outdoor location shoot','USB + digital gallery'], wa: 'Legacy%20graduation%20package' }
+    ]
+  },
+  'Birthday & Baby Shower': {
+    title: 'Birthday & Baby Shower Packages',
+    cards: [
+      { name: 'Essential', price: 'KES 20,000', duration: 'Half-Day Event Coverage', features: ['Up to 5 hours of coverage','Candid & posed shots','Décor & cake cutting moments','60+ edited photos','48-hour turnaround'], wa: 'Essential%20birthday%20package' },
+      { name: 'Celebration', price: 'KES 25,000', duration: 'Full Event Coverage', features: ['Full-day coverage','Décor, candid & portrait shots','All key event moments covered','100+ edited photos','48-hour delivery','Online gallery included'], featured: true, badge: 'Most Popular', wa: 'Celebration%20birthday%20package' },
+      { name: 'Premium', price: 'KES 30,000', duration: 'Complete Event Experience', features: ['Full-day coverage','2 photographers','150+ edited photos','Printed album (20 pages)','48-hour delivery','Social media edits included'], wa: 'Premium%20birthday%20package' }
+    ]
+  },
+  'Products & Branding': {
+    title: 'Commercial Packages',
+    cards: [
+      { name: 'Starter', price: 'KES 15,000', duration: 'Product Photography · Up to 10 products', features: ['Up to 10 product SKUs','White & grey background options','3 angles per product','Colour correction & retouching','Web-optimised JPG + PNG delivery','48-hour turnaround'], wa: 'Starter%20product%20photography%20package' },
+      { name: 'Brand', price: 'KES 45,000', duration: 'Brand Campaign · Photo + Short Video', features: ['Up to 25 product SKUs','Lifestyle & studio backgrounds','Model/props arrangement available','1 × 30-second brand video','Full post-production & colour grade','High-res + web + social formats','72-hour turnaround'], featured: true, badge: 'Most Popular', wa: 'Brand%20package' },
+      { name: 'Commercial', price: 'KES 120,000', duration: 'Full Campaign · Photo + Commercial Video', features: ['Unlimited product SKUs','Creative direction & storyboarding','Models, props & art direction','1 × full 60–90 sec commercial','Social cut-downs (15s, 30s)','Drone footage available','Broadcast-ready delivery'], wa: 'Commercial%20package' }
+    ]
+  },
+  'Outdoor': {
+    title: 'Outdoor Packages',
+    cards: [
+      { name: 'Explorer', price: 'KES 12,000', duration: '1.5 Hr Session · 1 Location', features: ['1–2 outfit changes','20 fully edited images','Golden hour scheduling','Private online gallery','1 free reschedule (weather)'], wa: 'Explorer%20outdoor%20package' },
+      { name: 'Landscape', price: 'KES 22,000', duration: '2.5 Hr Session · Up to 2 Locations', features: ['3 outfit changes','40 fully edited images','Off-camera lighting included','Background cleanup editing','Pre-shoot styling guide','Private gallery + USB'], featured: true, badge: 'Most Popular', wa: 'Landscape%20outdoor%20package' },
+      { name: 'Expedition', price: 'KES 38,000', duration: 'Full-Day · Multiple Locations', features: ['Sunrise to sunset coverage','60+ fully edited images','Dedicated location scouting','Park/reserve permits included','Full creative direction & styling','Print-ready files + USB + gallery'], wa: 'Expedition%20outdoor%20package' }
+    ]
+  }
+};
+
+// Render packages into the sidebar
+function renderPackages(serviceKey) {
+  const data = PACKAGES[serviceKey];
+  const titleEl = document.getElementById('pkgSidebarTitle');
+  const cardsEl = document.getElementById('pkgSidebarCards');
+  const hintEl  = document.getElementById('pkgSelectHint');
+  if (!data) {
+    titleEl.textContent = 'Select a Service';
+    if (hintEl) hintEl.style.display = 'block';
+    cardsEl.innerHTML = '<p style="font-size:0.76rem;color:var(--white-dim);line-height:1.8;margin-top:0.5rem;">Choose your service on the left to see available packages.</p>';
+    return;
+  }
+  titleEl.textContent = data.title;
+  if (hintEl) hintEl.style.display = 'none';
+  cardsEl.innerHTML = data.cards.map(c => `
+    <div class="pkg-card${c.featured ? ' featured' : ''}" style="cursor:pointer;" onclick="selectPackage('${c.name}', '${serviceKey}', this)">
+      ${c.badge ? `<span class="pkg-badge">${c.badge}</span>` : ''}
+      <div class="pkg-name">${c.name}</div>
+      <span class="pkg-price">${c.price}</span>
+      <div style="font-size:0.6rem;color:var(--white-dim);letter-spacing:0.06em;margin-bottom:0.7rem;">${c.duration}</div>
+      <ul class="pkg-features">${c.features.map(f => `<li>${f}</li>`).join('')}</ul>
+      <a href="https://wa.me/254745845976?text=Hi%20Focus%20Studios%2C%20I%27d%20like%20the%20${c.wa}%20package" class="btn-wa-side" target="_blank" style="margin-top:0.9rem;display:inline-flex;" onclick="event.stopPropagation()">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="#25D366" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.885 3.488"/></svg>
+        Book via WhatsApp
+      </a>
+    </div>
+  `).join('');
+}
+
+function selectPackage(pkgName, serviceKey, cardEl) {
+  document.querySelectorAll('#pkgSidebarCards .pkg-card').forEach(c => c.style.outline = 'none');
+  cardEl.style.outline = '2px solid var(--gold)';
+  document.getElementById('hiddenPackage').value = pkgName + ' — ' + serviceKey;
+}
+
+// ── MOBILE SIDEBAR ──
+const menuBtn = document.getElementById('menuBtn');
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('sidebarOverlay');
+
+function openSidebar() { menuBtn.classList.add('open'); sidebar.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeSidebar() { menuBtn.classList.remove('open'); sidebar.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow = ''; }
+menuBtn.addEventListener('click', () => sidebar.classList.contains('open') ? closeSidebar() : openSidebar());
+overlay.addEventListener('click', closeSidebar);
+
+document.querySelectorAll('.sidebar-group-label').forEach(label => {
+  label.addEventListener('click', () => {
+    const sub = document.getElementById(label.dataset.target);
+    const isOpen = sub.classList.contains('open');
+    document.querySelectorAll('.sidebar-sub').forEach(s => s.classList.remove('open'));
+    document.querySelectorAll('.sidebar-group-label').forEach(l => l.classList.remove('open'));
+    if (!isOpen) { sub.classList.add('open'); label.classList.add('open'); }
+  });
+});
+
+// ── SERVICE SELECTOR ──
+let selectedService = null;
+const isMobile = () => window.innerWidth <= 700;
+
+document.querySelectorAll('.svc-tile').forEach(tile => {
+  tile.addEventListener('click', () => {
+    document.querySelectorAll('.svc-tile').forEach(t => t.classList.remove('sel'));
+    tile.classList.add('sel');
+    selectedService = tile.dataset.service || tile.querySelector('input').value;
+    document.getElementById('hiddenService').value = selectedService;
+    document.getElementById('hiddenPackage').value = '';
+
+    if (isMobile()) {
+      openPkgModal(selectedService);
+    } else {
+      renderPackages(selectedService);
+    }
+  });
+});
+
+// ── PACKAGE MODAL (mobile) ──
+function openPkgModal(serviceKey) {
+  const data = PACKAGES[serviceKey];
+  if (!data) return;
+  const modal = document.getElementById('pkgModal');
+  const body = document.getElementById('pkgModalBody');
+  // Remove any leftover footer from a previous selection
+  const oldFooter = document.getElementById('pkgModalFooter');
+  if (oldFooter) oldFooter.remove();
+  document.getElementById('pkgModalServiceName').textContent = data.title.replace(' Packages','');
+  body.innerHTML = `<p class="pkg-modal-hint">Select your package — tap a card to choose</p>` +
+    data.cards.map(c => `
+      <div class="pkg-card${c.featured ? ' featured' : ''}" onclick="chooseMobPackage('${c.name}','${serviceKey}',this)" style="cursor:pointer;">
+        ${c.badge ? `<span class="pkg-badge">${c.badge}</span>` : ''}
+        <div class="pkg-name">${c.name}</div>
+        <span class="pkg-price">${c.price}</span>
+        <div style="font-size:0.62rem;color:var(--white-dim);letter-spacing:0.06em;margin-bottom:0.7rem;">${c.duration}</div>
+        <ul class="pkg-features">${c.features.map(f=>`<li>${f}</li>`).join('')}</ul>
+        <a href="https://wa.me/254745845976?text=Hi%20Focus%20Studios%2C%20I%27d%20like%20the%20${c.wa}%20package" class="btn-wa-side" target="_blank" style="margin-top:0.9rem;display:inline-flex;font-size:0.56rem;" onclick="event.stopPropagation()">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#25D366" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.885 3.488"/></svg>
+          Book via WhatsApp
+        </a>
+      </div>`).join('');
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function chooseMobPackage(pkgName, serviceKey, cardEl) {
+  document.querySelectorAll('#pkgModalBody .pkg-card').forEach(c => c.style.outline = 'none');
+  cardEl.style.outline = '2px solid var(--gold)';
+  document.getElementById('hiddenPackage').value = pkgName + ' — ' + serviceKey;
+
+  // Show/update the sticky "Next" footer inside the modal
+  let footer = document.getElementById('pkgModalFooter');
+  if (!footer) {
+    footer = document.createElement('div');
+    footer.id = 'pkgModalFooter';
+    footer.style.cssText = 'position:sticky;bottom:0;background:var(--dark-2);border-top:0.5px solid var(--border);padding:1rem 1.4rem;display:flex;align-items:center;justify-content:space-between;gap:0.8rem;';
+    footer.innerHTML =
+      '<span id="pkgModalSelected" style="font-size:0.64rem;color:var(--gold);letter-spacing:0.08em;"></span>' +
+      '<button type="button" id="pkgModalNext" style="background:var(--gold);color:var(--black);border:none;font-family:var(--font-body);font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:0.85rem 1.6rem;cursor:pointer;">Next: Your Details \u2192</button>';
+    document.getElementById('pkgModal').querySelector('.pkg-modal').appendChild(footer);
+
+    document.getElementById('pkgModalNext').addEventListener('click', () => {
+      document.getElementById('pkgModal').classList.remove('open');
+      document.body.style.overflow = '';
+      const pkgLabel = document.getElementById('pkgModalSelected').dataset.pkg;
+      const tag = document.getElementById('mobSelectedPkg');
+      if (tag) { tag.textContent = '\u2713 ' + pkgLabel + ' package selected'; tag.style.display = 'block'; }
+      showMobPage('mob2');
+    });
+  }
+
+  const sel = document.getElementById('pkgModalSelected');
+  sel.textContent = '\u2713 ' + pkgName + ' selected';
+  sel.dataset.pkg = pkgName;
+}
+
+document.getElementById('pkgModalClose').addEventListener('click', () => {
+  document.getElementById('pkgModal').classList.remove('open');
+  document.body.style.overflow = '';
+});
+document.getElementById('pkgModal').addEventListener('click', e => {
+  if (e.target === document.getElementById('pkgModal')) {
+    document.getElementById('pkgModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+
+// ── MULTI-STEP FORM ──
+let currentStep = 1;
+
+function goToStep(n) {
+  document.querySelectorAll('.form-step').forEach((s, i) => {
+    s.classList.toggle('active', i + 1 === n);
+  });
+  document.querySelectorAll('.step-dot').forEach((dot, i) => {
+    dot.classList.remove('active', 'done');
+    if (i + 1 === n) dot.classList.add('active');
+    if (i + 1 < n) dot.classList.add('done');
+  });
+  document.querySelectorAll('.step-line').forEach((line, i) => {
+    line.classList.toggle('done', i + 1 < n);
+  });
+  currentStep = n;
+  window.scrollTo({ top: document.querySelector('.bk-form-panel').offsetTop - 90, behavior: 'smooth' });
+}
+
+// ── MOBILE PAGES NAVIGATION ──
+function showMobPage(id) {
+  document.querySelectorAll('.mob-page').forEach(p => p.classList.remove('mob-active'));
+  const el = document.getElementById(id);
+  if (el) { el.classList.add('mob-active'); }
+  window.scrollTo({ top: document.querySelector('.bk-form-panel').offsetTop - 80, behavior: 'smooth' });
+}
+
+// mob1 → mob2: "Next: Your Details" (fires only if a service is selected via modal)
+const mobNext1 = document.getElementById('mobNext1');
+if (mobNext1) {
+  mobNext1.addEventListener('click', () => {
+    if (!selectedService) {
+      alert('Please select a service first.');
+      return;
+    }
+    showMobPage('mob2');
+  });
+}
+
+// mob2 back → mob1
+const mobBack2 = document.getElementById('mobBack2');
+if (mobBack2) mobBack2.addEventListener('click', () => showMobPage('mob1'));
+
+// mob2 "Next: Session Details" → goToStep(2)
+const mobNextToStep2 = document.getElementById('mobNextToStep2');
+if (mobNextToStep2) {
+  mobNextToStep2.addEventListener('click', () => {
+    const fname = document.getElementById('b-fname').value.trim();
+    const lname = document.getElementById('b-lname').value.trim();
+    const email = document.getElementById('b-email').value.trim();
+    const phone = document.getElementById('b-phone').value.trim();
+    if (!fname || !lname || !email || !phone) {
+      alert('Please fill in your name, email, and phone number.');
+      return;
+    }
+    // Basic email format check
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+    // Reset mob pages to mob1 so back2 on mobile returns correctly to mob2
+    document.querySelectorAll('.mob-page').forEach(p => p.classList.remove('mob-active'));
+    document.getElementById('mob1').classList.add('mob-active');
+    goToStep(2);
+  });
+}
+
+// Desktop next1 (hidden on mobile via desk-only, but kept for safety)
+document.getElementById('next1').addEventListener('click', () => {
+  if (validateStep1()) goToStep(2);
+});
+
+// step2 back → on mobile returns to mob2 (Your Details), on desktop returns to step1
+document.getElementById('back2').addEventListener('click', () => {
+  goToStep(1);
+  if (window.innerWidth <= 700) {
+    showMobPage('mob2');
+  }
+});
+
+// step2 next → step3 (works on both mobile and desktop)
+document.getElementById('next2').addEventListener('click', () => {
+  if (validateStep2()) goToStep(3);
+});
+
+// step3 back → step2
+document.getElementById('back3').addEventListener('click', () => goToStep(2));
+
+function validateStep1() {
+  if (!selectedService) {
+    alert('Please select a service before continuing.');
+    return false;
+  }
+  const fname = document.getElementById('b-fname').value.trim();
+  const lname = document.getElementById('b-lname').value.trim();
+  const email = document.getElementById('b-email').value.trim();
+  const phone = document.getElementById('b-phone').value.trim();
+  if (!fname || !lname || !email || !phone) {
+    alert('Please fill in all required fields (First Name, Last Name, Email, Phone).');
+    return false;
+  }
+  return true;
+}
+
+function validateStep2() {
+  const date = document.getElementById('b-date').value;
+  const county = document.getElementById('b-county').value;
+  if (!date || !county) {
+    alert('Please fill in your preferred date and location.');
+    return false;
+  }
+  return true;
+}
+
+// ── FORM SUBMISSION (Formspree) ──
+const form = document.getElementById('bookingForm');
+const successEl = document.getElementById('bookingSuccess');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  const orig = btn.textContent;
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      form.style.display = 'none';
+      successEl.style.display = 'flex';
+      document.querySelector('.step-progress').style.display = 'none';
+    } else {
+      btn.textContent = 'Error — Try Again';
+      btn.disabled = false;
+      setTimeout(() => { btn.textContent = orig; }, 3000);
+    }
+  } catch {
+    btn.textContent = 'Error — Try Again';
+    btn.disabled = false;
+    setTimeout(() => { btn.textContent = orig; }, 3000);
+  }
+});
+
+// ── FAQ ACCORDION ──
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.querySelector('.faq-q').addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// ── AD POPUP ──
+(function() {
+  const ov = document.getElementById('adOverlay');
+  const hide = () => ov.classList.remove('show');
+  const show = () => ov.classList.add('show');
+  document.getElementById('adClose').addEventListener('click', hide);
+  document.getElementById('adSkip').addEventListener('click', hide);
+  ov.addEventListener('click', e => { if (e.target === ov) hide(); });
+  setTimeout(() => { show(); setInterval(show, 900000); }, 900000);
+})();
+
+// ── TICKER ──
+(function() {
+  const track = document.querySelector('.ticker-track');
+  if (!track) return;
+  let pos = 0;
+  function animate() {
+    pos -= 0.5;
+    if (Math.abs(pos) >= track.scrollWidth / 2) pos = 0;
+    track.style.transform = `translateX(${pos}px)`;
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+
+// ── SCROLL REVEAL ──
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.trust-tile, .bk-chip').forEach((el, i) => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = `opacity 0.5s ${i * 55}ms ease, transform 0.5s ${i * 55}ms ease`;
+  revealObs.observe(el);
+});
+
+// ── INIT: No service pre-selected — clear the default 'sel' on weddings tile ──
+document.querySelectorAll('.svc-tile').forEach(t => t.classList.remove('sel'));
+</script>
+
+<!-- ══ PACKAGE MODAL (mobile) ══ -->
+<div class="pkg-modal-overlay" id="pkgModal" role="dialog" aria-modal="true">
+  <div class="pkg-modal">
+    <div class="pkg-modal-header">
+      <div class="pkg-modal-title">Choose a <em id="pkgModalServiceName">Package</em></div>
+      <button class="pkg-modal-close" id="pkgModalClose" aria-label="Close">✕</button>
+    </div>
+    <div class="pkg-modal-body" id="pkgModalBody">
+      <p class="pkg-modal-hint">Select your package</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SCROLL TO TOP ══ -->
+<div id="scrollTopWrapper">
+  <button id="scrollTopBtn" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+  <script>
+    (function () {
+      const btn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', function () {
+        btn.classList.toggle('visible', window.scrollY > 400);
+      }, { passive: true });
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</div>
+</body>
+</html>

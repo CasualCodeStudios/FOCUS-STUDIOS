@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graduation Photography Kenya – Focus Studios</title>
+<meta name="description" content="Professional graduation photography in Kenya. From primary school to university — we capture your academic milestone beautifully. Focus Studios, Nairobi.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles (1).css">
+</head>
+<body class="page-graduations">
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2">
+        <circle cx="12" cy="12" r="2.5"/>
+        <path d="M6.5 6.5h1.8l1.2-2h5l1.2 2h1.8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"/>
+      </svg>
+      <img src="logo.png" alt="logo">
+    </div>
+    <div class="logo-text">
+      <span class="logo-sub">Focus Studios</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li class="nav-item">
+      <a href="services.html" id="myServices">Services</a>
+      <script>document.getElementById("myServices").addEventListener("click",e=>e.preventDefault());</script>
+      <ul class="dropdown">
+        <li><a href="weddings.html">Weddings &amp; Events</a></li>
+        <li><a href="studio.html">Studio Portraits</a></li>
+        <li><a href="corporate.html">Corporate</a></li>
+        <li><a href="birthdays.html">Birthdays &amp; Baby Showers</a></li>
+        <li><a href="graduations.html">Graduations</a></li>
+        <li><a href="products.html">Products &amp; Branding</a></li>
+        <li><a href="outdoor.html">Outdoor</a></li>
+        <li style="display: none;"><a href="videography.html">Videography</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a href="#" id="myLocations">Locations</a>
+      <script>document.getElementById("myLocations").addEventListener("click",e=>e.preventDefault());</script>
+      <ul class="dropdown" >
+        <li><a href="locations/nairobi.html">Nairobi</a></li>
+        <li><a href="locations/mombasa.html">Mombasa</a></li>
+        <li><a href="locations/nyeri.html">Nyeri</a></li>
+        <li><a href="locations/nakuru.html">Nakuru</a></li>
+        <li><a href="locations/thika.html">Thika</a></li>
+      </ul>
+    </li>
+    <li><a href="about.html" style="color:var(--gold);">About</a></li>
+    <li><a href="booking.html" class="nav-cta">Book a Session</a></li>
+  </ul>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <ul class="sidebar-nav">
+    <li>
+      <span class="sidebar-group-label" data-target="sub-services">Services</span>
+      <ul class="sidebar-sub" id="sub-services">
+        <li><a href="weddings.html">Weddings &amp; Events</a></li>
+        <li><a href="studio.html">Studio Portraits</a></li>
+        <li><a href="corporate.html">Corporate</a></li>
+        <li><a href="birthdays.html">Birthdays &amp; Baby Showers</a></li>
+        <li><a href="graduations.html">Graduations</a></li>
+        <li><a href="products.html">Products &amp; Branding</a></li>
+        <li><a href="outdoor.html">Outdoor</a></li>
+        <li style="display: none;"><a href="videography.html">Videography</a></li>
+      </ul>
+    </li>
+    <li>
+      <span class="sidebar-group-label" data-target="sub-locations">Locations</span>
+      <ul class="sidebar-sub" id="sub-locations">
+        <li><a href="locations/nairobi.html">Nairobi</a></li>
+        <li><a href="locations/mombasa.html">Mombasa</a></li>
+        <li><a href="locations/nyeri.html">Nyeri</a></li>
+        <li><a href="locations/nakuru.html">Nakuru</a></li>
+        <li><a href="locations/thika.html">Thika</a></li>
+      </ul>
+    </li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <a href="booking.html" class="sidebar-cta">Book a Session</a>
+</aside>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img-bg"></div>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="innerWrapper">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span>›</span>
+        <a href="#">Services</a><span>›</span>
+        <a href="#" style="color:var(--gold);">Graduations</a>
+      </div>
+      <span class="hero-tag">Graduation & Academic Photography Kenya</span>
+      <h1 class="hero-title">Graduations,<br>@ <em>Preserved</em></h1>
+      <p class="hero-desc">From your very first school milestone to your university convocation — we photograph every academic achievement with the pride and artistry it deserves. Serving graduates across Kenya.</p>
+      <div class="hero-btns">
+        <a href="booking.html" class="btn-primary">Book Your Session</a>
+        <a href="#levels" class="btn-ghost">See Our Services</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div><span class="scroll-text">Scroll to explore</span></div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <div class="stat-icon">
+      <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+    </div>
+    <div><div class="stat-value">All Levels</div><div class="stat-label">Primary to University</div></div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    </div>
+    <div><div class="stat-value">48 Hrs</div><div class="stat-label">Photo Delivery</div></div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">
+      <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    </div>
+    <div><div class="stat-value">On-Site</div><div class="stat-label">We Come to Your Venue</div></div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">
+      <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    </div>
+    <div><div class="stat-value">Individual</div><div class="stat-label">& Group Packages</div></div>
+  </div>
+</div>
+
+<!-- GRADUATION LEVELS -->
+<section class="grad-levels" id="levels">
+  <div class="grad-levels-header">
+    <div>
+      <p class="section-label">Every Academic Milestone</p>
+      <h2 class="section-title">Graduation Photography<br><em>by Level</em></h2>
+    </div>
+    <a href="#packages" class="btn-ghost" style="white-space:nowrap;">view packages</a>
+  </div>
+
+  <!-- Primary School -->
+  <div class="grad-level-block">
+    <div class="grad-level-num">01</div>
+    <div class="grad-level-content">
+      <div class="grad-level-tag">Primary School</div>
+      <h3 class="grad-level-title">The First Big <em>Step</em></h3>
+      <p class="grad-level-desc">A child's first graduation is a huge family milestone. We capture the pride, the excitement, and the pure joy of little ones in their caps and gowns — moments their parents will treasure for a lifetime.</p>
+      <div class="grad-level-shots">
+        <span>Individual portraits</span>
+        <span>Class group photos</span>
+        <span>Family portraits</span>
+        <span>Ceremony candids</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Secondary School -->
+  <div class="grad-level-block alt">
+    <div class="grad-level-num">02</div>
+    <div class="grad-level-content">
+      <div class="grad-level-tag">Secondary School — Form 4 / KCSE</div>
+      <h3 class="grad-level-title">Four Years of <em>Hard Work</em></h3>
+      <p class="grad-level-desc">Secondary graduation marks the end of a defining chapter. We photograph the ceremony, the farewells, and the pride of completing one of Kenya's most important academic stages — KCSE and beyond.</p>
+      <div class="grad-level-shots">
+        <span>Graduation portraits</span>
+        <span>School compound shoots</span>
+        <span>Classmate group shots</span>
+        <span>Full ceremony coverage</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- College / Certificate -->
+  <div class="grad-level-block">
+    <div class="grad-level-num">03</div>
+    <div class="grad-level-content">
+      <div class="grad-level-tag">College, TVETs & Certificate Programmes</div>
+      <h3 class="grad-level-title">Skills That <em>Matter</em></h3>
+      <p class="grad-level-desc">Vocational, technical, and certificate graduations deserve just as much recognition. We bring the same professional quality to polytechnic, TVET, and college graduations across Kenya — regardless of institution size.</p>
+      <div class="grad-level-shots">
+        <span>Individual graduate portraits</span>
+        <span>Departmental group photos</span>
+        <span>Award & scroll presentations</span>
+        <span>Candid celebration moments</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- University -->
+  <div class="grad-level-block alt">
+    <div class="grad-level-num">04</div>
+    <div class="grad-level-content">
+      <div class="grad-level-tag">University — Degree, Masters & PhD</div>
+      <h3 class="grad-level-title">The Peak of <em>Achievement</em></h3>
+      <p class="grad-level-desc">University convocation is one of life's greatest moments. Whether it's a bachelor's, master's, or doctoral graduation, we deliver editorial-quality portraits and full ceremony documentation that honour the magnitude of the occasion.</p>
+      <div class="grad-level-shots">
+        <span>Formal convocation portraits</span>
+        <span>Cap & gown styled shoots</span>
+        <span>Ceremony & scroll presentations</span>
+        <span>Campus location shoots</span>
+        <span>Family celebration portraits</span>
+        <span>Class group photos</span>
+      </div>
+    </div>
+    <div class="grad-level-img">
+      <img src="https://i.pinimg.com/736x/e9/1d/f5/e91df54156003ab4b6155ce1b0505491.jpg" alt="University graduation photography" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- WHY FOCUS STUDIOS -->
+<section class="why-grad">
+  <div class="why-grad-inner">
+    <div class="why-grad-img-block">
+      <img src="https://i.pinimg.com/1200x/3e/fb/55/3efb5540c3284c78121fb201ac2347a1.jpg" alt="Graduation photography session" loading="lazy">
+      <div class="why-grad-img-overlay">
+        <strong>400+</strong>
+        <span>Graduates </span>
+      </div>
+    </div>
+    <div class="why-grad-content">
+      <p class="section-label">Why Choose Us</p>
+      <h2 class="section-title">Photography That Honours<br><em>Your Journey</em></h2>
+      <p class="why-grad-desc">A graduation photograph is more than a picture — it's proof of years of sacrifice, discipline, and perseverance. We treat every session with the gravity it deserves.</p>
+      <div class="why-grad-points">
+        <div class="why-grad-point">
+          <div class="why-grad-point-num">1</div>
+          <div class="why-grad-point-text">
+            <strong>We Cover All Levels</strong>
+            <p>From pre-primary all the way to PhD — no milestone is too small or too large. Every graduate deserves world-class photography.</p>
+          </div>
+        </div>
+        <div class="why-grad-point">
+          <div class="why-grad-point-num">2</div>
+          <div class="why-grad-point-text">
+            <strong>On-Site at Your Venue</strong>
+            <p>We come to your school, college, or university on the day — capturing the real atmosphere, real emotions, and real pride.</p>
+          </div>
+        </div>
+        <div class="why-grad-point">
+          <div class="why-grad-point-num">3</div>
+          <div class="why-grad-point-text">
+            <strong>School & Institutional Contracts</strong>
+            <p>We partner with schools and universities for full annual graduation coverage — including bulk class photo printing and delivery.</p>
+          </div>
+        </div>
+        <div class="why-grad-point">
+          <div class="why-grad-point-num">4</div>
+          <div class="why-grad-point-text">
+            <strong>Fast 48-Hour Delivery</strong>
+            <p>Edited, retouched, and gallery-ready within 48 hours. Share your milestone with family the very next day.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+  
+<section class="packages" id="packages">
+  <div class="packages-header">
+    <p class="section-label">Transparent Pricing</p>
+    <h2 class="section-title">Graduation <em>Packages</em></h2>
+  </div>
+  <div class="packages-grid">
+    <div class="pkg-card">
+      <div class="pkg-name">Graduate</div>
+      <div class="pkg-price">KES 5,000</div>
+      <div class="pkg-duration">Individual · Studio or On-Site</div>
+      <ul class="pkg-features">
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Solo graduation portrait session</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>2 outfit/look changes</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>15+ edited photos</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Digital gallery delivery</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>48-hour turnaround</li>
+      </ul>
+      <a href="https://wa.me/254745845976?text=Hi%20Focus%20Studios%2C%20I%27d%20like%20the%20Graduate%20graduation%20package" class="pkg-cta" target="_blank">Book This Package</a>
+    </div>
+    <div class="pkg-card featured">
+      <div class="pkg-badge">Most Popular</div>
+      <div class="pkg-name">Milestone</div>
+      <div class="pkg-price">KES 12,000</div>
+      <div class="pkg-duration">Graduate + Family · Full Ceremony Day</div>
+      <ul class="pkg-features">
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Full graduation day coverage</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Individual + family portraits</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Ceremony & candid shots</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>40+ edited photos</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Digital gallery + USB</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>48-hour turnaround</li>
+      </ul>
+      <a href="https://wa.me/254745845976?text=Hi%20Focus%20Studios%2C%20I%27d%20like%20the%20Milestone%20graduation%20package" class="pkg-cta" target="_blank">Book This Package</a>
+    </div>
+    <div class="pkg-card">
+      <div class="pkg-name">Legacy</div>
+      <div class="pkg-price">KES 22,000</div>
+      <div class="pkg-duration">Full Day · Photos + Printed Album</div>
+      <ul class="pkg-features">
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Full-day event coverage</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>2 photographers</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>80+ edited photos</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Printed premium photo album</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Campus / outdoor location shoot</li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>USB + digital gallery</li>
+      </ul>
+      <a href="https://wa.me/254745845976?text=Hi%20Focus%20Studios%2C%20I%27d%20like%20the%20Legacy%20graduation%20package" class="pkg-cta" target="_blank">Book This Package</a>
+    </div>
+  </div>
+
+  <!-- School / Institution note -->
+  <div class="grad-institution-note">
+    <div class="grad-institution-note-icon">
+      <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+    </div>
+    <div>
+      <div class="grad-institution-note-title">School & University Contracts</div>
+      <p class="grad-institution-note-desc">Are you a school administrator, head teacher, or events coordinator? We offer institutional packages for full graduating class coverage, including individual prints, class group photos, and bulk digital delivery. Contact us for a custom quote.</p>
+    </div>
+    <a href="https://wa.me/254745845976?text=Hi%20Focus%20Studios%2C%20I%27d%20like%20to%20discuss%20an%20institutional%20graduation%20package%20for%20our%20school" class="btn-ghost" target="_blank" style="white-space:nowrap;flex-shrink:0;">Get a School Quote</a>
+  </div>
+</section>
+
+<!-- GALLERY -->
+
+<section class="gallery page-grad-gallery" id="gallery">
+  <div class="gallery-header">
+    <div>
+      <p class="section-label">Our Work</p>
+      <h2 class="section-title">Graduation <em>Portfolio</em></h2>
+    </div>
+    <a href="portfolio.html" class="btn-ghost">View Full Gallery</a>
+  </div>
+  <div class="grad-gallery-grid">
+    <div class="gallery-item">
+      <img src="https://i.pinimg.com/1200x/96/4f/1c/964f1cf1a12ba0108a1af9139fa441d5.jpg" alt="University graduation" loading="lazy">
+    </div>
+    <div class="gallery-item">
+      <img src="https://i.pinimg.com/1200x/cf/7f/8b/cf7f8bbe7e16b96be1a255d28973bb77.jpg" alt="Primary school graduation" loading="lazy">
+    </div>
+    <div class="gallery-item">
+      <img src="https://i.pinimg.com/736x/40/0c/91/400c91e863265582e20a5c451a9c67cb.jpg" alt="Graduation portrait" loading="lazy">
+    </div>
+    <div class="gallery-item">
+      <img src="https://i.pinimg.com/1200x/7e/38/92/7e38921db1aa17790eb95995d04af58e.jpg" alt="Graduate with cap and gown" loading="lazy">
+    </div>
+    <div class="gallery-item">
+      <img src="https://i.pinimg.com/736x/50/88/eb/5088eb62bb0ecb193c4ca7ab0d9e7b0a.jpg" alt="College graduation ceremony" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="testimonials-header">
+    <p class="section-label">Proud Graduates</p>
+    <h2 class="section-title">What Our <em>Clients Say</em></h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="tcard">
+      <div class="tcard-stars">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="tcard-quote">"My university graduation photos are honestly works of art. The photographer understood the moment — the emotion, the pride — and captured it all perfectly."</p>
+      <div class="tcard-author">Kevin M., Bachelor of Commerce</div>
+      <div class="tcard-event">University Graduation · Nairobi</div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-stars">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="tcard-quote">"We hired Focus Studios for our daughter's Form 4 graduation. The whole family was photographed beautifully. She cried when she saw the album — tears of joy!"</p>
+      <div class="tcard-author">Joyce W., Parent</div>
+      <div class="tcard-event">Secondary School Graduation · Nyeri</div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-stars">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="tcard-quote">"Our school uses Focus Studios every year for graduation. The quality is consistently excellent — and they handle 200+ students with professionalism and patience."</p>
+      <div class="tcard-author">Mr. Omondi, Deputy Principal</div>
+      <div class="tcard-event">School Institutional Contract · Nakuru</div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="booking">
+  <div class="booking-inner">
+    <div class="booking-text">
+      <p class="section-label">Capture Your Milestone</p>
+      <h2 class="section-title">Book Your<br><em>Graduation Session</em></h2>
+      <p class="booking-desc">Graduating soon? Book early to secure your preferred date — especially during peak graduation season (November–January and June–August). Contact us via WhatsApp or fill in the form.</p>
+      <div class="booking-btns">
+        <a href="https://wa.me/254745845976?text=Hi%20Focus%20Studios%2C%20I%27d%20like%20to%20book%20a%20graduation%20photography%20session" class="btn-primary" target="_blank">WhatsApp to Book</a>
+        <a href="tel:+254745845976" class="btn-ghost">Call: 0745 845 976</a>
+      </div>
+    </div>
+    <div class="booking-form">
+      <h3>Graduation Enquiry</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="Full name">
+        </div>
+        <div class="form-group">
+          <label>Phone / WhatsApp</label>
+          <input type="tel" placeholder="+254 7XX XXX XXX">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Graduation Level</label>
+          <select>
+            <option>Primary School</option>
+            <option>Secondary School (Form 4)</option>
+            <option>College / Certificate / TVET</option>
+            <option>University — Degree</option>
+            <option>University — Masters</option>
+            <option>University — PhD</option>
+            <option>School / Institutional Contract</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Graduation Date</label>
+          <input type="date">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Package</label>
+          <select>
+            <option>Graduate – KES 5,000</option>
+            <option selected>Milestone – KES 12,000</option>
+            <option>Legacy – KES 22,000</option>
+            <option>Institutional — Custom Quote</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Venue / Location</label>
+          <input type="text" placeholder="e.g. University of Nairobi, CBD">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Additional Details</label>
+        <textarea placeholder="Tell us about your graduation — institution, number of people, any special requests..."></textarea>
+      </div>
+      <button class="form-submit" onclick="alert('Thank you! Our team will reach out within a few hours to confirm your booking.')">CONGRATS <span><img src="graduation-hat.png" alt="graduation hat icon"></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="logo-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2">
+            <circle cx="12" cy="12" r="2.5"/>
+            <path d="M6.5 6.5h1.8l1.2-2h5l1.2 2h1.8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"/>
+          </svg>
+          <img src="logo.png" alt="logo">
+        </div>
+        <div class="logo-text">
+          <span class="logo-sub">Focus Studios · Kenya</span>
+        </div>
+      </a>
+      <p class="footer-brand-desc">Nairobi-based photography studio providing premium services across Kenya. Weddings, events, portraits and commercial photography — delivered with speed and quality.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="booking.html">Book a Session</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="weddings.html">Weddings &amp; Events</a></li>
+        <li><a href="studio.html">Studio Portraits</a></li>
+        <li><a href="corporate.html">Corporate</a></li>
+        <li><a href="birthdays.html">Birthdays &amp; Baby Showers</a></li>
+        <li><a href="graduations.html">Graduations</a></li>
+        <li><a href="products.html">Products &amp; Branding</a></li>
+        <li><a href="outdoor.html">Outdoor</a></li>
+        <li style="display: none;"><a href="videography.html">Videography</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Get in Touch</div>
+      <div class="footer-contact-item"><span><img src="phone.png" alt="phone"></span> +254 745 845 976</div>
+      <div class="footer-contact-item"><span><img src="mail.png" alt="mail"></span> info@focusstudios.co.ke</div>
+      <div class="footer-contact-item"><span><img src="location.png" alt="location"></span> Westlands, Nairobi, Kenya</div>
+      <div class="footer-contact-item"><span><img src="clock.png" alt="clock"></span> Mon–Sat: 8:00 AM – 6:00 PM</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Focus Studios. All Rights Reserved.</span>
+    <div class="social-links">
+      <a href="#" class="social-link" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="TikTok">
+        <svg viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="YouTube">
+        <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.54C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+const menuBtn = document.getElementById('menuBtn');
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('sidebarOverlay');
+function openSidebar() { menuBtn.classList.add('open'); sidebar.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeSidebar() { menuBtn.classList.remove('open'); sidebar.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow = ''; }
+menuBtn.addEventListener('click', () => sidebar.classList.contains('open') ? closeSidebar() : openSidebar());
+overlay.addEventListener('click', closeSidebar);
+document.querySelectorAll('.sidebar-group-label').forEach(label => {
+  label.addEventListener('click', () => {
+    const sub = document.getElementById(label.dataset.target);
+    const isOpen = sub.classList.contains('open');
+    document.querySelectorAll('.sidebar-sub').forEach(s => s.classList.remove('open'));
+    document.querySelectorAll('.sidebar-group-label').forEach(l => l.classList.remove('open'));
+    if (!isOpen) { sub.classList.add('open'); label.classList.add('open'); }
+  });
+});
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) { entry.target.style.opacity = '1'; entry.target.style.transform = 'translateY(0)'; } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.grad-level-block, .pkg-card, .tcard, .why-grad-point').forEach(el => {
+  el.style.opacity = '0'; el.style.transform = 'translateY(24px)'; el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+</script>
+
+<!-- ══ SCROLL TO TOP ══ -->
+<div id="scrollTopWrapper">
+  <button id="scrollTopBtn" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+  <script>
+    (function () {
+      const btn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', function () {
+        btn.classList.toggle('visible', window.scrollY > 400);
+      }, { passive: true });
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</div>
+</body>
+</html>
