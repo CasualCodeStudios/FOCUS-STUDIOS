@@ -362,7 +362,7 @@ nav {
   position: absolute;
   inset: 0;
   background: url('https://i.pinimg.com/736x/a1/06/94/a106949ccf0aff1610340cc4b455c771.jpg') center/cover no-repeat;
-  animation: heroZoom 12s ease-out forwards;
+  animation: heroZoom 10s ease-out forwards;
   overflow: hidden;
   max-width: 100%;
 }
